@@ -22,15 +22,75 @@ https://kawalab.github.io/
 
 ## ファイル構成
 
-```text
-.
-├── index.html
-├── README.md
-├── .nojekyll
-├── .gitignore
-└── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   └── main.js
-    └── images/
+- index.html
+- README.md
+- .nojekyll
+- .gitignore
+- assets/
+  - css/
+    - style.css
+  - js/
+    - main.js
+  - images/
+
+## 更新方法
+
+### 本文を修正する場合
+
+`index.html` を編集します。  
+ページは1ページ構成で、主に以下のセクションに分かれています。
+
+- About
+- Research
+- Skills
+- Graduate
+- Achievements
+- Projects
+- Contact
+
+### デザインを修正する場合
+
+`assets/css/style.css` を編集します。
+
+主な色は `:root` 内のCSS変数で管理しています。
+
+- --main
+- --main-dark
+- --accent
+
+### 画像を差し替える場合
+
+`assets/images/` 内の画像を差し替えます。  
+ファイル名を変えた場合は、`index.html` 側の `<img src="...">` も修正してください。
+
+## GitHub Pages
+
+このサイトは GitHub Pages で公開しています。
+
+設定は以下を想定しています。
+
+- Settings > Pages
+- Source: Deploy from a branch
+- Branch: main
+- Folder: / root
+
+`index.html` がトップページとして表示されます。
+
+## 編集時の注意
+
+- `index.html` は長いため、セクション単位で編集してください。
+- 活動記録や業績を追加する場合は、`Achievements` セクションに追記してください。
+- 公開プロジェクトや教材を追加する場合は、`Projects` セクションに追記してください。
+- 画像を追加する場合は、ファイルサイズが大きくなりすぎないようにしてください。
+- 大学名、所属、連絡先などの基本情報を変更する場合は、`Contact` セクションも確認してください。
+
+## ライセンス・利用について
+
+このリポジトリは河並研究室Webサイト管理用です。  
+掲載している写真、図、文章の無断転載はご遠慮ください。
+
+## 管理者
+
+河並研究室  
+金沢工業大学 情報理工学部 情報工学科  
+https://kawalab.github.io/
