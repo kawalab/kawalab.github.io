@@ -1,44 +1,36 @@
-# 河並研究室 GitHub Pages 1ページ版
+# 河並研究室 Web Site
 
-GitHub Pagesを研究室サイトのメインとして運用するための、1ページ完結型サイトです。
+金沢工業大学 情報理工学部 情報工学科 河並研究室のWebサイトです。  
+研究テーマ、学生の成果、大学院進学を考える学生向けの情報、公開プロジェクト、問い合わせ先などを掲載しています。
 
-## 構成
+## 公開サイト
+
+https://kawalab.github.io/
+
+## 研究室について
+
+河並研究室では、IoT・センサ・AI・ネットワーク・教育工学を活用し、人の行動や学びを支援する情報システムの研究開発に取り組んでいます。
+
+主な研究領域は以下です。
+
+- 運動解析・ウェアラブルセンシング・モーションキャプチャ
+- 歩容解析・インソール型センサ
+- センサネットワーク・IoT
+- STEAM教育・プログラミング教材開発（プロトタイピング、おもちゃハック、ドローン、eSports）
+- 小型ドローン制御
+- eSports・生体情報分析・プレイ動画解析
+
+## ファイル構成
 
 ```text
 .
-├─ index.html
-├─ assets/
-│  ├─ css/style.css
-│  ├─ js/main.js
-│  └─ images/
-├─ README.md
-├─ .gitignore
-└─ .nojekyll
-```
-
-## 公開方法
-
-1. GitHubで新しいリポジトリを作成します。
-2. このフォルダの中身をリポジトリ直下に置きます。
-3. GitHubにpushします。
-4. GitHubの `Settings > Pages` を開きます。
-5. `Deploy from a branch` を選びます。
-6. Branchを `main`、Folderを `/root` に設定します。
-7. 数分後にGitHub PagesのURLが発行されます。
-
-## 方針
-
-- GitHub Pagesを研究室サイトのメインとして扱う
-- 長い1ページ構成にし、固定メニューで移動しやすくする
-- 大学院進学を促すため、Graduate Study セクションを強める
-- 研究室の成果は代表例を掲載し、詳細はresearchmapや論文、GitHub等に接続する
-- HTML/CSSは人が修正しやすいようにコメントと改行を入れる
-
-## 編集しやすい箇所
-
-- メニュー項目: `index.html` の `<nav class="global-nav">`
-- 研究テーマ: `#research` セクション
-- 大学院進学メッセージ: `#graduate` セクション
-- 成果・業績: `#achievements` セクション
-- 公開プロジェクト: `#projects` セクション
-- 色味: `assets/css/style.css` の `:root`
+├── index.html
+├── README.md
+├── .nojekyll
+├── .gitignore
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── main.js
+    └── images/
