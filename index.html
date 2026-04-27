@@ -4,81 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>河並研究室 | 金沢工業大学 情報理工学部 情報工学科</title>
-    <meta name="description" content="金沢工業大学 情報理工学部 情報工学科 河並研究室の研究室サイトです。実世界のデータを扱う情報システム、運動解析、センサネットワーク、STEAM教育、大学院進学を紹介します。">
+    <meta name="description" content="金沢工業大学 情報理工学部 情報工学科 河並研究室のWebサイトです。">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/main.js"></script>
 </head>
 <body>
     <a class="skip-link" href="#main">本文へ移動</a>
 
-    <!-- 固定メニュー：1ページ構成のため必須 -->
-    <header class="site-header" id="top">
+    <div id="top"></div>
+
+    <!-- 固定ヘッダー：長いページでも主要セクションへ移動しやすくする -->
+    <header class="site-header">
         <div class="header-inner">
-            <a class="site-logo" href="#top" aria-label="河並研究室トップ">
+            <a class="site-logo" href="index.html#top" aria-label="河並研究室トップページ">
                 河並研究室
                 <span>Kawanami Laboratory / Kanazawa Institute of Technology</span>
             </a>
+            <nav class="global-nav" aria-label="主要ナビゲーション">
 
-            <nav class="global-nav" aria-label="ページ内ナビゲーション">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#skills">Skills</a>
-                <a href="#graduate">Graduate</a>
-                <a href="#achievements">Achievements</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#research">Research</a>
+                <a href="index.html#join">Lab Choice</a>
+                <a href="index.html#graduate">Graduate</a>
+                <a href="index.html#achievements">Achievements</a>
+                <a href="profile.html">Profile</a>
+                <a href="activity.html">Activity</a>
+                <a href="index.html#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero" id="about">
+
+    <!-- トップページ -->
+    <section class="hero">
         <div class="hero-inner">
-            <div class="hero-copy">
+            <div>
                 <div class="hero-label">IoT・センサ・AI・教育工学</div>
-                <h1>
-                    実世界のデータから、人の行動と学びを支える。
-                </h1>
+                <h1>実世界のデータから、<br>人の行動と学びを支える。</h1>
                 <p>
                     河並研究室では、組込みシステム、IoT、センサネットワーク、AIを基盤として、
                     人の行動や環境を計測・解析し、健康、教育、地域社会に役立つ情報システムの研究開発に取り組んでいます。
-                    卒業研究を入口に、大学院で研究を成果へ育てることも歓迎しています。
                 </p>
                 <div class="button-group">
                     <a class="button button-light" href="#research">研究テーマを見る</a>
-                    <a class="button button-secondary" href="#graduate">大学院で研究を深める</a>
+                    <a class="button button-secondary" href="#join">研究室選択の流れを見る</a>
                 </div>
             </div>
-
             <div class="hero-visual">
                 <img src="assets/images/research-overview.svg" alt="河並研究室の研究領域を表すイラスト">
             </div>
         </div>
     </section>
 
-    <!-- Keyword cards -->
-    <div class="stats" aria-label="研究室の主なキーワード">
-        <div class="stat-card">
-            <strong>Motion</strong>
-            <span>歩容解析・運動解析・ウェアラブルセンシング</span>
-        </div>
-        <div class="stat-card">
-            <strong>Network</strong>
-            <span>センサネットワーク・IoT・評価基盤</span>
-        </div>
-        <div class="stat-card">
-            <strong>Education</strong>
-            <span>micro:bit・ドローン・STEAM教材開発</span>
-        </div>
-        <div class="stat-card">
-            <strong>Graduate</strong>
-            <span>学会発表・論文執筆・公開プロジェクト</span>
-        </div>
+    <div class="stats" aria-label="研究室のキーワード">
+        <div class="stat-card"><strong>Motion</strong><span>歩容解析・運動解析・ウェアラブルセンシング</span></div>
+        <div class="stat-card"><strong>Network</strong><span>センサネットワーク・IoT・評価基盤</span></div>
+        <div class="stat-card"><strong>Education</strong><span>STEAM教育・教材開発</span></div>
+        <div class="stat-card"><strong>Graduate</strong><span>卒業研究から修士研究へ発展</span></div>
     </div>
 
     <main id="main">
-        <!-- About detail -->
-        <section class="section section-white">
+        <!-- About -->
+        <section class="section section-white" id="about">
             <div class="section-inner">
                 <div class="section-heading">
                     <div class="section-kicker">About</div>
@@ -88,7 +75,6 @@
                         この流れを大切にして研究テーマを設計しています。
                     </p>
                 </div>
-
                 <div class="grid-2">
                     <article class="card content-card">
                         <h3>研究の方向性</h3>
@@ -97,19 +83,22 @@
                             健康支援、個人認証、学習支援、地域課題の解決につながる情報システムを研究しています。
                         </p>
                     </article>
-
                     <article class="card content-card">
-                        <h3>学生が取り組む内容</h3>
+                        <h3>詳しい自己紹介・活動履歴</h3>
                         <p>
-                            プログラミング、センサ計測、データ分析、AIの活用、実験設計、論文・発表まで、
-                            自分のテーマを深めながら幅広い技術に触れることができます。
+                            河並の自己紹介と、研究室の年度別活動記録は別ページに整理しました。
+                            トップページでは、研究室選択や大学院進学を考える学生向けの導線を中心にしています。
                         </p>
+                        <div class="button-group" style="margin-top: 16px;">
+                            <a class="button button-secondary" href="profile.html">河並の紹介</a>
+                            <a class="button button-secondary" href="activity.html">活動履歴</a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Research themes -->
+        <!-- Research -->
         <section class="section" id="research">
             <div class="section-inner">
                 <div class="section-heading">
@@ -119,86 +108,30 @@
                         IoT、センサ、AI、ネットワーク、教育技術を組み合わせ、実世界の課題に向き合う情報システムを研究しています。
                     </p>
                 </div>
-
                 <div class="grid-3">
-                    <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/gait-insole-opengo.jpg" alt="インソール型センサの写真">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">01</div>
-                            <h3>運動解析・ウェアラブルセンシング</h3>
-                            <p>
-                                インソール型センサ、IMU、モーションキャプチャ、生体センサを用いて、
-                                歩容解析、フォーム比較、スポーツ応用、eSportsの選手トレーニングやチーム分析に取り組みます。
-                            </p>
-                        </div>
+                    <article class="card theme-card photo">
+                        <figure><img src="assets/images/gait-insole-opengo.jpg" alt="インソール型センサの写真"></figure>
+                        <div class="theme-body"><div class="theme-index">01</div><h3>運動解析・ウェアラブルセンシング</h3><p>インソール型センサ、IMU、モーションキャプチャ、生体センサを用いて、人の動きや状態を計測・解析します。</p></div>
                     </article>
-
                     <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/sensor-network.svg" alt="省電力センサネットワークのイラスト">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">02</div>
-                            <h3>センサネットワーク・IoT</h3>
-                            <p>
-                                長期的な環境計測に必要な低消費電力無線センサネットワークを対象に、
-                                実機検証とns-3シミュレーションを組み合わせて評価します。
-                            </p>
-                        </div>
+                        <figure><img src="assets/images/sensor-network.svg" alt="省電力センサネットワークのイラスト"></figure>
+                        <div class="theme-body"><div class="theme-index">02</div><h3>センサネットワーク・IoT</h3><p>低消費電力無線センサネットワークを対象に、実機評価とns-3シミュレーションを組み合わせて評価します。</p></div>
                     </article>
-
                     <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/steam-education.svg" alt="STEAM教材開発のイラスト">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">03</div>
-                            <h3>STEAM教育・教材開発</h3>
-                            <p>
-                                micro:bit、ドローン、AI、ものづくりを活用し、体験を通じて学べるプログラミング教材を開発します。
-                            </p>
-                        </div>
+                        <figure><img src="assets/images/steam-education.svg" alt="STEAM教材開発のイラスト"></figure>
+                        <div class="theme-body"><div class="theme-index">03</div><h3>STEAM教育・教材開発</h3><p>micro:bit、ドローン、AI、ものづくりを活用し、体験を通じて学べる教材を開発します。</p></div>
                     </article>
-
                     <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/drone-control.svg" alt="屋内小型ドローン制御のイラスト">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">04</div>
-                            <h3>ドローン制御・外部認識</h3>
-                            <p>
-                                GPSを利用できない屋内小型ドローンを対象に、外部センサを用いた認識・追跡・安全飛行支援を研究します。
-                            </p>
-                        </div>
+                        <figure><img src="assets/images/drone-control.svg" alt="屋内小型ドローン制御のイラスト"></figure>
+                        <div class="theme-body"><div class="theme-index">04</div><h3>ドローン制御・外部認識</h3><p>GPSを利用できない屋内小型ドローンを対象に、外部センサを用いた認識・追跡・安全飛行支援を研究します。</p></div>
                     </article>
-
                     <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/sports-biosignal.svg" alt="生体・行動データ解析のイラスト">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">05</div>
-                            <h3>生体・行動データ解析</h3>
-                            <p>
-                                操作ログ、生体情報、姿勢、反応時間などを計測し、プレイヤーや利用者の状態やパフォーマンスを分析します。
-                            </p>
-                        </div>
+                        <figure><img src="assets/images/sports-biosignal.svg" alt="生体・行動データ解析のイラスト"></figure>
+                        <div class="theme-body"><div class="theme-index">05</div><h3>生体・行動データ解析</h3><p>操作ログ、生体情報、姿勢、反応時間などから、状態やパフォーマンスを分析します。</p></div>
                     </article>
-
                     <article class="card theme-card">
-                        <figure>
-                            <img src="assets/images/motion-analysis.svg" alt="動作解析のイラスト">
-                        </figure>
-                        <div class="theme-body">
-                            <div class="theme-index">06</div>
-                            <h3>歩容認証・異常歩行推定</h3>
-                            <p>
-                                歩容データを用いた個人認証、歩行環境を考慮した異常歩行・疲労状態の推定などに取り組みます。
-                            </p>
-                        </div>
+                        <figure><img src="assets/images/motion-analysis.svg" alt="動作解析のイラスト"></figure>
+                        <div class="theme-body"><div class="theme-index">06</div><h3>歩容認証・異常歩行推定</h3><p>歩容データを用いた個人認証や、歩行環境を考慮した異常歩行・疲労状態の推定に取り組みます。</p></div>
                     </article>
                 </div>
             </div>
@@ -210,266 +143,117 @@
                 <div class="section-heading">
                     <div class="section-kicker">Skills</div>
                     <h2>研究室で経験できること</h2>
-                    <p class="section-lead">
-                        単にプログラムを書くのではなく、データを取り、分析し、評価し、成果として伝えるところまで経験します。
-                    </p>
+                    <p class="section-lead">単にプログラムを書くのではなく、データを取り、分析し、評価し、成果として伝えるところまで経験します。</p>
                 </div>
-
                 <div class="grid-3">
-                    <article class="card content-card">
-                        <h3>プログラミング</h3>
-                        <p>Python、機械学習、データ処理、シミュレーションなどをテーマに応じて扱います。</p>
-                    </article>
-                    <article class="card content-card">
-                        <h3>動作解析・歩容解析</h3>
-                        <p>インソール型センサやモーションキャプチャなどを用いて、人の動きを計測・評価します。</p>
-                    </article>
-                    <article class="card content-card">
-                        <h3>センサ・IoT</h3>
-                        <p>ウェアラブルセンサ、無線通信、センサネットワークなどの計測系に触れられます。</p>
-                    </article>
-                    <article class="card content-card">
-                        <h3>AI・データ分析</h3>
-                        <p>取得したデータを可視化し、機械学習や統計処理を通して意味のある情報へ変換します。</p>
-                    </article>
-                    <article class="card content-card">
-                        <h3>実験設計・評価</h3>
-                        <p>研究として成立するように、実験条件を設計し、性能や妥当性を評価する力を養います。</p>
-                    </article>
-                    <article class="card content-card">
-                        <h3>発表・論文執筆</h3>
-                        <p>卒業研究のまとめだけでなく、学会発表や論文執筆まで発展するテーマもあります。</p>
-                    </article>
+                    <article class="card content-card"><h3>プログラミング</h3><p>Python、機械学習、データ処理、シミュレーションなどをテーマに応じて扱います。</p></article>
+                    <article class="card content-card"><h3>動作解析・歩容解析</h3><p>インソール型センサやモーションキャプチャなどを用いて、人の動きを計測・評価します。</p></article>
+                    <article class="card content-card"><h3>センサ・IoT</h3><p>ウェアラブルセンサ、無線通信、センサネットワークなどの計測系に触れられます。</p></article>
+                    <article class="card content-card"><h3>AI・データ分析</h3><p>取得したデータを可視化し、機械学習や統計処理を通して意味のある情報へ変換します。</p></article>
+                    <article class="card content-card"><h3>実験設計・評価</h3><p>研究として成立するように、実験条件を設計し、性能や妥当性を評価する力を養います。</p></article>
+                    <article class="card content-card"><h3>発表・論文執筆</h3><p>卒業研究のまとめだけでなく、学会発表や論文執筆まで発展するテーマもあります。</p></article>
                 </div>
             </div>
         </section>
 
-        <!-- Graduate Study -->
-        <section class="section" id="graduate">
+        <!-- Lab choice and graduate pathway -->
+        <section class="section" id="join">
             <div class="section-inner">
                 <div class="section-heading">
-                    <div class="section-kicker">Graduate Study</div>
-                    <h2>大学院で研究を深める</h2>
+                    <div class="section-kicker">Lab Choice</div>
+                    <h2>研究室選択から大学院進学までの流れ</h2>
                     <p class="section-lead">
-                        卒業研究は研究の入口です。大学院では、見つけた課題をさらに深め、実装・実験・評価・発表を重ねることで、
-                        研究を成果として形にしていきます。
+                        大学院進学を最初から決めていなくても構いません。まずは研究室で実世界のデータを扱う研究に触れ、卒業研究を進める中で、さらに深めたいテーマが見えてきます。
                     </p>
                 </div>
-
-                <div class="image-feature">
-                    <div class="figure-card card">
-                        <img src="assets/images/research-overview.svg" alt="研究を成果にする流れのイメージ">
-                        <div class="figure-caption">
-                            作って、測って、分析して、発信する。研究を成果に育てる時間として大学院を位置づけます。
-                        </div>
-                    </div>
-
-                    <div class="pathway">
-                        <article class="pathway-item">
-                            <div class="pathway-label">B4</div>
-                            <div>
-                                <h3>卒業研究：研究の入口を経験する</h3>
-                                <p>
-                                    テーマを決め、実装や実験を行い、データを分析して、研究としてまとめる基本的な流れを経験します。
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="pathway-item">
-                            <div class="pathway-label">M1</div>
-                            <div>
-                                <h3>修士1年：研究テーマを専門性へ育てる</h3>
-                                <p>
-                                    長期データ、条件比較、追加実験、評価指標の設計などに取り組み、研究の独自性を高めます。
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="pathway-item">
-                            <div class="pathway-label">M2</div>
-                            <div>
-                                <h3>修士2年：成果として外へ出す</h3>
-                                <p>
-                                    学会発表、論文投稿、公開リポジトリ、教育・地域連携などを通して、研究成果を社会に発信します。
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="grid-2" style="margin-top: 28px;">
-                    <article class="card content-card">
-                        <h3>大学院進学は研究者になるためだけの選択肢ではありません</h3>
-                        <p>
-                            実験を設計する力、データを分析する力、システムを作り切る力、成果を文章や発表で伝える力は、
-                            開発職、AI、IoT、データ分析、教育DXなど、さまざまな分野で役立ちます。
-                        </p>
-                    </article>
-
-                    <article class="card content-card">
-                        <h3>学部研究から修士研究への発展例</h3>
-                        <p>
-                            歩容解析なら長期データや歩行環境へ、センサネットワークなら実機とシミュレーションの統合評価へ、
-                            STEAM教材なら教育効果や学習行動の評価へ発展できます。
-                        </p>
-                    </article>
+                <div class="pathway">
+                    <article class="card path-step"><div class="step-label">STEP 1</div><h3>研究室を選ぶ</h3><p>興味のあるテーマを見つけ、センサ、AI、教育、ネットワークなどの技術に触れます。</p></article>
+                    <article class="card path-step"><div class="step-label">STEP 2</div><h3>卒業研究で試す</h3><p>実装、実験、データ収集、分析を経験し、自分の研究テーマの入口を作ります。</p></article>
+                    <article class="card path-step"><div class="step-label">STEP 3</div><h3>修士研究へ深める</h3><p>長期データ、追加実験、評価指標、比較検証を加え、研究としての独自性を高めます。</p></article>
+                    <article class="card path-step"><div class="step-label">STEP 4</div><h3>成果として発信する</h3><p>学会発表、論文投稿、公開リポジトリ、教育・地域連携を通じて成果を外へ出します。</p></article>
                 </div>
             </div>
         </section>
 
-        <!-- Achievements -->
-        <section class="section section-white" id="achievements">
+        <!-- Graduate -->
+        <section class="section section-white" id="graduate">
+            <div class="section-inner split">
+                <div>
+                    <div class="section-heading">
+                        <div class="section-kicker">Graduate Study</div>
+                        <h2>大学院は、研究を成果に育てる時間です</h2>
+                        <p class="section-lead">
+                            卒業研究は研究の入口です。大学院では、見つけた課題をさらに深め、実装・実験・評価・発表を重ねることで、研究を成果として形にしていきます。
+                        </p>
+                    </div>
+                    <p>
+                        大学院進学は、研究者になるためだけの選択肢ではありません。
+                        実験を設計する力、データを分析する力、システムを作り切る力、成果を文章や発表で伝える力は、
+                        開発職、AI、IoT、データ分析、教育DXなど、さまざまな分野で役立ちます。
+                    </p>
+                </div>
+                <div class="image-frame">
+                    <img src="assets/images/motion-analysis.svg" alt="研究を深めるイメージ">
+                    <div class="figure-caption">卒業研究を入口として、大学院でテーマを専門性へ育てます。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements summary -->
+        <section class="section" id="achievements">
             <div class="section-inner">
                 <div class="section-heading">
                     <div class="section-kicker">Achievements</div>
-                    <h2>学生の成果・活動記録・代表業績</h2>
-                    <p class="section-lead">
-                        ニュースをすべて並べるのではなく、学生が成果を出せる研究室であることが伝わる代表例を掲載しています。
-                    </p>
+                    <h2>学生の成果・代表業績</h2>
+                    <p class="section-lead">詳細な年度別活動記録は、活動履歴ページに分離しました。トップページでは代表例のみを示します。</p>
                 </div>
-
-                <div class="grid-2">
-                    <div>
-                        <h3>代表的な活動</h3>
-                        <div class="news-list">
-                            <article class="news-item">
-                                <div class="news-date">2026</div>
-                                <div><span class="tag">論文</span></div>
-                                <div class="news-title">大学院生が筆頭著者として国際ジャーナル Sensors に論文掲載</div>
-                            </article>
-                            <article class="news-item">
-                                <div class="news-date">2026</div>
-                                <div><span class="tag">論文</span></div>
-                                <div class="news-title">歩容解析に関する研究成果が Sensors and Materials に掲載</div>
-                            </article>
-                            <article class="news-item">
-                                <div class="news-date">2025</div>
-                                <div><span class="tag tag-purple">学会発表</span></div>
-                                <div class="news-title">歩容認証に関する研究成果をヒューマンインタフェースシンポジウムで発表</div>
-                            </article>
-                            <article class="news-item">
-                                <div class="news-date">2025</div>
-                                <div><span class="tag tag-accent">教育活動</span></div>
-                                <div class="news-title">金沢市「デジタル科」やドローンプログラミング教育に関する活動</div>
-                            </article>
-                            <article class="news-item">
-                                <div class="news-date">2024</div>
-                                <div><span class="tag tag-green">地域連携</span></div>
-                                <div class="news-title">ドローンプログラミングチャレンジ、地域イベント、STEAM教材開発</div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>代表的な研究業績</h3>
-                        <div class="publication-list">
-                            <article class="publication-item">
-                                <h3>An ns-3 Evaluation Framework for Receiver-Initiated MAC Protocols with Configurable Enhancement Modules Across Various Network Scenarios</h3>
-                                <p>Murata, T., Sakamoto, S., Kawanami, T., Sensors, 26(1), 164, 2026.</p>
-                            </article>
-                            <article class="publication-item">
-                                <h3>Optimal Sensor Placement and Minimal Sensor Combination for Step Width Estimation Using IMU-Based Gait Data</h3>
-                                <p>Fukamachi, K., Yamamoto, T., Sato, S., Kawanami, T., Sensors and Materials, 2026.</p>
-                            </article>
-                            <article class="publication-item">
-                                <h3>Fundamental study on walking environment classification using insole-type gait sensors for smart tourism</h3>
-                                <p>Nakagawa, J., Sato, S., Kawanami, T., Journal of Global Tourism Research, 2025.</p>
-                            </article>
-                        </div>
-                    </div>
+                <div class="grid-3">
+                    <article class="card content-card"><span class="tag">論文</span><h3>国際ジャーナルへの論文掲載</h3><p>センサネットワーク、歩容解析、ウェアラブルセンシングなどの成果を学術論文として発信しています。</p></article>
+                    <article class="card content-card"><span class="tag tag-purple">学会発表</span><h3>研究成果の発表</h3><p>歩容認証、運動解析、教育支援システムなどの研究成果を発表しています。</p></article>
+                    <article class="card content-card"><span class="tag tag-accent">教育活動</span><h3>教育・地域連携</h3><p>STEAM教材、ドローンプログラミング、金沢市デジタル科などの活動を展開しています。</p></article>
+                </div>
+                <div class="button-group" style="margin-top: 22px;">
+                    <a class="button button-primary" href="activity.html">活動履歴を詳しく見る</a>
                 </div>
             </div>
         </section>
 
         <!-- Projects -->
-        <section class="section" id="projects">
+        <section class="section section-white" id="projects">
             <div class="section-inner">
                 <div class="section-heading">
                     <div class="section-kicker">Projects</div>
                     <h2>公開プロジェクト・教材</h2>
-                    <p class="section-lead">
-                        GitHub Pages版では、研究室の活動を外に見せることを重視します。
-                        公開できるコード、教材、研究資料は、学生の成果を示すポートフォリオにもなります。
-                    </p>
+                    <p class="section-lead">GitHub Pagesでは、研究室の活動を外に見せることを重視します。公開できるコード、教材、研究資料は、学生の成果を示すポートフォリオにもなります。</p>
                 </div>
-
                 <div class="grid-3">
-                    <article class="card content-card">
-                        <span class="tag">GitHub</span>
-                        <h3>ns3-rit-mac</h3>
-                        <p>
-                            受信機主導型MACプロトコルの評価に関するns-3実装・評価基盤。
-                            再現可能な研究成果として公開できます。
-                        </p>
-                        <p style="margin-top: 14px;">
-                            <a class="button button-primary" href="https://github.com/kawalab/ns3-rit-mac" target="_blank" rel="noopener">Repository</a>
-                        </p>
-                    </article>
-
-                    <article class="card content-card">
-                        <span class="tag tag-accent">Education</span>
-                        <h3>ドローンプログラミング教材</h3>
-                        <p>
-                            micro:bitと小型ドローンを活用したプログラミング教材、競技ルール、教育実践の記録を整理して公開できます。
-                        </p>
-                    </article>
-
-                    <article class="card content-card">
-                        <span class="tag tag-purple">Tutorial</span>
-                        <h3>動作解析・AIチュートリアル</h3>
-                        <p>
-                            scikit-learn、MediaPipe、センサデータ解析など、研究室内外で使える教材として展開できます。
-                        </p>
-                    </article>
+                    <article class="card content-card"><span class="tag">GitHub</span><h3>ns3-rit-mac</h3><p>受信機主導型MACプロトコルの評価に関するns-3実装・評価基盤。</p><p><a href="https://github.com/kawalab/ns3-rit-mac" target="_blank" rel="noopener">Repository</a></p></article>
+                    <article class="card content-card"><span class="tag tag-accent">Education</span><h3>ドローンプログラミング教材</h3><p>micro:bitと小型ドローンを活用したプログラミング教材や教育実践の記録を整理して公開できます。</p></article>
+                    <article class="card content-card"><span class="tag tag-purple">Tutorial</span><h3>動作解析・AIチュートリアル</h3><p>scikit-learn、MediaPipe、センサデータ解析など、研究室内外で使える教材として展開できます。</p></article>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
-        <section class="section section-white" id="contact">
+        <section class="section" id="contact">
             <div class="section-inner">
                 <div class="cta">
                     <div>
                         <h2>研究室訪問・大学院進学の相談を歓迎します</h2>
-                        <p>
-                            研究テーマ、配属、大学院進学、共同研究、教育活動に関心がある場合は、まずは気軽に相談してください。
-                        </p>
+                        <p>研究テーマ、配属、大学院進学、共同研究、教育活動に関心がある場合は、まずは気軽に相談してください。</p>
                     </div>
                     <a class="button button-light" href="mailto:t-kawanami@neptune.kanazawa-it.ac.jp">問い合わせる</a>
                 </div>
-
-                <div class="grid-3" style="margin-top: 28px;">
-                    <article class="card content-card">
-                        <h3>所在地</h3>
-                        <p>
-                            〒921-8501 石川県野々市市扇が丘7-1<br>
-                            金沢工業大学 扇が丘キャンパス 31号館3階<br>
-                            居室：31号館310室 / 研究室：31号館307室
-                        </p>
-                    </article>
-
-                    <article class="card content-card">
-                        <h3>関連リンク</h3>
-                        <p>
-                            <a href="https://researchmap.jp/t-kawanami" target="_blank" rel="noopener">researchmap</a><br>
-                            <a href="https://www.kanazawa-it.ac.jp/kyouinroku/a/AIBCH.html" target="_blank" rel="noopener">金沢工業大学 教員録</a><br>
-                            <a href="https://www.kanazawa-it.ac.jp/about_kit/ogigaoka.html" target="_blank" rel="noopener">扇が丘キャンパス 交通アクセス</a>
-                        </p>
-                    </article>
-
-                    <article class="card content-card">
-                        <h3>GitHub Pagesでの運用</h3>
-                        <p>
-                            このページはGitHub Pagesで公開することを想定しています。
-                            研究室の活動・教材・公開プロジェクトを継続的に更新できます。
-                        </p>
-                    </article>
+                <div class="grid-2" style="margin-top: 28px;">
+                    <article class="card content-card"><h3>所在地</h3><p>〒921-8501 石川県野々市市扇が丘7-1<br>金沢工業大学 扇が丘キャンパス 31号館3階<br>居室：31号館310室 / 研究室：31号館307室</p></article>
+                    <article class="card content-card"><h3>関連リンク</h3><p><a href="https://researchmap.jp/t-kawanami" target="_blank" rel="noopener">researchmap</a><br><a href="https://www.kanazawa-it.ac.jp/kyouinroku/a/AIBCH.html" target="_blank" rel="noopener">金沢工業大学 教員録</a><br><a href="https://www.kanazawa-it.ac.jp/about_kit/ogigaoka.html" target="_blank" rel="noopener">扇が丘キャンパス 交通アクセス</a></p></article>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+
+    <!-- フッター -->
     <footer class="footer">
         <div class="footer-inner">
             <div>
@@ -477,10 +261,11 @@
                 金沢工業大学 情報理工学部 情報工学科<br>
                 Kawanami Laboratory, Kanazawa Institute of Technology
             </div>
-            <div>
+            <div class="footer-links">
                 <a href="#top">ページ上部へ戻る</a>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
