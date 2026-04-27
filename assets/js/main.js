@@ -1,24 +1,4 @@
-// GitHub Pages 1ページ版の補助スクリプト
-// 現在のセクションに応じてメニューを強調します。
+// 現在は最小限のスクリプトのみです。
+// 固定ヘッダー、ページ内リンク、別ページ遷移はHTML/CSSで完結しています。
 
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.global-nav a[href^="#"]');
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach((link) => {
-                link.removeAttribute('aria-current');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-        });
-    },
-    { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 }
-);
-
-sections.forEach((section) => observer.observe(section));
+document.documentElement.classList.add('js-enabled');
