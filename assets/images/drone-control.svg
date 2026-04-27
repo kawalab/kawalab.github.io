@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">屋内小型ドローン制御のイラスト</title>
+  <desc id="desc">地上ロボットのセンサで屋内小型ドローンを認識し、安全飛行を支援するイメージ図。</desc>
+  <rect width="1000" height="700" rx="28" fill="#f4fbf8" />
+  <text x="60" y="78" font-size="34" font-family="'Yu Gothic', sans-serif" fill="#0b6b4b" font-weight="700">屋内小型ドローンの外部認識・衝突回避支援</text>
+  <text x="60" y="112" font-size="18" font-family="'Yu Gothic', sans-serif" fill="#5c6b7a">地上ロボット搭載センサと外部制御による安全飛行の支援</text>
+  <g transform="translate(70,170)">
+    <!-- room -->
+    <rect x="40" y="40" width="820" height="380" rx="26" fill="#ffffff" stroke="#d7eee5" />
+    <path d="M120 420 h660" stroke="#d7eee5" stroke-width="6" />
+
+    <!-- drone -->
+    <g transform="translate(520,130)" fill="none" stroke="#0b6b4b" stroke-width="6" stroke-linecap="round">
+      <circle cx="0" cy="0" r="22" /><circle cx="120" cy="0" r="22" /><circle cx="0" cy="90" r="22" /><circle cx="120" cy="90" r="22" />
+      <line x1="22" y1="0" x2="98" y2="0" />
+      <line x1="22" y1="90" x2="98" y2="90" />
+      <line x1="0" y1="22" x2="0" y2="68" />
+      <line x1="120" y1="22" x2="120" y2="68" />
+      <rect x="42" y="34" width="36" height="22" rx="6" fill="#f0a31a" stroke="#f0a31a" />
+      <path d="M60 108 v64" stroke="#a1d5c0" stroke-dasharray="10 10" />
+    </g>
+
+    <!-- robot -->
+    <g transform="translate(220,280)">
+      <rect x="0" y="50" width="120" height="70" rx="18" fill="#0b6b4b" />
+      <rect x="18" y="10" width="84" height="54" rx="12" fill="#eefaf5" stroke="#d7eee5" />
+      <circle cx="28" cy="126" r="18" fill="#6aa590" />
+      <circle cx="92" cy="126" r="18" fill="#6aa590" />
+      <circle cx="42" cy="37" r="8" fill="#0b6b4b" />
+      <rect x="58" y="24" width="24" height="18" rx="4" fill="#f0a31a" />
+      <path d="M102 36 C200 10, 260 -14, 360 -70" fill="none" stroke="#7ed0b2" stroke-width="5" stroke-dasharray="12 12" />
+    </g>
+
+    <!-- callouts -->
+    <g font-family="'Yu Gothic', sans-serif">
+      <rect x="620" y="268" width="180" height="88" rx="18" fill="#eefaf5" stroke="#d7eee5" />
+      <text x="642" y="300" font-size="22" fill="#0b6b4b" font-weight="700">外部認識</text>
+      <text x="642" y="332" font-size="17" fill="#5c6b7a">カメラ / 3D LiDAR</text>
+
+      <rect x="650" y="78" width="180" height="88" rx="18" fill="#eefaf5" stroke="#d7eee5" />
+      <text x="672" y="110" font-size="22" fill="#0b6b4b" font-weight="700">安全飛行支援</text>
+      <text x="672" y="142" font-size="17" fill="#5c6b7a">回避命令 / 緊急着陸</text>
+    </g>
+  </g>
+</svg>

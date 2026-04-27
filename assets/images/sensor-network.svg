@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">センサネットワークのイラスト</title>
+  <desc id="desc">複数のセンサノードがマルチホップで通信する省電力センサネットワークの図。</desc>
+  <rect width="1000" height="700" rx="28" fill="#f6fbff" />
+  <text x="60" y="78" font-size="34" font-family="'Yu Gothic', sans-serif" fill="#0b4f9c" font-weight="700">省電力センサネットワーク</text>
+  <text x="60" y="112" font-size="18" font-family="'Yu Gothic', sans-serif" fill="#5c6b7a">受信機主導型 MAC ・ 実機評価 ・ ns-3 シミュレーション</text>
+  <g transform="translate(110,160)">
+    <path d="M120 280 L300 200 L490 270 L660 140" fill="none" stroke="#85b6e5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M120 280 L286 400 L505 360 L690 450" fill="none" stroke="#85b6e5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M300 200 L286 400" fill="none" stroke="#c5dff6" stroke-width="6" stroke-dasharray="12 12" />
+    <path d="M490 270 L505 360" fill="none" stroke="#c5dff6" stroke-width="6" stroke-dasharray="12 12" />
+
+    <!-- Nodes -->
+    <g font-family="'Yu Gothic', sans-serif" text-anchor="middle">
+      <g transform="translate(120,280)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末A</text></g>
+      <g transform="translate(300,200)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末B</text></g>
+      <g transform="translate(490,270)">
+        <circle r="44" fill="#f0a31a" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">親ノード</text></g>
+      <g transform="translate(660,140)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末C</text></g>
+      <g transform="translate(286,400)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末D</text></g>
+      <g transform="translate(505,360)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末E</text></g>
+      <g transform="translate(690,450)">
+        <circle r="44" fill="#0b4f9c" /><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#ffffff" /><text y="76" font-size="18" fill="#0b4f9c" font-weight="700">端末F</text></g>
+    </g>
+
+    <!-- explanation cards -->
+    <g font-family="'Yu Gothic', sans-serif">
+      <rect x="744" y="42" width="170" height="88" rx="18" fill="#ffffff" stroke="#d7e6f3" />
+      <text x="764" y="72" font-size="22" fill="#0b4f9c" font-weight="700">評価指標</text>
+      <text x="764" y="102" font-size="17" fill="#5c6b7a">PDR / 消費電力 / 寿命</text>
+
+      <rect x="744" y="180" width="170" height="88" rx="18" fill="#ffffff" stroke="#d7e6f3" />
+      <text x="764" y="210" font-size="22" fill="#0b4f9c" font-weight="700">制御要素</text>
+      <text x="764" y="240" font-size="17" fill="#5c6b7a">Pre-CS / CSMA / ランダム化</text>
+
+      <rect x="744" y="318" width="170" height="88" rx="18" fill="#ffffff" stroke="#d7e6f3" />
+      <text x="764" y="348" font-size="22" fill="#0b4f9c" font-weight="700">評価環境</text>
+      <text x="764" y="378" font-size="17" fill="#5c6b7a">実機 ＋ ns-3</text>
+    </g>
+  </g>
+</svg>
