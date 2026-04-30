@@ -23,7 +23,7 @@
             <nav class="global-nav" aria-label="主要ナビゲーション">
                 <a href="index.html#about">概要</a>
                 <a href="index.html#research">研究テーマ</a>
-                <a href="index.html#skills">研究室選び</a>
+                <a href="index.html#lab_choice">研究室選び</a>
                 <a href="profile.html">自己紹介</a>
                 <a href="activity.html">活動履歴</a>
                 <a href="index.html#contact">問い合わせ</a>
@@ -49,10 +49,12 @@
                     <article class="card content-card"><span class="tag tag-purple">学会発表</span><h3>研究成果の発表</h3><p>歩容認証、運動解析、教育支援システムなどの研究成果を発表しています。</p></article>
                     <article class="card content-card"><span class="tag tag-accent">教育活動</span><h3>教育・地域連携</h3><p>STEAM教材、ドローンプログラミング、金沢市デジタル科などの活動を展開しています。</p></article>
                 </div>
+                <div class="button-group"><a class="button button-secondary" href="#activity_log">活動記録</a><a class="button button-secondary" href="#papers">最近の研究業績</a><a class="button button-secondary" href="#materials">公開プロジェクト・教材</a></div>
+
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="activity_log">
             <div class="section-inner">
                 <div class="section-heading"><div class="section-kicker">Activity Log</div><h2>年度別活動記録</h2></div>
                 <div class="button-group"><a class="button button-secondary" href="#y2026">2026年</a><a class="button button-secondary" href="#y2025">2025年</a><a class="button button-secondary" href="#y2024">2024年</a><a class="button button-secondary" href="#y2023">2023年</a><a class="button button-secondary" href="#y2022">2022年</a><a class="button button-secondary" href="#y2021">2021年</a></div>
@@ -91,17 +93,34 @@
             </div>
         </section>
 
-        <section class="section section-white">
+        <section class="section section-white" id="papers">
             <div class="section-inner">
-                <div class="section-heading"><div class="section-kicker">Selected Publications</div><h2>代表的な研究業績</h2></div>
+                <div class="section-heading"><div class="section-kicker">Selected Publications</div><h2>最近の代表的な研究業績</h2></div>
                 <div class="publication-list">
-                    <article class="publication-item"><h3>An ns-3 Evaluation Framework for Receiver-Initiated MAC Protocols with Configurable Enhancement Modules Across Various Network Scenarios</h3><p>Murata, T., Sakamoto, S., Kawanami, T., Sensors, 26(1), 164, 2026. DOI: 10.3390/s26010164</p></article>
-                    <article class="publication-item"><h3>Optimal Sensor Placement and Minimal Sensor Combination for Step Width Estimation Using IMU-Based Gait Data</h3><p>Fukamachi, K., Yamamoto, T., Sato, S., Kawanami, T., Sensors and Materials, 2026. DOI: 10.18494/SAM6087</p></article>
-                    <article class="publication-item"><h3>Fundamental study on walking environment classification using insole-type gait sensors for smart tourism</h3><p>Nakagawa, J., Sato, S., Kawanami, T., Journal of Global Tourism Research, 2025. DOI: 10.37020/jgtr.10.2_121</p></article>
+                    <article class="publication-item"><h3>Optimal Sensor Placement and Minimal Sensor Combination for Step Width Estimation Using IMU-Based Gait Data</h3><p>Fukamachi, K., Yamamoto, T., Sato, S., Kawanami, T., Sensors and Materials, 2026. <a href="https://doi.org/10.18494/SAM6087" target="_blank" rel="noopener">DOI: 10.18494/SAM6087</a></p></article>
+                    <article class="publication-item"><h3>An ns-3 Evaluation Framework for Receiver-Initiated MAC Protocols with Configurable Enhancement Modules Across Various Network Scenarios</h3><p>Murata, T., Sakamoto, S., Kawanami, T., Sensors, 26(1), 164, 2026. <a href="https://doi.org/10.3390/s26010164" target="_blank" rel="noopener">DOI: 10.3390/s26010164</a></p></article>
+                    <article class="publication-item"><h3>Fundamental study on walking environment classification using insole-type gait sensors for smart tourism</h3><p>Nakagawa, J., Sato, S., Kawanami, T., Journal of Global Tourism Research, 2025. <a href="https://doi.org/10.37020/jgtr.10.2_121" target="_blank" rel="noopener">DOI: 10.37020/jgtr.10.2_121</a></p></article>
                     <article class="publication-item"><h3>深層学習による歩容認証モデルへの長期間データ活用の有効性の検討</h3><p>熊本 悦士, 深町 京佑, 山本 知仁, 佐藤 進, 河並 崇, ヒューマンインタフェースシンポジウム2025論文集, 2T-P11, 721–725, 2025.</p></article>
                 </div>
             </div>
         </section>
+
+        <!-- Projects -->
+        <section class="section" id="materials">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-kicker">Materials</div>
+                    <h2>公開プロジェクト・教材</h2>
+                    <p class="section-lead">研究室で開発したソフトウェア、3Dモデル、教材、研究資料の一部を公開します。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card content-card"><span class="tag">GitHub</span><h3><a href="https://github.com/kawalab/ns3-rit-mac" target="_blank" rel="noopener">ns3-rit-mac</a></h3><p>受信機主導型MACプロトコルの評価に関するns-3実装・評価基盤。</p></article>
+                    <article class="card content-card"><span class="tag">GitHub</span><h3><a href="https://github.com/kawalab/microbit-battery-integrated-holder" target="_blank" rel="noopener">microbit-battery-integrated-holder</a></h3><p>micro:bitと電池ボックス一体化ホルダーの3Dモデル。</p></article>
+                    <article class="card content-card"><span class="tag tag-accent">Education</span><h3><a href="https://fap-club.org/tournament/" target="_blank" rel="noopener">ドローンプログラミングチャレンジ</a></h3><p>micro:bitと小型ドローンを活用したプログラミング大会（共同研究）</p></article>
+                    <!--article class="card content-card"><span class="tag tag-purple">Tutorial</span><h3>動作解析・AIチュートリアル</h3><p>scikit-learn、MediaPipe、センサデータ解析など、研究室内外で使える教材として展開できます。</p></article-->
+                </div>
+            </div>
+        </section>        
     </main>
 
 
