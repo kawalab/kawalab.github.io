@@ -117,7 +117,7 @@ img { display: block; max-width: 100%; height: auto; }
     text-transform: uppercase;
 }
 .section-heading h2 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.35; }
-.section-lead { max-width: 880px; margin: 14px 0 0; color: var(--muted); font-size: 1rem; }
+.section-lead { max-width: none; margin: 14px 0 0; color: var(--muted); font-size: 1rem; }
 
 .grid-2, .grid-3, .grid-4, .split, .hero-inner { display: grid; gap: 24px; }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
