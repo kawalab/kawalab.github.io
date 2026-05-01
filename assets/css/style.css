@@ -567,7 +567,12 @@ img {
     font-weight: 800;
 }
 
-.news-title,
+.news-title {
+    color: #24323f;
+    font-weight: 800;
+    line-height: 1.6;
+    text-decoration: none;
+}
 .news-title a {
     color: #0969da;
     font-weight: 800;
