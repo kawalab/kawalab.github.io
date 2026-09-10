@@ -6,6 +6,18 @@
     <title>河並研究室 | 金沢工業大学 情報理工学部 情報工学科</title>
     <meta name="description" content="金沢工業大学 情報理工学部 情報工学科 河並研究室のWebサイトです。">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* このページの研究案内で、短い最終行を避けて折り返す。 */
+        #research h3,
+        #lab_choice h3 {
+            text-wrap: balance;
+        }
+
+        #research p,
+        #lab_choice p {
+            text-wrap: pretty;
+        }
+    </style>
     <script defer src="assets/js/main.js"></script>
 </head>
 <body>
@@ -104,6 +116,7 @@
                     <p class="section-lead">
                         その「気になる」が、研究の入口になる。<br>
                         スポーツ、ゲーム、ものづくり、日常の疑問。自分の関心を、センサやAIなどの情報技術を使って確かめる研究につなげていきます。<br>
+                        以下は現在の研究室で扱っているテーマです。オリジナルテーマも歓迎します。研究としての意義や実現可能性を教員と相談し、取り組む問いと確かめ方を具体化していきます。<br>
                         これまでの研究成果は<a class="button button-secondary" href="activity.html">活動履歴</a>を確認してください。
                     </p>
                 </div>
@@ -133,7 +146,6 @@
                         <div class="theme-body"><div class="theme-index">06</div><h3>eSports動画解析・プレイヤー支援</h3><p>プレイ動画を解析し自動での実況生成や、プレイヤーのトレーニング支援ツールを開発します。</p></div>
                     </article>
                 </div>
-                <p class="section-lead">ここに挙げたテーマ以外のオリジナルテーマも歓迎します。研究としての意義や実現可能性を教員と相談し、取り組む問いと確かめ方を具体化していきます。</p>
             </div>
         </section>
 
@@ -146,9 +158,9 @@
                     <p class="section-lead">アイデアを考えるだけでなく、実際に測り、動かし、確かめる。研究テーマに応じて、さまざまな機器や計算環境を活用できます。</p>
                 </div>
                 <div class="grid-3">
-                    <article class="card content-card"><h3>気になった違いを、データで確かめる</h3><p>モーションキャプチャやインソール型歩行センサ、各種ウェアラブルセンサ・生体センサを使い、人の動きや状態を計測できます。</p></article>
-                    <article class="card content-card"><h3>思いついた仕組みを、実際に動かす</h3><p>センサや無線通信機器、小型ドローンなどを使い、自分で考えた装置やシステムを試作・検証できます。センサの開発や、機器を動かすプログラムの実装にも取り組めます。</p></article>
-                    <article class="card content-card"><h3>自分のデータで、AIを試す</h3><p>高性能GPUサーバを活用し、テーマに応じたAIモデルの学習・推論やデータ解析に取り組めます。取得したデータの可視化・統計処理、生成AI（LLM/VLM等）を使ったシステムの実装も行います。</p></article>
+                    <article class="card content-card"><h3>人の動きの気になった違いをデータで確かめる</h3><p>モーションキャプチャやインソール型歩行センサ、各種ウェアラブルセンサ・生体センサを使い、人の動きや状態を計測できます。</p></article>
+                    <article class="card content-card"><h3>思いついた仕組みを実際に動かす</h3><p>様々なセンサやマイコン、無線通信機器、小型ドローンなどを使い、自分で考えた装置やシステムを試作・検証できます。センサの開発や、機器を動かすプログラムの実装にも取り組めます。</p></article>
+                    <article class="card content-card"><h3>自分のデータでAIを創る</h3><p>複数台の高性能CPUサーバを活用し、テーマに応じたAIモデルの学習・推論やデータ解析に取り組めます。取得したデータの可視化・統計処理、生成AI（LLM/VLM等）を使ったシステムの実装も行います。</p></article>
                 </div>
             </div>
 
@@ -156,13 +168,13 @@
                 <div class="section-heading">
                     <h2>研究の進め方と<span style="display: inline-block;">大学院へのステップ</span></h2>
                     <p class="section-lead">
-                        テーマがまだ決まっていなくても、河並研究室で相談できます。関心や疑問を話すところから始め、必要な学習と検証を重ねながら、問いを深めていきます。
+                        テーマがまだ決まっていなくても、研究室で相談できます。関心や疑問を話すところから始め、必要な学習と検証を重ねながら、問いを深めていきます。
                     </p>
                 </div>
                 <div class="pathway">
-                    <article class="card path-step"><div class="step-label">STEP 1</div><h3>研究室を選ぶ</h3><p>教員との相談を通して、関心に合う研究の方向性と必要な知識・技術を整理します。</p></article>
+                    <article class="card path-step"><div class="step-label">STEP 1</div><h3>研究室を選ぶ</h3><p>教員や4年生、大学院生との相談を通して、関心に合う研究の方向性と必要な知識・技術を整理します。</p></article>
                     <article class="card path-step"><div class="step-label">STEP 2</div><h3>PD3（卒業研究）で試す</h3><p>基礎を学び、実装と実験に取り組みます。実験条件を設計し、データ収集・分析を通して性能や結果の妥当性を評価します。</p></article>
-                    <article class="card path-step"><div class="step-label">STEP 3</div><h3>修士研究で深める</h3><p>進学した場合は、長期データ、追加実験、評価指標、比較検証を加え、研究としての独自性を高めます。</p></article>
+                    <article class="card path-step"><div class="step-label">STEP 3</div><h3>大学院で深める</h3><p>修士研究では、長期データや追加実験、評価指標、比較検証を加え、研究の独自性を高めます。さらに研究を続けたい場合は、博士課程への進学も選択肢になります。</p></article>
                     <article class="card path-step"><div class="step-label">STEP 4</div><h3>成果として発信する</h3><p>卒業研究や修士研究の成果を文章や発表にまとめます。テーマや進捗に応じて、学会発表・論文執筆や投稿、公開リポジトリ、教育・地域連携を通じて発信する機会もあります。</p></article>
                 </div>
             </div>
