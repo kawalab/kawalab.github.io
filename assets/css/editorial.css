@@ -86,7 +86,7 @@
 #lab_choice > .split .section-heading h2,
 #lab_choice > .split .section-lead { order: 0; }
 #lab_choice > .split .section-heading h2 { grid-column: 1 / -1; grid-row: 1; font-size: clamp(2rem, 3.8vw, 3.15rem); margin: 0 0 10px; line-height: 1.5; }
-#lab_choice > .split .section-heading h2 span { display: inline !important; }
+#lab_choice > .split .section-heading h2 span { display: inline-block; }
 #lab_choice > .split .section-lead { grid-column: 1; grid-row: 2; margin: 0; font-size: 1rem; }
 #lab_choice > .split > div:first-child > p:first-of-type { grid-column: 2; grid-row: 2; margin: 0; }
 #lab_choice > .split > div:first-child > p:last-of-type { grid-column: 1; grid-row: 3; margin: 12px 0 0; padding-top: 24px; border-top: 1px solid #c9baa0; font-size: .9rem; }
@@ -155,4 +155,21 @@
     .pathway { grid-template-columns: 1fr; }
     .theme-card { grid-template-columns: minmax(0, 1fr) 78px; gap: 12px; }
     .theme-card figure img { height: 84px; }
+}
+
+/* 語句の途中では折らず、意味のまとまりの間で折り返す。 */
+.heading-phrase { display: inline-block; white-space: nowrap; }
+#about .section-heading h2 { font-size: 1.65rem; }
+#lab_choice > .section-inner:first-child .section-heading h2 { font-size: 1.65rem; }
+@media (min-width: 761px) and (max-width: 980px) {
+    #research > .section-inner { grid-template-columns: 1fr; row-gap: 32px; }
+    #lab_choice > .section-inner:nth-child(2) .pathway { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+    #lab_choice > .split .section-heading h2 { font-size: clamp(1.25rem, 6.5vw, 1.85rem); }
+    #research .theme-body { display: contents; }
+    #research .theme-index { grid-column: 1; grid-row: 1; }
+    #research .theme-body h3 { grid-column: 1 / -1; grid-row: 2; }
+    #research .theme-body p { grid-column: 1; grid-row: 3; }
+    #research .theme-card figure { grid-column: 2; grid-row: 3; }
 }
