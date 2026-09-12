@@ -1,0 +1,150 @@
+/* 紙面のように、題字・欄外見出し・横長の研究項目で組み立てる。 */
+.header-inner { align-items: center; padding: 14px 0; }
+.site-logo { font-size: .95rem; }
+.site-logo span { font-size: .62rem; }
+
+/* 冒頭は左右分割をやめ、研究室名を中心にした縦構成へ。 */
+.hero { padding: 46px 0 0; }
+.hero-inner { display: block; }
+.hero-inner > div:first-child { text-align: center; }
+.hero-label { display: inline-block; border: 0; padding: 0; margin: 0 0 20px; letter-spacing: .18em; font-size: .78rem; }
+.hero h2 { font-size: .85rem; letter-spacing: .15em; margin: 0 0 12px; }
+.hero h1 { font-size: clamp(3.2rem, 10.5vw, 9rem); letter-spacing: .06em; line-height: 1.15; margin: 0 0 24px; }
+.hero p { max-width: 780px; margin: 0 auto 22px; text-align: left; font-size: .96rem; line-height: 1.9; }
+.hero .button-group { justify-content: center; }
+.hero .button { min-height: 40px; font-size: .87rem; padding: 7px 15px; }
+.hero-visual { width: 100%; height: 260px; margin: 30px auto 0; padding: 0; border: 0; background: transparent; }
+.hero-visual img { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+.stats { grid-template-columns: 1fr 1fr; border-top: 1px solid var(--text); }
+.stat-card { display: grid; grid-template-columns: 116px 1fr; align-items: baseline; gap: 16px; padding: 16px 20px; }
+.stat-card span { margin: 0; }
+.stat-card + .stat-card { border-left: 0; }
+.stat-card:nth-child(even) { border-left: 1px solid var(--border); }
+.stat-card:nth-child(n+3) { border-top: 1px solid var(--border); }
+
+/* 見出しを上に積む代わりに、左の欄外に据える。 */
+#about > .section-inner,
+#research > .section-inner,
+#lab_choice > .section-inner:not(.split) {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    column-gap: 64px;
+    align-items: start;
+}
+#about .section-heading,
+#research .section-heading,
+#lab_choice > .section-inner:not(.split) > .section-heading {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.section-kicker { order: 2; font: italic 1.8rem/1.2 Georgia, "Times New Roman", serif; letter-spacing: 0; text-transform: none; color: var(--accent); margin: 16px 0 0; }
+.section-kicker::before { display: none; }
+.section-heading h2 { order: 1; font-size: 1.9rem; line-height: 1.55; letter-spacing: 0; }
+.section-heading .section-lead { order: 3; font-size: .9rem; margin-top: 24px; line-height: 1.95; }
+#lab_choice > .section-inner:nth-child(2) .section-heading h2 { font-size: 1.8rem; }
+#lab_choice > .section-inner:nth-child(2) .section-heading h2 span { display: inline-block !important; }
+#about .grid-2 { grid-template-columns: 1fr; gap: 36px; }
+#about .content-card { display: grid; grid-template-columns: 180px 1fr; gap: 12px 30px; padding-top: 24px; }
+#about .content-card h3 { grid-column: 1; font-size: 1.05rem; }
+#about .content-card p { grid-column: 2; margin: 0; }
+#about .button-group { grid-column: 2; }
+
+/* 研究テーマは3列のカードから、画像つきの横長の目録へ。 */
+#research .grid-3 { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--text); }
+.theme-card { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 28px; padding: 28px 0; align-items: center; }
+.theme-card figure { grid-column: 2; grid-row: 1; border: 0; background: transparent; }
+.theme-card figure img { height: 152px; padding: 0; }
+.theme-body { grid-column: 1; grid-row: 1; padding: 0; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 8px 16px; }
+.theme-index { grid-column: 1; grid-row: 1 / span 2; font-size: 1.6rem; margin: 0; padding-top: 4px; }
+.theme-body h3 { grid-column: 2; margin: 0; font-size: 1.15rem; }
+.theme-body p { grid-column: 2; margin: 0; font-size: .92rem; }
+
+/* 設備は各行の左に見出し、右に説明。研究の進め方は2×2に。 */
+#lab_choice > .section-inner:first-child .grid-3 { grid-template-columns: 1fr; gap: 0; }
+#lab_choice > .section-inner:first-child .content-card { display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; border-top: 1px solid var(--text); padding: 28px 0; }
+#lab_choice > .section-inner:first-child .content-card h3 { font-size: 1.25rem; color: var(--main-dark); }
+#lab_choice > .section-inner:first-child .content-card p { margin: 0; font-size: .94rem; }
+#lab_choice > .section-inner:first-child .content-card:last-child { border-bottom: 1px solid var(--border); }
+.pathway { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; border: 0; }
+.path-step, .path-step:first-child { padding: 22px 0 0; border-top: 1px solid var(--text); }
+.path-step + .path-step { border-left: 0; }
+.path-step h3 { font-size: 1.2rem; }
+.path-step p { font-size: .94rem; }
+
+/* 大学院案内は横幅いっぱいの見出しと2段組の本文。 */
+#lab_choice > .split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; padding: 48px; align-items: start; }
+#lab_choice > .split > div:first-child,
+#lab_choice > .split .section-heading { display: contents; }
+#lab_choice > .split .section-heading h2 { grid-column: 1 / -1; grid-row: 1; font-size: clamp(2rem, 3.8vw, 3.15rem); margin: 0 0 10px; line-height: 1.5; }
+#lab_choice > .split .section-heading h2 span { display: inline !important; }
+#lab_choice > .split .section-lead { grid-column: 1; grid-row: 2; margin: 0; font-size: 1rem; }
+#lab_choice > .split > div:first-child > p:first-of-type { grid-column: 2; grid-row: 2; margin: 0; }
+#lab_choice > .split > div:first-child > p:last-of-type { grid-column: 1; grid-row: 3; margin: 12px 0 0; padding-top: 24px; border-top: 1px solid #c9baa0; font-size: .9rem; }
+#lab_choice > .split ul { grid-column: 1; grid-row: 4; margin: 0; padding-left: 1.2em; }
+#lab_choice > .split .image-frame { grid-column: 2; grid-row: 3 / span 2; width: 100%; max-width: 340px; justify-self: center; }
+#lab_choice > .split .image-frame img { max-height: 190px; }
+#lab_choice > .split .figure-caption { text-align: center; }
+.cta { grid-template-columns: 1fr; text-align: center; gap: 20px; padding: 36px 0 44px; }
+.cta h2 { font-size: 2rem; }
+.cta .button { justify-self: center; }
+#contact .grid-2 { border-top: 1px solid var(--border); }
+#contact .content-card { border-top: 0; }
+
+@media (max-width: 1100px) {
+    #lab_choice > .section-inner:nth-child(2) .section-heading h2 { font-size: 1.6rem; }
+    #about > .section-inner, #research > .section-inner, #lab_choice > .section-inner:not(.split) { grid-template-columns: 240px minmax(0, 1fr); column-gap: 36px; }
+    #about .content-card { grid-template-columns: 1fr; gap: 12px; }
+    #about .content-card p, #about .button-group { grid-column: 1; }
+    .theme-card { grid-template-columns: minmax(0, 1fr) 128px; gap: 16px; }
+    .theme-card figure img { height: 132px; }
+    .theme-body { grid-template-columns: 30px minmax(0, 1fr); gap: 8px 12px; }
+    .theme-index { font-size: 1.3rem; }
+    #lab_choice > .section-inner:first-child .content-card { grid-template-columns: 1fr; gap: 6px; }
+}
+
+@media (max-width: 760px) {
+    .hero { padding-top: 34px; }
+    .hero-label { font-size: .69rem; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(2.8rem, 12vw, 5rem); margin-bottom: 24px; }
+    .hero h2 { font-size: .8rem; }
+    .hero p { font-size: .91rem; }
+    .hero-visual { height: 225px; margin-top: 24px; }
+    .hero .button-group { gap: 10px; }
+    .hero .button { font-size: .8rem; padding: 7px 12px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat-card { grid-template-columns: 95px 1fr; gap: 10px; padding: 14px 0; }
+    .stat-card:nth-child(even) { border-left: 0; }
+    .stat-card + .stat-card { border-top: 1px solid var(--border); }
+    #about > .section-inner, #research > .section-inner, #lab_choice > .section-inner:not(.split) { grid-template-columns: 1fr; row-gap: 32px; }
+    #about .section-heading, #research .section-heading, #lab_choice > .section-inner:not(.split) > .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: baseline; }
+    .section-heading h2 { grid-column: 1; font-size: 1.65rem; }
+    .section-kicker { grid-column: 2; font-size: 1.3rem; margin: 0; }
+    .section-heading .section-lead { grid-column: 1 / -1; margin: 0; }
+    #about .section-heading h2, #lab_choice > .section-inner:first-child .section-heading h2 { grid-column: 1 / -1; }
+    #about .section-kicker, #lab_choice .section-kicker { grid-column: 1 / -1; }
+    #lab_choice > .section-inner:nth-child(2) .section-heading h2 { grid-column: 1 / -1; }
+    .theme-card { grid-template-columns: minmax(0, 1fr) 96px; gap: 12px; padding: 24px 0; align-items: start; }
+    .theme-card figure img { height: 100px; }
+    .theme-body { grid-template-columns: 1fr; gap: 10px; }
+    .theme-index { grid-column: 1; grid-row: auto; }
+    .theme-body h3, .theme-body p { grid-column: 1; font-size: 1rem; }
+    .theme-body p { font-size: .9rem; }
+    .pathway { gap: 24px; }
+    .path-step, .path-step:first-child { padding: 20px 0 0; }
+    #lab_choice > .split { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
+    #lab_choice > .split .section-heading h2 { font-size: 1.85rem; grid-row: auto; margin: 0; }
+    #lab_choice > .split .section-lead,
+    #lab_choice > .split > div:first-child > p:first-of-type,
+    #lab_choice > .split > div:first-child > p:last-of-type,
+    #lab_choice > .split ul,
+    #lab_choice > .split .image-frame { grid-column: 1; grid-row: auto; }
+    #lab_choice > .split .section-lead { font-size: 1rem; }
+    .cta h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 420px) {
+    .pathway { grid-template-columns: 1fr; }
+    .theme-card { grid-template-columns: minmax(0, 1fr) 78px; gap: 12px; }
+    .theme-card figure img { height: 84px; }
+}
