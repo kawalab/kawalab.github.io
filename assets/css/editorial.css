@@ -4,6 +4,13 @@
 .hero-photo .entrance-photo { margin: 0 auto 28px; max-width: 960px; }
 .hero-photo .entrance-photo img { display: block; width: 100%; height: auto; mix-blend-mode: normal; }
 .hero.hero-photo { padding-bottom: 36px; }
+.hero.hero-photo p { max-width: 1060px; color: var(--text); font-weight: 500; text-wrap: pretty; }
+.keyword-label { width: min(var(--max-width), calc(100% - 32px)); margin: 0 auto 10px; color: var(--main-dark); font-size: .85rem; font-weight: 700; letter-spacing: .08em; }
+.themes-direction-stacked { display: none; }
+@media (max-width: 980px) {
+    .themes-direction-wide { display: none; }
+    .themes-direction-stacked { display: inline; }
+}
 #lab_choice .equipment-photo { grid-column: 1 / -1; margin: 0; }
 #lab_choice .equipment-photo img { display: block; width: 100%; height: auto; max-height: 360px; object-fit: cover; object-position: center 65%; mix-blend-mode: normal; }
 .header-inner { align-items: center; padding: 14px 0; }
