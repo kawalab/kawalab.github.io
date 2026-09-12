@@ -1,0 +1,23 @@
+/* 現在のレイアウトを維持した青色基調の比較案。 */
+:root {
+    --main: #0b4f9c;
+    --main-dark: #083b73;
+    --main-soft: #eef7ff;
+    --accent: #176ab6;
+    --accent-soft: #e9f3fc;
+    --bg: #f6f8fb;
+    --surface: #ffffff;
+    --text: #24323f;
+    --muted: #4f5f70;
+    --border: #dbe5ef;
+    --footer: #0f2742;
+}
+.site-header { background: rgba(255, 255, 255, .97); border-bottom-color: var(--border); }
+.hero { background: linear-gradient(180deg, #eef7ff 0%, #f6f8fb 100%); }
+.section-white { background: var(--surface); }
+#lab_choice > .split { background: #eaf3fc; }
+#lab_choice > .split > div:first-child > p:last-of-type { border-top-color: #bed2e7; }
+.page-hero { background: #eef7ff; border-bottom-color: var(--border); }
+.theme-card, #research .grid-3, .stats,
+#lab_choice > .section-inner:first-child .content-card,
+.path-step, .path-step:first-child { border-top-color: #9ab7d4; }
