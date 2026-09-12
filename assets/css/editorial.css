@@ -91,9 +91,8 @@
 #lab_choice > .split > div:first-child > p:first-of-type { grid-column: 2; grid-row: 2; margin: 0; }
 #lab_choice > .split > div:first-child > p:last-of-type { grid-column: 1; grid-row: 3; margin: 12px 0 0; padding-top: 24px; border-top: 1px solid #c9baa0; font-size: .9rem; }
 #lab_choice > .split ul { grid-column: 1; grid-row: 4; margin: 0; padding-left: 1.2em; }
-#lab_choice > .split .image-frame { grid-column: 2; grid-row: 3 / span 2; width: 100%; max-width: 340px; justify-self: center; }
-#lab_choice > .split .image-frame img { max-height: 190px; }
-#lab_choice > .split .figure-caption { text-align: center; }
+#lab_choice > .split .image-frame { grid-column: 2; grid-row: 3 / span 2; width: 100%; max-width: none; justify-self: stretch; }
+#lab_choice > .split .image-frame img { width: 100%; height: auto; max-height: none; }
 .cta { grid-template-columns: 1fr; text-align: center; gap: 20px; padding: 36px 0 44px; }
 .cta h2 { font-size: 2rem; }
 .cta .button { justify-self: center; }
