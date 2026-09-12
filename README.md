@@ -27,6 +27,20 @@ https://kawalab.github.io/
 
 ## サイト構成
 
+### トップページの新着情報
+
+`index.html` の `home-news-list` にお知らせを追加します。新しい項目を先頭に置き、トップには直近3〜5件程度を掲載します。日付・種類・短い案内文・リンク先を更新してください。見学終了後は案内を外すか、終了したことが分かる文面に変更します。活動履歴の更新を知らせる場合は、先に `activity.html` の内容も更新します。
+
+以下は入力用の例です。日付や日程は確定した内容に置き換えてから掲載してください。現在の「ご案内」は日程や更新日のない常設リンクです。
+
+```html
+<li class="home-news-item">
+    <time class="home-news-date" datetime="YYYY-MM-DD">YYYY.MM.DD</time>
+    <span class="home-news-category">見学案内</span>
+    <a href="#contact">確定した研究室見学の日程・案内</a>
+</li>
+```
+
 このWebサイトは、GitHub Pagesで公開する静的サイトです。
 
 - `index.html`  
