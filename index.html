@@ -6,6 +6,8 @@
     <title>河並研究室 | 金沢工業大学 情報理工学部 情報工学科</title>
     <meta name="description" content="金沢工業大学 情報理工学部 情報工学科 河並研究室のWebサイトです。">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/notebook.css">
+    <link rel="stylesheet" href="assets/css/editorial.css">
     <style>
         /* このページの研究案内で、短い最終行を避けて折り返す。 */
         #research h3,
@@ -47,13 +49,12 @@
 
 
     <!-- トップページ -->
-    <section class="hero">
+    <section class="hero hero-photo">
         <div class="hero-inner">
             <div>
-                <div class="hero-label">IoT・センサ・AI・教育工学</div>
-                <h2>情報工学科</h2> <h1> 河並研究室</h1>
+                <figure class="entrance-photo"><img src="assets/images/lab-entrance.webp" width="1600" height="708" alt="31・307 IoT labと記された研究室の入口" fetchpriority="high"></figure>
                 <p>
-                    河並研究室では、組込みシステム、IoT、センサネットワーク、AIを基盤として、
+                    情報工学科 河並研究室（IoT Lab）では、組込みシステム、IoT、センサネットワーク、AI、教育工学を基盤として、
                     人の行動や環境を計測・解析し、健康、教育、地域社会に役立つ情報システムの研究開発に取り組んでいます。
                 </p>
                 <div class="button-group">
@@ -61,12 +62,30 @@
                     <a class="button button-secondary" href="#lab_choice">研究室を知る</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <img src="assets/images/research-overview.png" alt="河並研究室の研究領域を表すイラスト">
-            </div>
         </div>
     </section>
 
+    <section class="home-news" aria-labelledby="home-news-title">
+        <div class="home-news-heading">
+            <div class="section-kicker">News</div>
+            <h2 id="home-news-title">新着情報</h2>
+        </div>
+        <!-- 日付のあるお知らせはREADMEの例を参考に、リストの先頭へ追加する。 -->
+        <ul class="home-news-list">
+            <li class="home-news-item">
+                <span class="home-news-date">ご案内</span>
+                <span class="home-news-category">見学・相談</span>
+                <a href="#contact">研究室見学や配属についての相談はこちら</a>
+            </li>
+            <li class="home-news-item">
+                <span class="home-news-date">ご案内</span>
+                <span class="home-news-category">活動履歴</span>
+                <a href="activity.html">学会発表・受賞など、研究室の活動をご紹介します</a>
+            </li>
+        </ul>
+    </section>
+
+    <div class="keyword-label">Keywords</div>
     <div class="stats" aria-label="研究室のキーワード">
         <div class="stat-card"><strong>Sensing</strong><span>歩容・運動・生体情報のセンシング</span></div>
         <div class="stat-card"><strong>Network</strong><span>センサネットワーク・IoT・評価基盤</span></div>
@@ -80,7 +99,7 @@
             <div class="section-inner">
                 <div class="section-heading">
                     <div class="section-kicker">About</div>
-                    <h2>計測・分析・実装・評価まで一貫して取り組む研究室</h2>
+                    <h2><span class="heading-phrase">計測・分析・</span><span class="heading-phrase">実装・評価まで</span><span class="heading-phrase">一貫して</span><span class="heading-phrase">取り組む研究室</span></h2>
                     <p class="section-lead">
                         計測から分析、実装へ。センサやAIなどの情報技術を使い、実世界での活用を見据えて研究テーマを設計しています。
                     </p>
@@ -94,7 +113,7 @@
                         </p>
                     </article>
                     <article class="card content-card">
-                        <h3>詳しい自己紹介・活動履歴</h3>
+                        <h3><span class="heading-phrase">詳しい自己紹介・</span><span class="heading-phrase">活動履歴</span></h3>
                         <p>
                             河並の自己紹介と、研究室の年度別活動記録は別ページに整理しています。
                         </p>
@@ -114,7 +133,7 @@
                     <div class="section-kicker">Research</div>
                     <h2>研究テーマ</h2>
                     <p class="section-lead">
-                        スポーツ、ゲーム、ものづくり、日常の疑問・関心・仮説を、センサやAIなどの情報技術を使って確かめる研究につなげていきます。教職を目指す人は、教職課程で学ぶ中で生まれた疑問やアイデアを、教材開発や学習支援の研究として探究できます。以下は現在の研究室で扱っているテーマです。オリジナルテーマも歓迎します。
+                        スポーツ、ゲーム、ものづくり、日常の疑問・関心・仮説を、センサやAIなどの情報技術を使って確かめる研究につなげていきます。教職を目指す人は、教職課程で学ぶ中で生まれた疑問やアイデアを、教材開発や学習支援の研究として探究できます。<span class="themes-direction-wide">右は</span><span class="themes-direction-stacked">以下は</span>現在の研究室で扱っているテーマです。オリジナルテーマも歓迎します。
                     </p>
                     <p class="section-lead">
                         これまでの研究成果は<a class="button button-secondary" href="activity.html">活動履歴</a>を確認してください。
@@ -123,27 +142,27 @@
                 <div class="grid-3">
                     <article class="card theme-card">
                         <figure><img src="assets/images/motion-analysis.png" alt="動作解析のイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">01</div><h3>歩容認証・異常歩行推定・運動解析</h3><p>歩容データを用いた個人認証や、歩行環境を考慮した異常歩行・疲労状態の推定に取り組みます。</p></div>
+                        <div class="theme-body"><div class="theme-index">01</div><h3><span class="heading-phrase">歩容認証・</span><span class="heading-phrase">異常歩行推定・</span><span class="heading-phrase">運動解析</span></h3><p>歩容データを用いた個人認証や、歩行環境を考慮した異常歩行・疲労状態の推定に取り組みます。</p></div>
                     </article>
                     <article class="card theme-card">
                         <figure><img src="assets/images/sensor-network.png" alt="省電力センサネットワークのイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">02</div><h3>センサネットワーク・IoT</h3><p>組込みシステム開発や低消費電力無線センサネットワークの評価に取り組みます。</p></div>
+                        <div class="theme-body"><div class="theme-index">02</div><h3><span class="heading-phrase">センサネットワーク・</span><span class="heading-phrase">IoT</span></h3><p>組込みシステム開発や低消費電力無線センサネットワークの評価に取り組みます。</p></div>
                     </article>
                     <article class="card theme-card">
                         <figure><img src="assets/images/steam-education.png" alt="STEAM教材開発のイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">03</div><h3>STEAM教育・教材開発</h3><p>IoTプロトタイピング、ドローン、おもちゃハック等、ものづくりを活用し、体験を通じて学べる教材を開発します。</p></div>
+                        <div class="theme-body"><div class="theme-index">03</div><h3><span class="heading-phrase">STEAM教育・</span><span class="heading-phrase">教材開発</span></h3><p>IoTプロトタイピング、ドローン、おもちゃハック等、ものづくりを活用し、体験を通じて学べる教材を開発します。</p></div>
                     </article>
                     <article class="card theme-card">
                         <figure><img src="assets/images/drone-control.png" alt="屋内小型ドローン制御のイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">04</div><h3>ドローン制御・外部認識</h3><p>GPSを利用できない屋内小型ドローンを対象に、外部センサを用いた認識・追跡・安全飛行支援を研究します。</p></div>
+                        <div class="theme-body"><div class="theme-index">04</div><h3><span class="heading-phrase">ドローン制御・</span><span class="heading-phrase">外部認識</span></h3><p>GPSを利用できない屋内小型ドローンを対象に、外部センサを用いた認識・追跡・安全飛行支援を研究します。</p></div>
                     </article>
                     <article class="card theme-card">
                         <figure><img src="assets/images/sports-biosignal.png" alt="生体・行動データ解析のイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">05</div><h3>生体・行動データ解析</h3><p>操作ログ、生体情報、姿勢、反応時間などから、状態やパフォーマンスを分析します。</p></div>
+                        <div class="theme-body"><div class="theme-index">05</div><h3><span class="heading-phrase">生体・行動</span><span class="heading-phrase">データ解析</span></h3><p>操作ログ、生体情報、姿勢、反応時間などから、状態やパフォーマンスを分析します。</p></div>
                     </article>
                     <article class="card theme-card">
                         <figure><img src="assets/images/esports-analysis.png" alt="eSports動画のハイライト抽出のイラスト"></figure>
-                        <div class="theme-body"><div class="theme-index">06</div><h3>eSports動画解析・プレイヤー支援</h3><p>プレイ動画を解析し自動での実況生成や、プレイヤーのトレーニング支援ツールを開発します。</p></div>
+                        <div class="theme-body"><div class="theme-index">06</div><h3><span class="heading-phrase">eSports動画解析・</span><span class="heading-phrase">プレイヤー支援</span></h3><p>プレイ動画を解析し自動での実況生成や、プレイヤーのトレーニング支援ツールを開発します。</p></div>
                     </article>
                 </div>
             </div>
@@ -154,52 +173,51 @@
             <div class="section-inner">
                 <div class="section-heading">
                     <div class="section-kicker">Explore Our Lab</div>
-                    <h2>「やってみたい」を<span style="display: inline-block;">試せる環境</span></h2>
+                    <h2><span class="heading-phrase">「やってみたい」を</span><span class="heading-phrase">試せる環境</span></h2>
                     <p class="section-lead">アイデアを考えるだけでなく、実際に測り、動かし、確かめる。研究テーマに応じて、さまざまな機器や計算環境を活用できます。</p>
                 </div>
                 <div class="grid-3">
-                    <article class="card content-card"><h3>人の動きの気になった違いをデータで確かめる</h3><p>モーションキャプチャやインソール型歩行センサ、各種ウェアラブルセンサ・生体センサを使い、人の動きや状態を計測できます。</p></article>
-                    <article class="card content-card"><h3>思いついた仕組みを実際に動かす</h3><p>様々なセンサやマイコン、無線通信機器、小型ドローンなどを使い、自分で考えた装置やシステムを試作・検証できます。センサの開発や、機器を動かすプログラムの実装にも取り組めます。</p></article>
-                    <article class="card content-card"><h3>自分のデータでAIを創る</h3><p>複数台の高性能GPUサーバを活用し、テーマに応じたAIモデルの学習・推論やデータ解析に取り組めます。取得したデータの可視化・統計処理、生成AI（LLM/VLM等）を使ったシステムの実装も行います。</p></article>
+                    <article class="card content-card"><h3><span class="heading-phrase">人の動きの</span><span class="heading-phrase">気になった違いを</span><span class="heading-phrase">データで確かめる</span></h3><p>モーションキャプチャやインソール型歩行センサ、各種ウェアラブルセンサ・生体センサを使い、人の動きや状態を計測できます。</p><figure class="equipment-photo"><img src="assets/images/lab-motion-capture.webp" width="1448" height="1086" alt="カメラとトレッドミルを設置した計測環境" loading="lazy"></figure></article>
+                    <article class="card content-card"><h3><span class="heading-phrase">思いついた仕組みを</span><span class="heading-phrase">実際に動かす</span></h3><p>様々なセンサやマイコン、無線通信機器、小型ドローンなどを使い、自分で考えた装置やシステムを試作・検証できます。センサの開発や、機器を動かすプログラムの実装にも取り組めます。</p><figure class="equipment-photo"><img src="assets/images/lab-drones.webp" width="1448" height="1086" alt="研究室の机に並ぶ小型ドローン" loading="lazy"></figure></article>
+                    <article class="card content-card"><h3><span class="heading-phrase">自分のデータで</span><span class="heading-phrase">AIを創る</span></h3><p>DGX Sparkを含む複数台の高性能GPUサーバを活用し、テーマに応じたAIモデルの学習・推論やデータ解析に取り組めます。取得したデータの可視化・統計処理、生成AI（LLM/VLM等）を使ったシステムの実装も行います。</p><figure class="equipment-photo"><img src="assets/images/lab-dgx.webp" width="1440" height="1080" alt="研究室のDGX Spark" loading="lazy"></figure></article>
                 </div>
             </div>
 
             <div class="section-inner" style="margin-top: 40px;">
                 <div class="section-heading">
-                    <h2>研究の進め方と<span style="display: inline-block;">大学院へのステップ</span></h2>
+                    <h2><span class="heading-phrase">研究の進め方と</span><span class="heading-phrase">大学院進学のススメ</span></h2>
                     <p class="section-lead">
-                        テーマがまだ決まっていなくても、研究室で相談できます。関心や疑問を話すところから始め、必要な学習と検証を重ねながら、問いを深めていきます。
+                        テーマがまだ決まっていなくても大丈夫。研究室で相談しながら決めていきます。関心や疑問を話すところから始め、必要な学習と検証を重ねながら、問いを深めていきます。ものづくりが好きな人や、気になることをとことん確かめたい人には、大学院進学もオススメしています。
                     </p>
                 </div>
                 <div class="pathway">
-                    <article class="card path-step"><div class="step-label">STEP 1</div><h3>研究室を選ぶ</h3><p>教員や4年生、大学院生との相談を通して、関心に合う研究の方向性と必要な知識・技術を整理します。</p></article>
-                    <article class="card path-step"><div class="step-label">STEP 2</div><h3>PD3（卒業研究）で試す</h3><p>基礎を学び、実装と実験に取り組みます。実験条件を設計し、データ収集・分析を通して性能や結果の妥当性を評価します。</p></article>
-                    <article class="card path-step"><div class="step-label">STEP 3</div><h3>大学院で深める</h3><p>修士研究では、長期データや追加実験、評価指標、比較検証を加え、研究の独自性を高めます。さらに研究を続けたい場合は、博士課程への進学も選択肢になります。</p></article>
-                    <article class="card path-step"><div class="step-label">STEP 4</div><h3>成果として発信する</h3><p>卒業研究や修士研究の成果を文章や発表にまとめます。テーマや進捗に応じて、学会発表・論文執筆や投稿、公開リポジトリ、教育・地域連携を通じて発信する機会もあります。</p></article>
+                    <article class="card path-step"><h3>研究室を選ぶ</h3><p>教員や4年生、大学院生との相談を通して、関心に合う研究の方向性と必要な知識・技術を整理します。</p></article>
+                    <article class="card path-step"><h3>卒業研究で試す</h3><p>PD3（卒業研究）では、基礎を学び、実装と実験に取り組みます。実験条件を設計し、データ収集・分析を通して性能や結果の妥当性を評価します。</p></article>
+                    <article class="card path-step"><h3>大学院で深める</h3><p>修士研究では、長期データや追加実験、評価指標、比較検証を加え、研究の独自性を高めます。さらに研究を続けたい場合は、博士課程への進学も選択肢になります。</p></article>
+                    <article class="card path-step"><h3>成果を発信する</h3><p>卒業研究や修士研究の成果を文章や発表にまとめます。テーマや進捗に応じて、学会発表・論文執筆や投稿、公開リポジトリ、教育・地域連携を通じて発信する機会もあります。</p></article>
                 </div>
             </div>
 
             <div class="section-inner split" style="margin-top: 40px;">
                 <div>
                     <div class="section-heading">
-                        <h2>その関心を、<span style="display: inline-block;">もっと深く。</span></h2>
+                        <h2><span class="heading-phrase">せっかくなら、</span><span class="heading-phrase">面白いことを</span><span class="heading-phrase">やらない？</span></h2>
                         <p class="section-lead">
-                            大学院進学は、研究者になるためだけの選択肢ではありません。関心のあるテーマに腰を据えて取り組み、研究を深める選択肢です。3年次後半には進学するかどうかの見通しを立てられるよう、研究室選びの段階から相談を進めていきましょう。テーマがまだ具体的でなくても、興味のあることや将来の希望から一緒に考えられます。
+                            AIであれこれできてしまう時代、人と違うことをしたい人が重宝されると思います。「こんなものがあったら面白い」「これ、自分で作れないかな」。そんな思いつきを、思いつきのままで終わらせない。今はAIを伴走者に、調べ、創り、試すサイクルをぐっと速くまわせます。すると、また次々に創りたいものや、確かめたいことが見えてきます。こういうのを面白いと思う人には、大学院進学もオススメです。大学院は、AIを使いこなし、その答えを見極める知識も身につけながら、自分で問いを立て、アイデアを形にする力を伸ばすトレーニングの場になります。
                         </p>
                     </div>
                     <p>
-                        大学院は、学部で培った力をさらに磨き、自ら問いを立て、解決への道筋を考え、実行する力を伸ばすトレーニングの場でもあります。そして、まだ世の中に答えのない課題に対して、試行錯誤と検証を重ねる経験は、仕事の中で新しい提案を形にしたり、周囲と協力して課題解決を進めたりする力につながります。人と違うことをしたい人にもお勧めです。
+                        大学院進学は、研究者になるためだけの選択肢ではありません。「もう少しやれば面白くなりそう」「まだ誰も作っていないものを作りたい」。そんな気持ちで夢中になって調べ、試行錯誤した経験は、仕事で新しいことを考え、周囲と形にしていく力にもつながります。最初から立派なテーマはなくても大丈夫。3年次後半に進学の見通しを立てられるよう、まずはやってみたいことから話しましょう。
                     </p>
                     <p>
-                        最後に、河並が博士課程1年（2002年）の時に書いたエッセイを恥ずかしいけど紹介。
+                        下のエッセイは、河並が博士課程1年（2002年）の時に、進学への思いを綴ったものです。恥ずかしいですが、今も気持ちは変わっていないので公開しておきます。
                     </p>
                     <ul>
                         <li><a href="assets/images/linkit.jpg" target="_blank" rel="noopener">大学院へ行こう「勉強嫌いが選んだ道」</a></li>
                     </ul>
                 </div>
                 <div class="image-frame">
-                    <img src="assets/images/motion-analysis.png" alt="研究を深めるイメージ">
-                    <div class="figure-caption">関心を育て、研究を深める。</div>
+                    <img src="assets/images/research-overview.png" alt="センシング・AI・ものづくりなど、研究室の研究領域をまとめたイラスト">
                 </div>
             </div>
         </section>
@@ -209,7 +227,7 @@
             <div class="section-inner">
                 <div class="cta">
                     <div>
-                        <h2>研究室訪問・大学院進学の相談を歓迎します</h2>
+                        <h2><span class="heading-phrase">研究室訪問・</span><span class="heading-phrase">大学院進学の</span><span class="heading-phrase">相談を歓迎します</span></h2>
                         <p>研究テーマ、配属、大学院進学、共同研究、教育活動に関心がある場合は、まずは気軽に相談してください。</p>
                     </div>
                     <a class="button button-light" href="mailto:t-kawanami@neptune.kanazawa-it.ac.jp">問い合わせる</a>
