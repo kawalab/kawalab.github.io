@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#146c52">
+  <meta name="description" content="0と1をクリックして、文字・色・音の変化を体験しよう。中学生のためのデジタル教材。">
+  <title>バイナリエクスプローラ | Binary Explorer</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMxNDZjNTIiLz48dGV4dCB4PSIzMiIgeT0iNDMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSIzNCI+MDE8L3RleHQ+PC9zdmc+Cg==" type="image/svg+xml">
+  <style>
+:root{font-family:Inter,"Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif;color:#18352e;background:#f4f7f6;font-synthesis:none;--green:#146c52;--ink:#18352e;--muted:#587069;--line:#dce5e1;--mono:"Cascadia Code","SFMono-Regular",Consolas,monospace}
+*{box-sizing:border-box}body{margin:0}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button{cursor:pointer}button,a,input{touch-action:manipulation}button{color:inherit}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #b56e00;outline-offset:4px}button:disabled{cursor:wait}button:hover{filter:brightness(.96)}.app-shell{max-width:1600px;padding:0 52px;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;gap:13px;align-items:center;text-decoration:none;color:var(--ink)}.brand-mark{display:grid;place-items:center;background:var(--green);color:white;width:46px;height:46px;border-radius:12px;font:700 24px var(--mono);letter-spacing:-2px}.brand strong{font-size:21px;letter-spacing:-.5px}.brand small{display:block;font-size:12px;letter-spacing:1.5px;margin-top:4px;color:var(--muted)}.header-actions{display:flex;gap:10px}.button{border:1px solid #ccd8d2;background:white;border-radius:8px;padding:11px 17px;font-size:14px;font-weight:600;min-height:44px}.button.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.intro{padding:32px 0 28px}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--green);margin:0 0 12px}h1{font-size:32px;letter-spacing:.015em;margin:0 0 9px;font-weight:750}p{line-height:1.7}.intro>p:last-child{color:var(--muted);font-size:15px;margin:0}.mobile-break{display:none}.mode-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.mode-tabs{display:flex;gap:7px;background:#e8eeeb;padding:5px;border-radius:11px}.mode-tabs button{border:0;background:transparent;border-radius:7px;display:flex;align-items:center;gap:9px;min-height:47px;padding:10px 22px;font-weight:700;font-size:15px;color:#536b61}.mode-tabs button[aria-pressed=true]{background:white;color:var(--green);box-shadow:0 2px 5px #193d3010}.mode-icon{font-size:23px;line-height:1;font-family:var(--mono);font-weight:500}.tab-sub{font-size:10px;letter-spacing:1px;opacity:.85}.experiment{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 5px 20px #16392b03}.experiment-toolbar{display:flex;justify-content:space-between;align-items:center;padding:19px 28px;border-bottom:1px solid var(--line);gap:12px}.experiment-toolbar>div{display:flex;align-items:center;gap:12px}.experiment-number{font:14px var(--mono);color:var(--green);background:#ecf5ef;padding:5px 7px;border-radius:4px}h2{font-size:17px;margin:0}.live-label{color:var(--muted);font-size:12px}.panes{display:grid;grid-template-columns:1fr 1fr;min-height:400px}.input-pane,.result-pane{padding:26px 30px;min-width:0}.input-pane{border-right:1px solid var(--line)}.result-pane{background:#f9fbfa;position:relative;display:flex;flex-direction:column}.pane-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}.step-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--muted)}.pane-note{font:14px var(--mono);color:#657d74}.result-badge{font:10px var(--mono);letter-spacing:1px;border:1px solid #ccdcd4;padding:4px 6px;border-radius:4px;color:#5a7669}.pane-description{font-size:14px;margin:16px 0;color:var(--muted)}.controls{margin-bottom:22px}.choices{display:flex;gap:8px;flex-wrap:wrap}.choice{border:1px solid #d5dfda;border-radius:6px;background:#fff;padding:8px 14px;min-height:40px;font-size:14px}.choice[aria-pressed=true]{color:var(--green);background:#eef7f2;border-color:#76a68e;font-weight:700}.byte-editor+.byte-editor{margin-top:18px}.byte-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.byte-heading strong{font-size:14px}.byte-heading>span{font:11px var(--mono);color:#667d74}.bits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 8px repeat(4,minmax(0,1fr));gap:6px}.bit-cell:nth-child(5){grid-column:6}.bit-position{display:block;text-align:center;font:11px var(--mono);color:#72857b;margin-bottom:6px}.bit{border:1px solid #cbd8d1;border-radius:8px;display:grid;place-items:center;min-height:64px;width:100%;padding:8px 0;font:600 clamp(23px,2.5vw,38px) var(--mono);background:#fff;box-shadow:0 3px 0 #dce6e0;position:relative}.bit[data-value="1"]{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 3px 0 #0c503c}.bit.changed{outline:3px solid #d89621;outline-offset:2px}.byte-details{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin-top:15px}.byte-details b{font:600 15px var(--mono);margin-left:8px;color:var(--ink)}.extra{margin-top:25px}.text-label{display:block;font-size:13px;font-weight:600;margin:0 0 9px}.text-label span{font-size:11px;font-weight:400;color:var(--muted);margin-left:8px}.text-input{background:#fff;border:1px solid #cbd8d1;border-radius:7px;min-height:44px;padding:9px 12px;max-width:100%;width:180px;font:20px var(--mono)}.field-error{font-size:13px;color:#a03125;min-height:0;margin:5px 0 0}.field-error:empty{display:none}.result-content{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;min-width:0}.characters{display:flex;justify-content:center;align-items:center;min-height:240px;width:100%;padding:10px 0;gap:4px}.character{font:500 clamp(75px,12vw,190px) var(--mono);text-align:center;min-width:0;border-radius:12px;line-height:1.2}.character.unprintable{color:#62786d}.result-caption{font-size:12px;color:var(--muted);text-align:center;margin:8px 0}.result-changed{box-shadow:0 0 0 3px #d89621!important}.interpretation{min-height:57px;padding:15px 25px;background:#f0f6f2;border-top:1px solid var(--line);text-align:center;color:#426353;display:flex;align-items:center;justify-content:center;gap:19px;font-size:14px;flex-wrap:wrap}.flow-bits{font-family:var(--mono);letter-spacing:1px}.interpretation strong{font-size:18px}.discovery{display:flex;align-items:baseline;gap:16px;margin:18px 0 27px;padding:0 5px}.discovery-label{font-size:12px;font-weight:700;color:var(--green);white-space:nowrap}.discovery p{font-size:13px;color:var(--muted);margin:0}footer{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding:18px 0 24px;color:#61776c}footer p{font-size:12px;margin:0}.footer-symbol{font:700 17px var(--mono);letter-spacing:-1px}.footer-meta{margin-left:auto;font:9px var(--mono);letter-spacing:1px}.selection-label{font-size:12px;color:var(--green);margin:14px 0 0}.channel-0 .byte-heading strong{color:#b93930}.channel-1 .byte-heading strong{color:#237744}.channel-2 .byte-heading strong{color:#2e63b8}.pixel-grid{display:grid;grid-template-columns:repeat(var(--grid-size),1fr);width:min(100%,340px);aspect-ratio:1;margin:22px auto 10px;border:4px solid #19392d;border-radius:4px;overflow:hidden;background:#19392d;gap:2px}.pixel{border:0;position:relative;min-width:0;min-height:44px;padding:8px;display:flex;align-items:flex-start;justify-content:flex-start}.pixel span{background:white;color:#18352e;font:12px var(--mono);padding:5px 7px;border-radius:3px;border:1px solid #c5d0cb}.pixel[aria-pressed=true]{outline:3px solid white;outline-offset:-6px}.pixel[aria-pressed=true] span:after{content:' ✓';font-weight:700}.pixel:focus-visible{outline:4px solid #111;outline-offset:-4px}.pixel-values{font:12px var(--mono);text-align:center;line-height:1.8}.color-presets .choice{padding:7px 16px}.audio-meter{padding:20px 0 5px}.audio-meter strong{font:500 45px var(--mono);margin-left:14px}.audio-meter span{font-size:13px;color:var(--muted)}.meter-track{height:7px;background:#e7eee9;border-radius:5px;margin-top:14px;overflow:hidden}.meter-track div{height:100%;background:var(--green)}.audio-meter p{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}.audio-meter p span{font-size:11px}.audio-explanation{font-size:13px;color:var(--muted)}.wave-heading{display:flex;justify-content:space-between;align-items:center;width:100%;margin:25px 0 17px;gap:8px;font-size:14px}.frequency{font-size:12px;color:var(--muted)}.waveform{width:100%;height:auto;aspect-ratio:2.5;border-radius:6px}.wave-axis{width:100%;display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:8px}.play{background:var(--green);color:white;border-color:var(--green);margin:25px 0 2px;min-width:170px}.status{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:12px 20px;background:#18352e;color:white;border-radius:8px;font-size:14px;z-index:5;max-width:90%;box-shadow:0 3px 12px #0002}.status:empty{display:none}.classroom .intro,.classroom .brand small,.classroom .discovery,.classroom .pane-description,.classroom .tab-sub,.classroom .live-label{display:none}.classroom .topbar{padding:15px 0}.classroom .mode-bar{margin-top:16px}.classroom .panes{min-height:62vh}.classroom .bit{min-height:78px;font-size:44px}.classroom .characters{min-height:320px}.classroom .character{font-size:clamp(95px,14vw,230px)}.classroom .pixel-grid{width:min(100%,440px)}.classroom .app-shell{max-width:1800px}.classroom .result-caption{font-size:14px}
+@media(min-width:1600px){.intro{padding:40px 0 32px}.panes{min-height:465px}.input-pane,.result-pane{padding:30px 38px}.bit{min-height:76px}.characters{min-height:300px}.pane-description{font-size:16px}.discovery p{font-size:15px}.choice{font-size:16px}}
+@media(max-width:1100px){.app-shell{padding:0 28px}.input-pane,.result-pane{padding:24px 22px}.mode-tabs button{padding:10px 16px}.tab-sub{display:none}.bit{min-height:54px}.bits{gap:5px;grid-template-columns:repeat(4,minmax(0,1fr)) 4px repeat(4,minmax(0,1fr))}.footer-meta{display:none}.byte-details b{margin-left:3px}.character{font-size:clamp(65px,11vw,130px)}}
+@media(max-width:760px){.app-shell{padding:0 18px}.topbar{padding:18px 0}.brand strong{font-size:17px}.brand small{font-size:10px;letter-spacing:.5px}.brand-mark{width:38px;height:38px;font-size:21px}.header-actions{gap:5px}.header-actions .button{padding:8px;font-size:12px}.intro{padding:26px 0 22px}h1{font-size:26px}.mode-bar{align-items:flex-start;flex-wrap:wrap;gap:12px}.mode-tabs{flex:1}.mode-tabs button{flex:1;padding:10px 12px;font-size:14px;white-space:nowrap;gap:6px}.panes{grid-template-columns:1fr}.input-pane{border-right:0;border-bottom:1px solid var(--line)}.result-pane{min-height:320px}.experiment-toolbar{padding:16px 20px}.live-label{display:none}.input-pane,.result-pane{padding:24px}.bit{min-height:58px;font-size:30px}.characters{min-height:220px}.character{font-size:clamp(80px,21vw,145px)}.discovery{gap:10px}.interpretation{font-size:12px;gap:10px;padding:14px 18px}.flow-bits{letter-spacing:0}.classroom .panes{min-height:0}.classroom .bit{min-height:60px;font-size:32px}.classroom .character{font-size:clamp(80px,21vw,145px)}.classroom .characters{min-height:220px}.pixel-grid{max-width:300px}footer p{font-size:11px}.footer-symbol{display:none}}
+@media(max-width:420px){.app-shell{padding:0 12px}.brand{gap:7px}.brand-mark{display:none}.brand strong{font-size:16px}.input-pane,.result-pane{padding:20px 16px}.mode-tabs button{padding:10px 8px}.mode-icon{font-size:19px}.mobile-break{display:block}.byte-details{font-size:11px}.byte-details b{font-size:13px}.bit{min-height:50px;font-size:27px}.discovery{align-items:flex-start}.intro>p:last-child{font-size:13px}}
+@media(min-width:761px) and (max-height:850px){.topbar{padding:16px 0}.intro{padding:18px 0}.intro .eyebrow{display:none}h1{font-size:26px}.intro>p:last-child{font-size:13px}.mode-bar{margin-bottom:14px}.experiment-toolbar{padding:13px 24px}.input-pane,.result-pane{padding:18px 26px}.panes{min-height:330px}.pane-description{margin:12px 0}.controls{margin-bottom:16px}.bit{min-height:52px;font-size:29px}.byte-heading{margin-bottom:8px}.byte-details{margin-top:11px}.extra{margin-top:18px}.characters{min-height:200px}.character{font-size:130px}.interpretation{min-height:48px;padding:11px 20px}.discovery{margin:14px 0 18px}footer{padding:14px 0}.classroom .bit{min-height:62px;font-size:36px}.classroom .panes{min-height:0}.classroom .characters{min-height:260px}.classroom .pixel-grid{max-width:340px}}
+@media(prefers-reduced-motion:no-preference){.bit{transition:background-color .12s,box-shadow .12s}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Waveform editing: the bytes describe a single cycle; pitch has its own control. */
+.sample-controls { display: flex; gap: 18px; flex-wrap: wrap; }
+.sample-controls > div { flex: 1; min-width: 130px; }
+.sample-controls .text-input { width: 100%; font-size: 18px; }
+.frequency-control { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.frequency-control .text-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.frequency-control output { font: 600 22px var(--mono); color: var(--green); }
+.frequency-control input[type=range] { width: 100%; min-height: 34px; margin: 2px 0; accent-color: var(--green); cursor: pointer; }
+.range-labels { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+#frequency-hint { font-size: 12px; color: var(--muted); margin-bottom: 0; }
+.editable-waveform { touch-action: none; cursor: crosshair; aspect-ratio: 800 / 360; background: #fff; border: 1px solid var(--line); }
+.wave-help { font-size: 12px; color: var(--muted); text-align: center; margin: 12px 0; }
+.sample-readout { font-size: 15px; color: var(--ink); background: #eef5f0; border-radius: 6px; padding: 10px 14px; text-align: center; }
+.audio-experiment .wave-heading > span { font-size: 12px; color: var(--muted); }
+.audio-experiment .play { margin-top: 20px; }
+.audio-experiment .result-content { justify-content: flex-start; }
+@media (min-width: 761px) and (max-height: 850px) {
+  .audio-experiment .pane-description { margin: 8px 0; }
+  .audio-experiment .controls { margin-bottom: 12px; }
+  .audio-experiment .extra { margin-top: 14px; }
+  .audio-experiment .audio-explanation { margin: 10px 0; }
+  .audio-experiment .frequency-control { margin-top: 12px; padding-top: 12px; }
+  .audio-experiment #frequency-hint { margin-top: 6px; }
+  .audio-experiment .wave-heading { margin: 14px 0 10px; }
+  .audio-experiment .waveform { max-height: 225px; }
+  .audio-experiment .wave-help { margin: 9px 0; }
+  .audio-experiment .play { margin-top: 14px; }
+  .audio-experiment .sample-readout { padding: 8px 12px; }
+}
+@media (max-width: 420px) {
+  .sample-controls { gap: 10px; }
+  .sample-controls .text-label span { display: block; margin: 0; }
+  .wave-help { font-size: 11px; }
+  .sample-readout { font-size: 13px; }
+}
+
+.picture-presets { margin-top: 20px; width: min(100%, 340px); }
+.picture-presets .choices { gap: 8px; }
+.picture-presets .choice { flex: 1; }
+.sixteen-pixels .pixel { padding: 5px; }
+.sixteen-pixels .pixel span { font-size: 10px; padding: 3px 4px; }
+
+.lab-label { padding: 20px 0 16px; color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+.classroom .lab-label { display: none; }
+.ascii-reference { margin-top: 18px; border: 1px solid var(--line); border-radius: 10px; background: white; overflow: hidden; }
+.ascii-reference summary { padding: 17px 22px; cursor: pointer; font-weight: 700; font-size: 15px; }
+.ascii-reference summary span { font-weight: 400; font-size: 13px; color: var(--muted); margin-left: 14px; }
+.ascii-reference summary:focus-visible, .ascii-table-scroll:focus-visible { outline: 3px solid #b56e00; outline-offset: -3px; }
+.ascii-table-note { margin: 0; padding: 0 22px 16px; font-size: 13px; color: var(--muted); }
+.ascii-table-scroll { max-height: 480px; overflow: auto; padding: 0 20px 20px; }
+.ascii-tables { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ascii-tables table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.ascii-tables caption { padding: 10px; font-weight: 700; text-align: left; color: var(--green); }
+.ascii-tables th, .ascii-tables td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: center; }
+.ascii-tables thead { background: #eef5f0; }
+.ascii-tables tbody th { font-family: var(--mono); font-weight: 400; }
+.ascii-binary { font-family: var(--mono); white-space: nowrap; }
+.ascii-tables .current-code { background: #e4f2e9; outline: 2px solid var(--green); outline-offset: -2px; }
+.ascii-tables .current-code th, .ascii-tables .current-code td { font-weight: 700; }
+@media (max-width: 1100px) { .ascii-tables { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .ascii-tables { grid-template-columns: minmax(0, 1fr); }
+  .ascii-reference summary span { display: block; margin: 6px 0 0; }
+}
+
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="バイナリエクスプローラ ホーム"><span class="brand-mark" aria-hidden="true">01</span><span><strong>Binary Explorer</strong><small>バイナリエクスプローラ</small></span></a>
+      <div class="header-actions"><button id="reset" class="button">↺ <span>リセット</span></button><button id="classroom" class="button dark" aria-pressed="false">⛶ <span>全画面表示</span></button></div>
+    </header>
+    <main>
+      <div class="lab-label">DIGITAL LAB / データの実験室</div>
+      <div class="mode-bar"><nav class="mode-tabs" aria-label="実験モード"><button data-mode="ascii" aria-pressed="true"><span class="mode-icon">Aa</span>文字<span class="tab-sub">ASCII</span></button><button data-mode="bitmap" aria-pressed="false"><span class="mode-icon">▦</span>ビットマップ<span class="tab-sub">RGB</span></button><button data-mode="audio" aria-pressed="false"><span class="mode-icon">∿</span>音<span class="tab-sub">WAVE</span></button></nav></div>
+      <div id="workspace"></div>
+      <aside class="discovery"><span class="discovery-label">やってみよう</span><p id="challenge"></p></aside>
+    </main>
+    <footer><span class="footer-symbol" aria-hidden="true">01</span><p>同じ0と1でも、読み方のルールによって文字・画像・音になります。</p><span class="footer-meta">BINARY EXPLORER</span></footer>
+    <p id="status" class="status" role="status"></p>
+  </div>
+<script>
+(() => {
+'use strict';
+const modules = Object.create(null);
+modules["src/core/binary.js"] = (() => {
+function assertByte(value) {
+  if (!Number.isInteger(value) || value < 0 || value > 255) throw new RangeError('0〜255の整数を指定してください。');
+  return value;
+}
+function byteToBits(value) { return assertByte(value).toString(2).padStart(8, '0').split('').map(Number); }
+function bitsToByte(bits) {
+  if (!Array.isArray(bits) || bits.length !== 8 || bits.some(bit => bit !== 0 && bit !== 1)) throw new TypeError('8個の0または1が必要です。');
+  return bits.reduce((value, bit) => value * 2 + bit, 0);
+}
+function toggleBit(value, position) {
+  assertByte(value);
+  if (!Number.isInteger(position) || position < 0 || position > 7) throw new RangeError('ビット番号は0〜7です。');
+  return value ^ (1 << position);
+}
+function formatBinary(value) { const bits = byteToBits(value).join(''); return `${bits.slice(0, 4)} ${bits.slice(4)}`; }
+
+return { assertByte, byteToBits, bitsToByte, toggleBit, formatBinary };
+})();
+modules["src/ui/bit-editor.js"] = (() => {
+const { byteToBits, toggleBit, formatBinary } = modules["src/core/binary.js"];
+
+function createBitEditor({ value, label, onChange }) {
+  const element = document.createElement('div');
+  element.className = 'byte-editor';
+  element.innerHTML = `<div class="byte-heading"><strong></strong><span>8 bit / 1 byte</span></div><div class="bits" role="group"></div><div class="byte-details"><span>2進数 <b class="binary-value"></b></span><span>10進数 <b class="decimal-value"></b></span></div>`;
+  element.querySelector('.byte-heading strong').textContent = label;
+  const group = element.querySelector('.bits');
+  group.setAttribute('aria-label', label);
+  const timers = new Map();
+  const buttons = byteToBits(value).map((bit, index) => {
+    const cell = document.createElement('div'); cell.className = 'bit-cell';
+    const caption = document.createElement('span'); caption.className = 'bit-position'; caption.textContent = 7 - index;
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'bit';
+    cell.append(caption, button); group.append(cell);
+    button.addEventListener('click', () => {
+      value = toggleBit(value, 7 - index); update(value);
+      clearTimeout(timers.get(button)); button.classList.add('changed');
+      timers.set(button, setTimeout(() => button.classList.remove('changed'), 1500));
+      onChange(value);
+    });
+    return button;
+  });
+  function update(next) {
+    value = next;
+    byteToBits(value).forEach((bit, index) => {
+      buttons[index].textContent = bit;
+      buttons[index].dataset.value = bit;
+      buttons[index].setAttribute('aria-pressed', String(Boolean(bit)));
+      buttons[index].setAttribute('aria-label', `${label}、ビット${7 - index}、値${bit}。押すと反転`);
+    });
+    element.querySelector('.binary-value').textContent = formatBinary(value);
+    element.querySelector('.decimal-value').textContent = value;
+  }
+  update(value);
+  function setLabel(next) {
+    label = next;
+    element.querySelector('.byte-heading strong').textContent = label;
+    group.setAttribute('aria-label', label);
+    update(value);
+  }
+  return { element, update, setLabel };
+}
+
+return { createBitEditor };
+})();
+modules["src/core/ascii.js"] = (() => {
+const { assertByte } = modules["src/core/binary.js"];
+
+function byteToAscii(value) {
+  assertByte(value);
+  return value >= 32 && value <= 126 ? String.fromCharCode(value) : null;
+}
+function asciiToByte(char) {
+  if (typeof char !== 'string' || char.length !== 1 || char.charCodeAt(0) > 127) throw new TypeError('この教材ではASCII文字を使ってください。');
+  return char.charCodeAt(0);
+}
+
+return { byteToAscii, asciiToByte };
+})();
+modules["src/ui/layout.js"] = (() => {
+function layout(root, { number, title, description, resultLabel }) {
+  root.innerHTML = `<section class="experiment" aria-label="${title}"><div class="experiment-toolbar"><div><span class="experiment-number">${number}</span><h2>${title}</h2></div><span class="live-label">クリックすると、その場で変化</span></div><div class="panes"><section class="input-pane"><div class="pane-heading"><span class="step-label">01 / ビットを変える</span><span class="pane-note">0 ⇄ 1</span></div><p class="pane-description">${description}</p><div class="controls"></div><div class="editors"></div><div class="extra"></div></section><section class="result-pane"><div class="pane-heading"><span class="step-label">02 / ${resultLabel}</span><span class="result-badge">LIVE PREVIEW</span></div><div class="result-content"></div></section></div><div class="interpretation"></div></section>`;
+  return Object.fromEntries(['controls', 'editors', 'extra', 'result-content', 'interpretation'].map(name => [name.replace('-', ''), root.querySelector(`.${name}`)]));
+}
+function choices(items, active, onSelect, label) {
+  const group = document.createElement('div'); group.className = 'choices'; group.setAttribute('role', 'group'); group.setAttribute('aria-label', label);
+  for (const [value, text] of items) {
+    const button = document.createElement('button'); button.className = 'choice'; button.textContent = text;
+    button.setAttribute('aria-pressed', String(value === active));
+    button.addEventListener('click', () => { [...group.children].forEach(child => child.setAttribute('aria-pressed', String(child === button))); onSelect(value); });
+    group.append(button);
+  }
+  return group;
+}
+const flashes = new WeakMap();
+function flash(element) {
+  clearTimeout(flashes.get(element)); element.classList.add('result-changed');
+  flashes.set(element, setTimeout(() => element.classList.remove('result-changed'), 1500));
+}
+
+return { layout, choices, flash };
+})();
+modules["src/ui/ascii-table.js"] = (() => {
+const { byteToAscii } = modules["src/core/ascii.js"];
+
+const { formatBinary } = modules["src/core/binary.js"];
+
+function createAsciiTable() {
+  const element = document.createElement('details');
+  element.className = 'ascii-reference';
+  element.innerHTML = '<summary>ASCIIコード表 <span>0〜127の数値と文字の対応</span></summary><p class="ascii-table-note">2進数は8bitで表示しています。0〜31と127は制御文字、128〜255は標準ASCIIの範囲外です。編集中の値を表の中で強調します。</p><div class="ascii-table-scroll" tabindex="0" role="region" aria-label="ASCIIコード表。スクロールして確認できます"><div class="ascii-tables"></div></div>';
+  const tables = element.querySelector('.ascii-tables');
+  const rows = [];
+  for (let start = 0; start < 128; start += 32) {
+    const table = document.createElement('table');
+    table.innerHTML = `<caption>${start}〜${start + 31}</caption><thead><tr><th scope="col">10進数</th><th scope="col">2進数</th><th scope="col">文字</th></tr></thead><tbody></tbody>`;
+    const body = table.querySelector('tbody');
+    for (let value = start; value < start + 32; value++) {
+      const row = document.createElement('tr');
+      const decimal = document.createElement('th'); decimal.scope = 'row'; decimal.textContent = value;
+      const binary = document.createElement('td'); binary.className = 'ascii-binary'; binary.textContent = formatBinary(value);
+      const character = document.createElement('td');
+      character.textContent = value === 32 ? '空白' : byteToAscii(value) ?? '制御文字';
+      row.append(decimal, binary, character); body.append(row); rows.push(row);
+    }
+    tables.append(table);
+  }
+  return {
+    element,
+    update(bytes) {
+      rows.forEach((row, value) => row.classList.toggle('current-code', bytes.includes(value)));
+    },
+  };
+}
+
+return { createAsciiTable };
+})();
+modules["src/ui/ascii-view.js"] = (() => {
+const { createBitEditor } = modules["src/ui/bit-editor.js"];
+
+const { byteToAscii, asciiToByte } = modules["src/core/ascii.js"];
+
+const { layout, choices, flash } = modules["src/ui/layout.js"];
+
+const { createAsciiTable } = modules["src/ui/ascii-table.js"];
+
+function renderAscii(root, state) {
+  const ui = layout(root, { number: '01', title: '文字の実験', description: '8つのビットで、ひとつの文字を表そう。', resultLabel: '文字として読む' });
+  const reference = createAsciiTable();
+  root.append(reference.element);
+  ui.controls.append(choices([['A', 'A / 1文字'], ['ABC', 'ABC / 3文字']], state.bytes.length === 1 ? 'A' : 'ABC', sample => {
+    state.bytes = [...sample].map(asciiToByte); input.value = sample; error.textContent = ''; renderEditors();
+  }, '文字サンプル'));
+  ui.extra.innerHTML = '<label class="text-label" for="ascii-input">好きな文字でも試そう <span>ASCII・1〜3文字</span></label><input id="ascii-input" class="text-input" maxlength="3" autocomplete="off" spellcheck="false" aria-describedby="ascii-error"><p id="ascii-error" class="field-error" role="status"></p>';
+  const input = ui.extra.querySelector('input'), error = ui.extra.querySelector('.field-error');
+  input.value = state.bytes.map(v => byteToAscii(v) ?? '').join('');
+  input.addEventListener('input', () => {
+    if (!input.value) { error.textContent = '1〜3文字を入力してください。'; return; }
+    try {
+      state.bytes = [...input.value].map(asciiToByte); error.textContent = '';
+      renderEditors();
+    } catch { error.textContent = 'この教材ではASCII文字を使ってください。'; }
+  });
+  function updateResult(changedIndex) {
+    reference.update(state.bytes);
+    ui.controls.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String((button.textContent.startsWith('ABC') ? 'ABC' : 'A') === state.bytes.map(v => byteToAscii(v) ?? '').join(''))));
+    const old = [...ui.resultcontent.querySelectorAll('.character')];
+    if (old.length !== state.bytes.length) {
+      ui.resultcontent.innerHTML = '<div class="characters" aria-live="polite" aria-atomic="true"></div><p class="result-caption">ASCIIのルールで文字に変換</p>';
+      state.bytes.forEach(() => { const span = document.createElement('span'); span.className = 'character'; ui.resultcontent.firstElementChild.append(span); });
+    }
+    ui.resultcontent.querySelectorAll('.character').forEach((element, index) => {
+      const char = byteToAscii(state.bytes[index]);
+      element.textContent = char === null ? '·' : char === ' ' ? '␣' : char;
+      element.setAttribute('aria-label', char === null ? '表示できない文字' : char === ' ' ? '空白' : char);
+      element.classList.toggle('unprintable', char === null);
+      if (index === changedIndex) flash(element);
+    });
+    const hasUnprintable = state.bytes.some(v => byteToAscii(v) === null);
+    ui.resultcontent.querySelector('.result-caption').textContent = hasUnprintable ? '· は表示できない文字を表します' : state.bytes.includes(32) ? '␣ は空白（スペース）を表します' : 'ASCIIのルールで文字に変換';
+    ui.interpretation.replaceChildren();
+    const code = document.createElement('span'); code.className = 'flow-bits'; code.textContent = state.bytes.map(v => v.toString(2).padStart(8, '0')).join(' / ');
+    const numbers = document.createElement('strong'); numbers.textContent = state.bytes.join(' / ');
+    const chars = document.createElement('strong'); chars.textContent = state.bytes.map(v => byteToAscii(v) === ' ' ? '空白' : byteToAscii(v) ?? '表示できない文字').join(' ');
+    ui.interpretation.append(code, ' → ', numbers, ' → ', chars);
+  }
+  function renderEditors() {
+    ui.editors.replaceChildren();
+    state.bytes.forEach((value, index) => ui.editors.append(createBitEditor({ value, label: `文字 ${index + 1}`, onChange: next => {
+      state.bytes[index] = next;
+      input.value = state.bytes.map(v => byteToAscii(v) ?? '').join('');
+      error.textContent = ''; updateResult(index);
+    } }).element));
+    updateResult();
+  }
+  renderEditors();
+}
+
+return { renderAscii };
+})();
+modules["src/core/bitmap.js"] = (() => {
+const { assertByte } = modules["src/core/binary.js"];
+
+function rgbToCss(r, g, b) { return `rgb(${assertByte(r)}, ${assertByte(g)}, ${assertByte(b)})`; }
+const colors = { '赤': [255, 0, 0], '緑': [0, 255, 0], '青': [0, 0, 255], '白': [255, 255, 255], '黒': [0, 0, 0] };
+
+const picturePresets = { heart: 'ハート', flower: '花', tree: '木' };
+const picturePatterns = {
+  heart: ['H..H', 'HHHH', 'HHHH', '.HH.'],
+  flower: ['.FF.', 'FYYF', '.GG.', '..G.'],
+  tree: ['.GG.', 'GGGG', '.TT.', '.TT.'],
+};
+const palette = {
+  '.': [255, 255, 255], H: [240, 64, 96], F: [255, 112, 160],
+  Y: [255, 208, 0], G: [40, 160, 88], T: [144, 88, 48],
+};
+function createPicture(name) {
+  if (!Object.hasOwn(picturePatterns, name)) throw new RangeError('未対応の絵です。');
+  return [...picturePatterns[name].join('')].map(symbol => [...palette[symbol]]);
+}
+
+function createPixels(size) {
+  if (![1, 2, 3, 4].includes(size)) throw new RangeError('1・2・3・4のいずれかを指定してください。');
+  if (size === 4) return createPicture('heart');
+  const pattern = size === 3 ? [[0, 128, 255], [255, 255, 255], [0, 128, 255], [255, 255, 255], [255, 192, 0], [255, 255, 255], [0, 128, 255], [255, 255, 255], [0, 128, 255]] : [[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]];
+  return pattern.slice(0, size * size).map(rgb => [...rgb]);
+}
+
+return { rgbToCss, colors, picturePresets, createPicture, createPixels };
+})();
+modules["src/ui/bitmap-view.js"] = (() => {
+const { createBitEditor } = modules["src/ui/bit-editor.js"];
+
+const { rgbToCss, colors, createPixels, createPicture, picturePresets } = modules["src/core/bitmap.js"];
+
+const { layout, choices, flash } = modules["src/ui/layout.js"];
+
+function renderBitmap(root, state) {
+  const ui = layout(root, { number: '02', title: '色の実験', description: 'ドットを選んで、赤・緑・青のビットを変えよう。', resultLabel: '色として読む' });
+  let editors = [];
+  ui.controls.append(choices([[1, '1ドット'], [2, '4ドット'], [3, '9ドット'], [4, '16ドット']], state.size, size => {
+    state.size = size; state.pixels = createPixels(size); state.selected = 0; renderPixels(); renderEditors();
+  }, '画像のドット数'));
+  const selection = document.createElement('p'); selection.className = 'selection-label'; ui.controls.append(selection);
+  ui.extra.innerHTML = '<p class="text-label">選んだドットの色</p>';
+  const presets = choices(Object.keys(colors).map(color => [color, color]), '', color => { state.pixels[state.selected] = [...colors[color]]; editors.forEach((editor, i) => editor.update(state.pixels[state.selected][i])); update(); }, '色のサンプル');
+  presets.classList.add('color-presets'); ui.extra.append(presets);
+  ui.resultcontent.innerHTML = '<div class="picture-presets"><p class="text-label">絵のプリセット <span>画像全体を変更</span></p></div><div class="pixel-grid" role="group" aria-label="拡大したビットマップ"></div><p class="result-caption"></p><p class="pixel-values"></p>';
+  const pictures = ui.resultcontent.querySelector('.picture-presets');
+  const pictureChoices = choices(Object.entries(picturePresets), '', name => {
+    state.pixels = createPicture(name); state.selected = 0;
+    renderEditors(); flash(grid);
+  }, '絵のプリセット');
+  pictures.append(pictureChoices);
+  const grid = ui.resultcontent.querySelector('.pixel-grid');
+  function renderPixels() {
+    pictures.hidden = state.size !== 4;
+    grid.classList.toggle('sixteen-pixels', state.size === 4);
+    grid.style.setProperty('--grid-size', state.size); grid.replaceChildren();
+    state.pixels.forEach((_, index) => {
+      const button = document.createElement('button'); button.className = 'pixel';
+      const label = document.createElement('span'); label.textContent = `P${index + 1}`; button.append(label);
+      button.addEventListener('click', () => { state.selected = index; renderEditors(); }); grid.append(button);
+    });
+  }
+  function update(changed = true) {
+    const rgb = state.pixels[state.selected];
+    selection.textContent = `Pixel ${state.selected + 1} を編集中`;
+    [...grid.children].forEach((button, index) => {
+      const [r, g, b] = state.pixels[index]; button.style.backgroundColor = rgbToCss(r, g, b);
+      button.setAttribute('aria-pressed', String(index === state.selected));
+      button.setAttribute('aria-label', `Pixel ${index + 1}、R ${r}、G ${g}、B ${b}`);
+    });
+    if (changed) flash(grid.children[state.selected]);
+    ui.resultcontent.querySelector('.result-caption').textContent = `${state.size} × ${state.size} の画像を拡大表示しています`;
+    ui.resultcontent.querySelector('.pixel-values').textContent = `Pixel ${state.selected + 1}　R = ${rgb[0]}　G = ${rgb[1]}　B = ${rgb[2]}`;
+    ui.interpretation.textContent = `R・G・B 各8bit → 1ドット = 24bit = 3bytes　／　${state.size ** 2}ドット × 24bit = ${state.size ** 2 * 24}bit`;
+    [...presets.children].forEach(button => button.setAttribute('aria-pressed', String(colors[button.textContent].every((v, i) => v === rgb[i]))));
+    [...pictureChoices.children].forEach((button, index) => {
+      const picture = createPicture(Object.keys(picturePresets)[index]);
+      const matches = state.size === 4 && picture.every((pixel, i) => pixel.every((value, channel) => value === state.pixels[i][channel]));
+      button.setAttribute('aria-pressed', String(matches));
+    });
+  }
+  function renderEditors() {
+    ui.editors.replaceChildren(); editors = ['R / 赤', 'G / 緑', 'B / 青'].map((label, channel) => {
+      const editor = createBitEditor({ value: state.pixels[state.selected][channel], label, onChange: value => { state.pixels[state.selected][channel] = value; update(); } });
+      editor.element.classList.add(`channel-${channel}`); ui.editors.append(editor.element); return editor;
+    }); update(false);
+  }
+  renderPixels(); renderEditors();
+}
+
+return { renderBitmap };
+})();
+modules["src/core/audio.js"] = (() => {
+const { assertByte } = modules["src/core/binary.js"];
+
+const SAMPLE_COUNT = 32;
+const MIN_FREQUENCY = 110;
+const MAX_FREQUENCY = 880;
+
+// Unsigned 8-bit PCM: 128 is silence, 0 is -1, 255 is 127/128.
+function byteToAmplitude(value) {
+  return (assertByte(value) - 128) / 128;
+}
+
+function amplitudeToByte(value) {
+  if (!Number.isFinite(value)) throw new TypeError('有限の振幅が必要です。');
+  return Math.max(0, Math.min(255, Math.round(value * 128 + 128)));
+}
+
+function createWaveform(type, sampleCount = SAMPLE_COUNT) {
+  if (!['sine', 'square', 'triangle', 'sawtooth'].includes(type)) throw new TypeError('未対応の波形です。');
+  if (!Number.isInteger(sampleCount) || sampleCount < 4) throw new RangeError('4点以上のサンプルが必要です。');
+  return Array.from({ length: sampleCount }, (_, i) => {
+    const phase = i / sampleCount;
+    if (type === 'square') return phase < 0.5 ? 255 : 0;
+    if (type === 'sawtooth') return amplitudeToByte(phase * 2 - 1);
+    const amplitude = type === 'triangle'
+      ? 2 / Math.PI * Math.asin(Math.sin(phase * Math.PI * 2))
+      : Math.sin(phase * Math.PI * 2);
+    return amplitudeToByte(amplitude);
+  });
+}
+
+function samplesToPcm(samples) {
+  if (!Array.isArray(samples) || samples.length < 4) throw new TypeError('4点以上の波形が必要です。');
+  return Float32Array.from(samples, byteToAmplitude);
+}
+
+// One loop contains sampleCount frames. Rate * sampleRate / frameCount = Hz.
+function frequencyToPlaybackRate(frequency, sampleCount, sampleRate) {
+  if (!Number.isFinite(frequency) || frequency < MIN_FREQUENCY || frequency > MAX_FREQUENCY) throw new RangeError('周波数は110〜880Hzです。');
+  if (!Number.isInteger(sampleCount) || sampleCount < 4 || !Number.isFinite(sampleRate) || sampleRate <= 0) throw new RangeError('再生条件が不正です。');
+  return frequency * sampleCount / sampleRate;
+}
+
+return { SAMPLE_COUNT, MIN_FREQUENCY, MAX_FREQUENCY, byteToAmplitude, amplitudeToByte, createWaveform, samplesToPcm, frequencyToPlaybackRate };
+})();
+modules["src/ui/waveform.js"] = (() => {
+const PLOT = { left: 48, right: 20, top: 24, bottom: 36 };
+
+function samplePosition(canvas, index, value, count) {
+  return {
+    x: PLOT.left + index / count * (canvas.width - PLOT.left - PLOT.right),
+    y: PLOT.top + (255 - value) / 255 * (canvas.height - PLOT.top - PLOT.bottom),
+  };
+}
+
+function pointFromPointer(canvas, clientX, clientY, count) {
+  const rect = canvas.getBoundingClientRect();
+  const x = (clientX - rect.left) / rect.width * canvas.width;
+  const y = (clientY - rect.top) / rect.height * canvas.height;
+  return {
+    index: Math.max(0, Math.min(count - 1, Math.round((x - PLOT.left) / (canvas.width - PLOT.left - PLOT.right) * count))),
+    value: Math.max(0, Math.min(255, Math.round(255 * (1 - (y - PLOT.top) / (canvas.height - PLOT.top - PLOT.bottom))))),
+  };
+}
+
+function drawWaveform(canvas, samples, selected) {
+  const context = canvas.getContext('2d');
+  const width = canvas.width, height = canvas.height;
+  context.clearRect(0, 0, width, height);
+  context.font = '16px monospace';
+  for (const value of [0, 64, 128, 192, 255]) {
+    const { y } = samplePosition(canvas, 0, value, samples.length);
+    context.strokeStyle = value === 128 ? '#91ada0' : '#e0e8e8';
+    context.lineWidth = value === 128 ? 2 : 1;
+    context.beginPath(); context.moveTo(PLOT.left, y); context.lineTo(width - PLOT.right, y); context.stroke();
+    context.fillStyle = '#587069'; context.textAlign = 'right'; context.fillText(value, PLOT.left - 10, y + 5);
+  }
+  samples.forEach((value, i) => {
+    const { x } = samplePosition(canvas, i, value, samples.length);
+    context.strokeStyle = '#d9e4dd'; context.lineWidth = 1;
+    context.beginPath(); context.moveTo(x, PLOT.top); context.lineTo(x, height - PLOT.bottom); context.stroke();
+    if (i === selected) {
+      context.fillStyle = '#f4e5bc';
+      context.fillRect(x - 10, PLOT.top, 20, height - PLOT.top - PLOT.bottom);
+    }
+  });
+  context.strokeStyle = '#146c52'; context.lineWidth = 3; context.lineJoin = 'round'; context.beginPath();
+  samples.forEach((value, i) => {
+    const { x, y } = samplePosition(canvas, i, value, samples.length);
+    if (i === 0) context.moveTo(x, y); else context.lineTo(x, y);
+  }); context.stroke();
+  // Dashed segment shows the loop returning to the first sample.
+  const end = samplePosition(canvas, samples.length - 1, samples.at(-1), samples.length);
+  const next = samplePosition(canvas, samples.length, samples[0], samples.length);
+  context.setLineDash([5, 5]); context.beginPath(); context.moveTo(end.x, end.y); context.lineTo(next.x, next.y); context.stroke(); context.setLineDash([]);
+  samples.forEach((value, i) => {
+    const { x, y } = samplePosition(canvas, i, value, samples.length);
+    context.beginPath(); context.arc(x, y, i === selected ? 8 : 4.5, 0, Math.PI * 2);
+    context.fillStyle = i === selected ? '#b56e00' : '#fff'; context.fill();
+    context.strokeStyle = i === selected ? '#8f5700' : '#146c52'; context.lineWidth = 2; context.stroke();
+  });
+  context.fillStyle = '#587069'; context.textAlign = 'left'; context.fillText('1', PLOT.left, height - 9);
+  context.textAlign = 'right'; context.fillText(`${samples.length} → 次のくり返し`, width - PLOT.right, height - 9);
+}
+
+return { PLOT, samplePosition, pointFromPointer, drawWaveform };
+})();
+modules["src/ui/audio-view.js"] = (() => {
+const { createBitEditor } = modules["src/ui/bit-editor.js"];
+
+const { createWaveform, MIN_FREQUENCY, MAX_FREQUENCY } = modules["src/core/audio.js"];
+
+const { layout, choices, flash } = modules["src/ui/layout.js"];
+
+const { drawWaveform, pointFromPointer } = modules["src/ui/waveform.js"];
+
+function renderAudio(root, state, engine, report) {
+  const names = { sine: '正弦波', square: '方形波', triangle: '三角波', sawtooth: 'のこぎり波' };
+  const ui = layout(root, {
+    number: '03', title: '音の実験',
+    description: '波形の点を選んで、その瞬間の数値を変えよう。', resultLabel: '波形・音として読む',
+  });
+  root.querySelector('.experiment').classList.add('audio-experiment');
+  const presets = choices(Object.entries(names), state.type, type => {
+    state.type = type; state.samples = createWaveform(type); update(true);
+  }, '波形のプリセット');
+  ui.controls.append(presets);
+  const editor = createBitEditor({
+    value: state.samples[state.selected], label: `点 ${state.selected + 1} の振れ`,
+    onChange: value => { editSample(value); },
+  });
+  ui.editors.append(editor.element);
+  ui.extra.innerHTML = `
+    <div class="sample-controls">
+      <div><label class="text-label" for="sample-select">編集する点</label><select id="sample-select" class="text-input"></select></div>
+      <div><label class="text-label" for="sample-value">その瞬間の数値 <span>0〜255</span></label><input id="sample-value" class="text-input" type="number" min="0" max="255" step="1" inputmode="numeric" aria-describedby="sample-error"></div>
+    </div>
+    <p id="sample-error" class="field-error" role="status"></p>
+    <p class="audio-explanation">1点 = 1バイト。128を中心に、数値を変えると上下します。</p>
+    <div class="frequency-control">
+      <label class="text-label" for="frequency-slider">くり返す速さ <output id="frequency-value" for="frequency-slider"></output></label>
+      <input id="frequency-slider" type="range" min="${MIN_FREQUENCY}" max="${MAX_FREQUENCY}" step="1" value="${state.frequency}" aria-describedby="frequency-hint">
+      <div class="range-labels"><span>低い音 · 110 Hz</span><span>高い音 · 880 Hz</span></div>
+      <p id="frequency-hint">波形の数値はそのままで、音の高さを変えます。</p>
+    </div>`;
+  ui.resultcontent.innerHTML = `
+    <div class="wave-heading"><strong class="wave-name"></strong><span>1周期 / 32点</span></div>
+    <canvas class="waveform editable-waveform" width="800" height="360" role="img" tabindex="0" aria-describedby="wave-edit-help"></canvas>
+    <p id="wave-edit-help" class="wave-help">列をクリックして値を見る · ドラッグで変更<br>キーボード：← → で点を選択、↑ ↓ で数値を変更</p>
+    <div class="sample-readout" aria-live="polite" aria-atomic="true"></div>
+    <button class="button play">▶ 音を鳴らす</button>
+    <p class="result-caption">この32点をくり返して再生します。音量は小さめです。</p>`;
+  const canvas = ui.resultcontent.querySelector('canvas');
+  const play = ui.resultcontent.querySelector('.play');
+  const select = ui.extra.querySelector('#sample-select');
+  const valueInput = ui.extra.querySelector('#sample-value');
+  const error = ui.extra.querySelector('#sample-error');
+  const frequency = ui.extra.querySelector('#frequency-slider');
+  state.samples.forEach((_, index) => {
+    const option = document.createElement('option'); option.value = index; option.textContent = `点 ${index + 1} / 32`; select.append(option);
+  });
+  select.addEventListener('change', () => { state.selected = Number(select.value); update(); });
+  valueInput.addEventListener('input', () => {
+    const value = valueInput.valueAsNumber;
+    if (!Number.isInteger(value) || value < 0 || value > 255) { error.textContent = '0〜255の整数を入力してください。'; return; }
+    editSample(value);
+  });
+  valueInput.addEventListener('change', () => { valueInput.value = state.samples[state.selected]; error.textContent = ''; });
+  frequency.addEventListener('input', () => { state.frequency = Number(frequency.value); update(); });
+
+  function editSample(value) {
+    state.samples[state.selected] = value; state.type = 'custom'; update(true);
+  }
+  let drawing = null;
+  canvas.addEventListener('pointerdown', event => {
+    if (event.button !== 0 || drawing) return;
+    event.preventDefault(); canvas.focus(); canvas.setPointerCapture(event.pointerId);
+    const point = pointFromPointer(canvas, event.clientX, event.clientY, state.samples.length);
+    state.selected = point.index;
+    // Any position in the column selects only; small pointer jitter is not a drag.
+    drawing = {
+      pointerId: event.pointerId, index: point.index, value: state.samples[point.index],
+      startX: event.clientX, startY: event.clientY, dragging: false,
+    };
+    update();
+  });
+  canvas.addEventListener('pointermove', event => {
+    if (!drawing || drawing.pointerId !== event.pointerId) return;
+    if (!drawing.dragging) {
+      if (Math.hypot(event.clientX - drawing.startX, event.clientY - drawing.startY) < 5) return;
+      drawing.dragging = true;
+    }
+    const point = pointFromPointer(canvas, event.clientX, event.clientY, state.samples.length);
+    const distance = Math.abs(point.index - drawing.index);
+    for (let step = 0; step <= distance; step++) {
+      const index = distance ? drawing.index + Math.sign(point.index - drawing.index) * step : point.index;
+      state.samples[index] = distance ? Math.round(drawing.value + (point.value - drawing.value) * step / distance) : point.value;
+    }
+    state.selected = point.index; state.type = 'custom';
+    drawing = { ...drawing, ...point }; update(true);
+  });
+  const endDrawing = event => { if (drawing?.pointerId === event.pointerId) drawing = null; };
+  canvas.addEventListener('pointerup', endDrawing);
+  canvas.addEventListener('pointercancel', endDrawing);
+  canvas.addEventListener('lostpointercapture', endDrawing);
+  canvas.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === 'ArrowLeft') state.selected = Math.max(0, state.selected - 1);
+    if (event.key === 'ArrowRight') state.selected = Math.min(state.samples.length - 1, state.selected + 1);
+    if (event.key === 'Home') state.selected = 0;
+    if (event.key === 'End') state.selected = state.samples.length - 1;
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      editSample(Math.max(0, Math.min(255, state.samples[state.selected] + (event.key === 'ArrowUp' ? 1 : -1))));
+    } else update();
+  });
+
+  let pending = false, attempt = 0;
+  play.addEventListener('click', async () => {
+    const currentAttempt = ++attempt;
+    if (engine.playing || pending) { engine.stop(); pending = false; play.textContent = '▶ 音を鳴らす'; return; }
+    pending = true; play.textContent = '■ 止める';
+    try {
+      const started = await engine.start(state.samples, state.frequency);
+      if (started) engine.update(state.samples, state.frequency);
+    } catch (error) { engine.stop(); report(error.message || '音を再生できませんでした。もう一度お試しください。'); }
+    finally {
+      if (currentAttempt === attempt) { pending = false; play.textContent = engine.playing ? '■ 止める' : '▶ 音を鳴らす'; }
+    }
+  });
+
+  function update(changed = false) {
+    const value = state.samples[state.selected];
+    editor.update(value); editor.setLabel(`点 ${state.selected + 1} の振れ`);
+    select.value = state.selected; valueInput.value = value; error.textContent = '';
+    [...presets.children].forEach((button, index) => button.setAttribute('aria-pressed', String(Object.keys(names)[index] === state.type)));
+    ui.extra.querySelector('#frequency-value').textContent = `${state.frequency} Hz`;
+    frequency.setAttribute('aria-valuetext', `${state.frequency}ヘルツ、1秒に${state.frequency}回くり返す`);
+    ui.resultcontent.querySelector('.wave-name').textContent = names[state.type] ?? '自分でつくった波形';
+    canvas.setAttribute('aria-label', `32点の波形。点${state.selected + 1}を選択、数値${value}。横軸は時間、縦軸は0〜255の振れ。`);
+    drawWaveform(canvas, state.samples, state.selected);
+    ui.resultcontent.querySelector('.sample-readout').textContent = `点 ${state.selected + 1} → 数値 ${value} → ${value === 128 ? '中心' : value > 128 ? '中心より上' : '中心より下'}`;
+    if (changed) flash(ui.resultcontent.querySelector('.sample-readout'));
+    engine.update(state.samples, state.frequency);
+    ui.interpretation.textContent = `点 ${state.selected + 1} の8bit → 数値 ${value} → 波形の1点の振れ　／　32点 × 8bit = 32bytes`;
+  }
+  update();
+}
+
+return { renderAudio };
+})();
+modules["src/ui/audio-engine.js"] = (() => {
+const { samplesToPcm, frequencyToPlaybackRate } = modules["src/core/audio.js"];
+
+class AudioEngine {
+  context = null;
+  voice = null;
+  generation = 0;
+  samples = [];
+
+  get playing() { return this.voice !== null; }
+
+  async start(samples, frequency) {
+    this.stop();
+    const generation = ++this.generation;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) throw new Error('このブラウザでは音を再生できません。');
+    this.context ??= new AudioContext();
+    await this.context.resume();
+    if (generation !== this.generation) return false;
+    this.voice = this.createVoice(samples, frequency);
+    this.samples = [...samples];
+    return true;
+  }
+
+  createVoice(samples, frequency) {
+    const pcm = samplesToPcm(samples);
+    const rate = frequencyToPlaybackRate(frequency, pcm.length, this.context.sampleRate);
+    const buffer = this.context.createBuffer(1, pcm.length, this.context.sampleRate);
+    buffer.copyToChannel(pcm, 0);
+    const source = this.context.createBufferSource();
+    const gain = this.context.createGain();
+    source.buffer = buffer;
+    source.loop = true;
+    source.playbackRate.value = rate;
+    source.connect(gain).connect(this.context.destination);
+    gain.gain.setValueAtTime(0, this.context.currentTime);
+    gain.gain.linearRampToValueAtTime(0.1, this.context.currentTime + 0.025);
+    source.start();
+    return { source, gain };
+  }
+
+  update(samples, frequency) {
+    if (!this.voice) return;
+    const changed = samples.length !== this.samples.length || samples.some((value, i) => value !== this.samples[i]);
+    if (changed) {
+      const previous = this.voice;
+      this.voice = this.createVoice(samples, frequency);
+      this.samples = [...samples];
+      this.fadeOut(previous);
+    } else {
+      this.voice.source.playbackRate.setTargetAtTime(
+        frequencyToPlaybackRate(frequency, samples.length, this.context.sampleRate), this.context.currentTime, 0.015,
+      );
+    }
+  }
+
+  fadeOut({ source, gain }) {
+    const now = this.context.currentTime;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setTargetAtTime(0, now, 0.008);
+    source.stop(now + 0.05);
+    source.onended = () => { source.disconnect(); gain.disconnect(); };
+  }
+
+  stop() {
+    ++this.generation;
+    if (this.voice) this.fadeOut(this.voice);
+    this.voice = null;
+    this.samples = [];
+  }
+}
+
+return { AudioEngine };
+})();
+modules["src/main.js"] = (() => {
+const { renderAscii } = modules["src/ui/ascii-view.js"];
+
+const { renderBitmap } = modules["src/ui/bitmap-view.js"];
+
+const { renderAudio } = modules["src/ui/audio-view.js"];
+
+const { AudioEngine } = modules["src/ui/audio-engine.js"];
+
+const { createPixels } = modules["src/core/bitmap.js"];
+
+const { createWaveform } = modules["src/core/audio.js"];
+
+let mode = 'ascii';
+const defaults = { ascii: () => ({ bytes: [65] }), bitmap: () => ({ size: 1, pixels: createPixels(1), selected: 0 }), audio: () => ({ type: 'sine', samples: createWaveform('sine'), selected: 0, frequency: 220 }) };
+const state = Object.fromEntries(Object.entries(defaults).map(([key, factory]) => [key, factory()]));
+const engine = new AudioEngine();
+const root = document.querySelector('#workspace');
+let statusTimer;
+function report(message) { clearTimeout(statusTimer); document.querySelector('#status').textContent = message; statusTimer = setTimeout(() => document.querySelector('#status').textContent = '', 6000); }
+function render() {
+  document.body.dataset.mode = mode;
+  if (mode === 'ascii') renderAscii(root, state.ascii);
+  if (mode === 'bitmap') renderBitmap(root, state.bitmap);
+  if (mode === 'audio') renderAudio(root, state.audio, engine, report);
+  document.querySelector('#challenge').textContent = { ascii: '「A」のいちばん右のビットを変えてみよう。どんな文字になる？', bitmap: '「白」から、Rのビットを全部0にすると、何色になる？', audio: '点を上下させると、どんな音になる？ 波形を変えずにスライダーだけ動かしたときとも比べよう。' }[mode];
+}
+document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
+  engine.stop(); mode = button.dataset.mode;
+  document.querySelectorAll('[data-mode]').forEach(tab => tab.setAttribute('aria-pressed', String(tab === button)));
+  render();
+}));
+document.querySelector('#reset').addEventListener('click', () => { engine.stop(); state[mode] = defaults[mode](); render(); report('このモードを最初のサンプルに戻しました。'); });
+const classroom = document.querySelector('#classroom');
+function setClassroom(active) {
+  document.body.classList.toggle('classroom', active); classroom.setAttribute('aria-pressed', String(active));
+  classroom.querySelector('span').textContent = active ? '全画面表示を終了' : '全画面表示';
+}
+classroom.addEventListener('click', async () => {
+  if (document.body.classList.contains('classroom')) {
+    setClassroom(false); if (document.fullscreenElement) await document.exitFullscreen().catch(() => {}); return;
+  }
+  setClassroom(true);
+  try { if (!document.documentElement.requestFullscreen) throw new Error(); await document.documentElement.requestFullscreen(); }
+  catch { report('全画面にできないため、ウィンドウ内で拡大表示します。右上のボタンで戻れます。'); }
+});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) setClassroom(false); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape') setClassroom(false); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { engine.stop(); const play = root.querySelector('.play'); if (play) play.textContent = '▶ 音を鳴らす'; } });
+window.addEventListener('pagehide', () => engine.stop());
+render();
+
+return {  };
+})();
+})();
+</script>
+</body>
+</html>
