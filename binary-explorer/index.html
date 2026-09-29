@@ -152,6 +152,8 @@
 .kept-bits { background: #dceee1; color: #174b32; padding: 3px 0; }
 .precision-expansion p { overflow-wrap: anywhere; }
 
+.discovery[hidden] { display: none; }
+
 </style>
 </head>
 <body>
@@ -1514,7 +1516,8 @@ function render() {
   if (mode === 'bitmap') renderBitmap(root, state.bitmap);
   if (mode === 'audio') renderAudio(root, state.audio, engine, report);
   if (mode === 'numbers') renderNumbers(root, state.numbers);
-  document.querySelector('#challenge').textContent = { ascii: '「A」のいちばん右のビットを変えてみよう。どんな文字になる？', bitmap: '「白」から、Rのビットを全部0にすると、何色になる？', audio: '点を上下させると、どんな音になる？ 波形を変えずにスライダーだけ動かしたときとも比べよう。', numbers: '同じビットを別のルールで読むと？ 桁数や小数点の位置を変えて、値と目盛りの違いを比べよう。' }[mode];
+  document.querySelector('#challenge').textContent = { ascii: '「A」のいちばん右のビットを変えてみよう。どんな文字になる？', bitmap: '「白」から、Rのビットを全部0にすると、何色になる？', audio: '点を上下させると、どんな音になる？ 波形を変えずにスライダーだけ動かしたときとも比べよう。' }[mode] ?? '';
+  document.querySelector('.discovery').hidden = mode === 'numbers';
 }
 document.querySelectorAll('button[data-mode]').forEach(button => button.addEventListener('click', () => {
   engine.stop(); mode = button.dataset.mode;
