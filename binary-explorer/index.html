@@ -83,6 +83,75 @@
   .ascii-reference summary span { display: block; margin: 6px 0 0; }
 }
 
+/* Number lab */
+.number-lab { background: white; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.number-tabs { display: flex; gap: 6px; padding: 14px 20px; background: #eaf1ed; flex-wrap: wrap; }
+.number-tabs button { padding: 12px 18px; border: 1px solid transparent; background: transparent; border-radius: 7px; font-size: 15px; font-weight: 600; }
+.number-tabs button[aria-pressed=true] { color: white; background: var(--green); }
+.number-heading { padding: 22px 28px 16px; border-bottom: 1px solid var(--line); }
+.number-heading h2 { font-size: 22px; }
+.number-heading p { color: var(--muted); margin: 9px 0 0; font-size: 14px; }
+.numeric-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.number-input, .number-result { padding: 25px 28px; min-width: 0; }
+.number-result { background: #f6faf7; border-left: 1px solid var(--line); }
+.number-control { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; font-size: 14px; font-weight: 600; min-width: 0; }
+.number-control input, .number-control select { font: 16px var(--mono); padding: 10px 12px; border: 1px solid #bfcec5; border-radius: 6px; background: white; color: var(--ink); width: 100%; min-width: 0; min-height: 44px; }
+.number-control select { font-family: inherit; }
+.number-control input[type=range] { accent-color: var(--green); padding: 0; }
+.number-presets { margin: 12px 0 18px; }
+.number-value { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.number-value > span { display: block; font-size: 13px; color: var(--muted); margin-bottom: 7px; }
+.number-value > strong { display: block; font: 600 19px/1.65 var(--mono); overflow-wrap: anywhere; white-space: pre-wrap; }
+.number-result > .number-value:first-child strong { font-size: 28px; color: var(--green); }
+.number-section { border-top: 1px solid var(--line); padding: 24px 28px; }
+.number-section h3 { font-size: 18px; margin: 0 0 12px; }
+.number-section p { font-size: 14px; color: var(--muted); }
+.inline-controls { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+.inline-controls > label { flex: 1; min-width: 180px; }
+.wide-bits { display: grid; grid-template-columns: repeat(8,minmax(0,1fr)); gap: 8px; margin: 20px 0; position: relative; }
+.wide-bit { position: relative; padding: 7px 0 9px; border: 1px solid #c4d1c8; border-radius: 6px; background: white; min-width: 0; min-height: 55px; font-family: var(--mono); }
+.wide-bit small { display: block; font-size: 10px; opacity: .85; }
+.wide-bit b { display: block; font-size: 23px; }
+.wide-bit[data-value="1"] { background: var(--green); color: white; }
+.wide-bit[data-field=sign] { border-top: 5px solid #b65330; }
+.wide-bit[data-field=exponent] { border-top: 5px solid #426cc2; }
+.wide-bit[data-field=fraction] { border-top: 5px solid #2a9871; }
+.wide-bit.changed { outline: 3px solid #c08316; }
+.wide-bit.binary-point:after { content: '.'; color: #a54f00; position: absolute; bottom: -9px; right: -10px; font: bold 36px var(--mono); z-index: 1; }
+.point-at-start:before { content: '.'; color: #a54f00; position: absolute; top: 18px; left: -14px; font: bold 36px var(--mono); }
+.float-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+.float-legend span { padding: 5px 9px; border-bottom: 4px solid; }
+.sign-key { border-color: #b65330!important; }.exponent-key { border-color: #426cc2!important; }.fraction-key { border-color: #2a9871!important; }
+.number-details { margin-top: 16px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
+.number-details summary { cursor: pointer; font-weight: 600; }
+.number-details p { overflow-wrap: anywhere; }
+.exact-decimal { max-height: 220px; overflow: auto; white-space: pre-wrap; font-family: var(--mono); }
+.number-line { width: 100%; height: auto; margin-top: 15px; }
+.spacing-plots { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+.spacing-plots > div { background: #f4f8f5; border-radius: 9px; padding: 18px; min-width: 0; }
+.binary-expansion { font: 600 22px var(--mono); overflow-wrap: anywhere; }
+.number-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.number-table th, .number-table td { text-align: left; padding: 10px 7px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.number-table td { font-family: var(--mono); }
+.calculation-note { background: #eff5f0; border-left: 4px solid var(--green); padding: 15px; }
+.alignment-bits { font-size: 13px; line-height: 1.8; overflow: auto; }
+.cancellation-digits { font-family: var(--mono); overflow-wrap: anywhere; }
+.cancellation-digits span { display: block; margin-bottom: 5px; font-size: 19px; }
+.cancellation-digits mark { background: #f4e3ac; }
+@media(min-width:1600px){ .wide-bits { grid-template-columns: repeat(16,minmax(0,1fr)); gap: 5px; }.wide-bit b { font-size: 21px; } }
+@media(max-width:760px){ .mode-tabs { flex-wrap: wrap; }.mode-tabs button { flex-basis: 40%; }.numeric-grid,.spacing-plots { grid-template-columns: 1fr; }.number-result { border-left: 0; border-top: 1px solid var(--line); }.number-input,.number-result,.number-section { padding: 20px; }.number-tabs { padding: 10px; gap: 4px; }.number-tabs button { flex: 1 1 40%; padding: 10px; }.number-value > strong { font-size: 17px; }.number-table { font-size: 12px; }.number-table th,.number-table td { padding: 7px 3px; }.number-heading { padding: 20px; } }
+.number-input { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 16px; align-content: start; }
+.number-input > :not(.number-control) { grid-column: 1 / -1; }
+.number-input > .number-control { align-self: start; }
+.calculation-output { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 24px; }
+.calculation-output > :not(.number-value) { grid-column: 1 / -1; }
+.discarded-bits { background: #f5dda4; color: #69430c; }
+@media(max-width:1000px){ .number-input { grid-template-columns: minmax(0,1fr); } }
+@media(max-width:760px){ .calculation-output { grid-template-columns: minmax(0,1fr); } }
+.precision-expansion { grid-column: 1 / -1; min-width: 0; }
+.kept-bits { background: #dceee1; color: #174b32; padding: 3px 0; }
+.precision-expansion p { overflow-wrap: anywhere; }
+
 </style>
 </head>
 <body>
@@ -93,7 +162,7 @@
     </header>
     <main>
       <div class="lab-label">DIGITAL LAB / データの実験室</div>
-      <div class="mode-bar"><nav class="mode-tabs" aria-label="実験モード"><button data-mode="ascii" aria-pressed="true"><span class="mode-icon">Aa</span>文字<span class="tab-sub">ASCII</span></button><button data-mode="bitmap" aria-pressed="false"><span class="mode-icon">▦</span>ビットマップ<span class="tab-sub">RGB</span></button><button data-mode="audio" aria-pressed="false"><span class="mode-icon">∿</span>音<span class="tab-sub">WAVE</span></button></nav></div>
+      <div class="mode-bar"><nav class="mode-tabs" aria-label="実験モード"><button data-mode="ascii" aria-pressed="true"><span class="mode-icon">Aa</span>文字<span class="tab-sub">ASCII</span></button><button data-mode="bitmap" aria-pressed="false"><span class="mode-icon">▦</span>ビットマップ<span class="tab-sub">RGB</span></button><button data-mode="audio" aria-pressed="false"><span class="mode-icon">∿</span>音<span class="tab-sub">WAVE</span></button><button data-mode="numbers" aria-pressed="false"><span class="mode-icon">±</span>数の実験<span class="tab-sub">NUMBER</span></button></nav></div>
       <div id="workspace"></div>
       <aside class="discovery"><span class="discovery-label">やってみよう</span><p id="challenge"></p></aside>
     </main>
@@ -279,16 +348,19 @@ function renderAscii(root, state) {
     ui.resultcontent.querySelectorAll('.character').forEach((element, index) => {
       const char = byteToAscii(state.bytes[index]);
       element.textContent = char === null ? '·' : char === ' ' ? '␣' : char;
-      element.setAttribute('aria-label', char === null ? '表示できない文字' : char === ' ' ? '空白' : char);
+      element.setAttribute('aria-label', char === null ? (state.bytes[index] > 127 ? 'ASCII範囲外' : 'ASCIIの制御文字') : char === ' ' ? '空白' : char);
       element.classList.toggle('unprintable', char === null);
       if (index === changedIndex) flash(element);
     });
-    const hasUnprintable = state.bytes.some(v => byteToAscii(v) === null);
-    ui.resultcontent.querySelector('.result-caption').textContent = hasUnprintable ? '· は表示できない文字を表します' : state.bytes.includes(32) ? '␣ は空白（スペース）を表します' : 'ASCIIのルールで文字に変換';
+    const notes = [];
+    if (state.bytes.some(v => v > 127)) notes.push('128〜255はASCII範囲外です');
+    if (state.bytes.some(v => v < 32 || v === 127)) notes.push('0〜31と127はASCIIの制御文字です');
+    if (state.bytes.includes(32)) notes.push('␣ は空白（スペース）を表します');
+    ui.resultcontent.querySelector('.result-caption').textContent = notes.length ? notes.join('。') : 'ASCIIのルールで文字に変換';
     ui.interpretation.replaceChildren();
     const code = document.createElement('span'); code.className = 'flow-bits'; code.textContent = state.bytes.map(v => v.toString(2).padStart(8, '0')).join(' / ');
     const numbers = document.createElement('strong'); numbers.textContent = state.bytes.join(' / ');
-    const chars = document.createElement('strong'); chars.textContent = state.bytes.map(v => byteToAscii(v) === ' ' ? '空白' : byteToAscii(v) ?? '表示できない文字').join(' ');
+    const chars = document.createElement('strong'); chars.textContent = state.bytes.map(v => byteToAscii(v) === ' ' ? '空白' : byteToAscii(v) ?? (v > 127 ? 'ASCII範囲外' : 'ASCIIの制御文字')).join(' ');
     ui.interpretation.append(code, ' → ', numbers, ' → ', chars);
   }
   function renderEditors() {
@@ -725,6 +797,694 @@ class AudioEngine {
 
 return { AudioEngine };
 })();
+modules["src/core/numbers.js"] = (() => {
+function gcd(a, b) { while (b) [a, b] = [b, a % b]; return a; }
+function rational(n, d = 1n, negativeZero = false) {
+  if (!d) throw new RangeError('0では割れません。');
+  if (d < 0n) { n = -n; d = -d; }
+  const g = gcd(n < 0n ? -n : n, d);
+  return { n: n / g, d: d / g, negativeZero: n === 0n && negativeZero };
+}
+function parseDecimal(text) {
+  const match = String(text).trim().match(/^([+-]?)(\d*)(?:\.(\d*))?(?:e([+-]?\d+))?$/i);
+  if (!match || !(match[2] + (match[3] ?? '')).length) throw new Error('10進数を入力してください（例：0.1、-5、1e20）。');
+  const digits = match[2] + (match[3] ?? ''), exponent = Number(match[4] ?? 0) - (match[3]?.length ?? 0);
+  if (digits.length > 400 || Math.abs(exponent) > 800) throw new Error('入力は400桁以内、指数は±800以内にしてください。');
+  const sign = match[1] === '-' ? -1n : 1n;
+  return rational(sign * BigInt(digits || '0') * (exponent >= 0 ? 10n ** BigInt(exponent) : 1n), exponent < 0 ? 10n ** BigInt(-exponent) : 1n, sign < 0n);
+}
+function add(a, b) { return rational(a.n * b.d + b.n * a.d, a.d * b.d); }
+function subtract(a, b) { return rational(a.n * b.d - b.n * a.d, a.d * b.d); }
+function multiply(a, b) { return rational(a.n * b.n, a.d * b.d); }
+function divide(a, b) { return rational(a.n * b.d, a.d * b.n); }
+function powerTwo(exponent) { return exponent >= 0 ? rational(1n << BigInt(exponent)) : rational(1n, 1n << BigInt(-exponent)); }
+function decimal(value, limit = 40) {
+  let n = value.n < 0n ? -value.n : value.n;
+  const sign = value.n < 0n || value.negativeZero ? '-' : '';
+  let result = sign + (n / value.d).toString(); n %= value.d;
+  if (!n) return result;
+  result += '.';
+  for (let i = 0; i < limit && n; i++) { n *= 10n; result += n / value.d; n %= value.d; }
+  return result + (n ? '…' : '');
+}
+function roundInteger(value, mode = 'nearest') {
+  if (!['nearest', 'zero', 'up', 'down'].includes(mode)) throw new Error('未対応の丸め方です。');
+  const negative = value.n < 0n, n = negative ? -value.n : value.n;
+  let q = n / value.d; const rest = n % value.d;
+  if (rest && ((mode === 'up' && !negative) || (mode === 'down' && negative) ||
+    (mode === 'nearest' && (rest * 2n > value.d || (rest * 2n === value.d && q % 2n === 1n))))) q++;
+  return negative ? -q : q;
+}
+function detailedDecimal(value) {
+  const text = decimal(value, 324);
+  return value.n !== 0n && /^-?0\.0+…$/.test(text)
+    ? text + '（0ではありません。非ゼロの桁は小数第325位以降にあります）'
+    : text;
+}
+function displayDecimal(value, places) {
+  if (!Number.isInteger(places) || places < 0 || places > 20) throw new RangeError('表示桁数は0〜20にしてください。');
+  const rounded = roundInteger(multiply(value, rational(10n ** BigInt(places))), 'nearest');
+  const digits = (rounded < 0n ? -rounded : rounded).toString().padStart(places + 1, '0');
+  const sign = value.n < 0n || value.negativeZero ? '-' : '';
+  return sign + (places ? digits.slice(0, -places) + '.' + digits.slice(-places) : digits);
+}
+function unsignedBits(value, width) { return BigInt.asUintN(width, value); }
+function signedBits(value, width) { return BigInt.asIntN(width, value); }
+function bitString(value, width) { return unsignedBits(value, width).toString(2).padStart(width, '0'); }
+function fixedValue(bits, fractional, signed = true) {
+  return rational(signed ? signedBits(bits, 32) : unsignedBits(bits, 32), 1n << BigInt(fractional));
+}
+function encodeFixed(value, fractional, signed = true, mode = 'nearest') {
+  const integer = roundInteger(multiply(value, powerTwo(fractional)), mode);
+  const min = signed ? -(1n << 31n) : 0n, max = signed ? (1n << 31n) - 1n : (1n << 32n) - 1n;
+  return { bits: unsignedBits(integer, 32), integer, overflow: integer < min || integer > max };
+}
+function binaryExpansion(value, count = 24) {
+  const n = value.n < 0n ? -value.n : value.n;
+  let remainder = n % value.d;
+  const steps = [], seen = new Map(); let repeatAt = null;
+  for (let i = 0; i < count && remainder; i++) {
+    if (repeatAt === null && seen.has(remainder)) repeatAt = seen.get(remainder);
+    if (!seen.has(remainder)) seen.set(remainder, i);
+    const before = remainder, doubled = remainder * 2n, bit = doubled / value.d;
+    remainder = doubled % value.d;
+    steps.push({ before: rational(before, value.d), doubled: rational(doubled, value.d), bit: Number(bit), remainder: rational(remainder, value.d) });
+  }
+  return { integer: (n / value.d).toString(2), negative: value.n < 0n, steps, repeatAt, complete: remainder === 0n };
+}
+
+return { rational, parseDecimal, add, subtract, multiply, divide, powerTwo, decimal, roundInteger, detailedDecimal, displayDecimal, unsignedBits, signedBits, bitString, fixedValue, encodeFixed, binaryExpansion };
+})();
+modules["src/core/ieee.js"] = (() => {
+const { rational, add, subtract, multiply, divide, powerTwo, roundInteger, unsignedBits } = modules["src/core/numbers.js"];
+
+function floatFormat(width = 32) {
+  if (![32, 64].includes(width)) throw new Error('32bitまたは64bitを選んでください。');
+  const fraction = width === 32 ? 23 : 52, exponent = width === 32 ? 8 : 11;
+  return { width, fraction, exponent, bias: 2 ** (exponent - 1) - 1, maxExponent: 2 ** exponent - 1 };
+}
+function decodeFloat(bits, width = 32) {
+  const f = floatFormat(width); bits = unsignedBits(bits, width);
+  const sign = Number(bits >> BigInt(width - 1)), fraction = bits & ((1n << BigInt(f.fraction)) - 1n);
+  const exponent = Number((bits >> BigInt(f.fraction)) & BigInt(f.maxExponent));
+  const base = { bits, sign, fraction, exponent, format: f };
+  if (exponent === f.maxExponent) return { ...base, kind: fraction ? 'nan' : 'infinity', value: null };
+  const hidden = exponent ? 1n << BigInt(f.fraction) : 0n;
+  const scale = (exponent || 1) - f.bias - f.fraction;
+  const magnitude = multiply(rational(fraction + hidden), powerTwo(scale));
+  return { ...base, kind: exponent ? 'normal' : fraction ? 'subnormal' : 'zero', value: rational(sign ? -magnitude.n : magnitude.n, magnitude.d, Boolean(sign)) };
+}
+function floorLog2(value) {
+  const n = value.n < 0n ? -value.n : value.n;
+  let e = n.toString(2).length - value.d.toString(2).length;
+  if (e >= 0 ? n < (value.d << BigInt(e)) : (n << BigInt(-e)) < value.d) e--;
+  return e;
+}
+function encodeFloat(value, width = 32, mode = 'nearest') {
+  const f = floatFormat(width), negative = value.n < 0n || value.negativeZero;
+  const sign = negative ? 1n << BigInt(width - 1) : 0n;
+  if (!value.n) return decodeFloat(sign, width);
+  let e = floorLog2(value);
+  const emin = 1 - f.bias, emax = f.bias;
+  const overflow = () => {
+    const finite = mode === 'zero' || (mode === 'up' && negative) || (mode === 'down' && !negative);
+    const inf = BigInt(f.maxExponent) << BigInt(f.fraction);
+    return decodeFloat(sign | (finite ? inf - 1n : inf), width);
+  };
+  if (e > emax) return overflow();
+  const step = Math.max(e, emin) - f.fraction;
+  let q = roundInteger(divide(value, powerTwo(step)), mode); if (q < 0n) q = -q;
+  const hidden = 1n << BigInt(f.fraction);
+  if (q >= hidden * 2n) { q >>= 1n; e++; }
+  if (e > emax) return overflow();
+  if (q < hidden) return decodeFloat(sign | q, width);
+  const exponent = Math.max(e, emin) + f.bias;
+  return decodeFloat(sign | (BigInt(exponent) << BigInt(f.fraction)) | (q - hidden), width);
+}
+function adjacentFloat(bits, width, direction) {
+  const current = decodeFloat(bits, width), signMask = 1n << BigInt(width - 1);
+  if (current.kind === 'nan') return current;
+  if (current.kind === 'zero') return decodeFloat(direction > 0 ? 1n : signMask | 1n, width);
+  if (current.kind === 'infinity' && ((current.sign === 0 && direction > 0) || (current.sign === 1 && direction < 0))) return current;
+  return decodeFloat(current.bits + BigInt(current.sign ? -direction : direction), width);
+}
+function floatOperation(a, b, operator, width, mode = 'nearest') {
+  const f = floatFormat(width), infinity = BigInt(f.maxExponent) << BigInt(f.fraction);
+  const special = (kind, negative = false) => decodeFloat((negative ? 1n << BigInt(width - 1) : 0n) | infinity | (kind === 'nan' ? 1n : 0n), width);
+  if (a.kind === 'nan' || b.kind === 'nan') return special('nan');
+  if (operator === '/' && (b.kind === 'zero' || b.kind === 'infinity')) {
+    if ((a.kind === 'zero' && b.kind === 'zero') || (a.kind === 'infinity' && b.kind === 'infinity')) return special('nan');
+    if (b.kind === 'zero') return special('infinity', a.sign !== b.sign);
+    return decodeFloat(a.sign !== b.sign ? 1n << BigInt(width - 1) : 0n, width);
+  }
+  if (a.kind === 'infinity' || b.kind === 'infinity') {
+    if (operator === '*' && (a.kind === 'zero' || b.kind === 'zero')) return special('nan');
+    const bsign = operator === '-' ? 1 - b.sign : b.sign;
+    if ((operator === '+' || operator === '-') && a.kind === 'infinity' && b.kind === 'infinity' && a.sign !== bsign) return special('nan');
+    const negative = operator === '*' || operator === '/' ? a.sign !== b.sign : (a.kind === 'infinity' ? a.sign : bsign) === 1;
+    return special('infinity', negative);
+  }
+  const operations = { '+': add, '-': subtract, '*': multiply, '/': divide };
+  const result = operations[operator](a.value, b.value);
+  if (!result.n) {
+    const negative = operator === '*' || operator === '/' ? a.sign !== b.sign :
+      a.kind === 'zero' && b.kind === 'zero' && a.sign === (operator === '-' ? 1 - b.sign : b.sign) ? Boolean(a.sign) : mode === 'down';
+    result.negativeZero = negative;
+  }
+  return encodeFloat(result, width, mode);
+}
+
+return { floatFormat, decodeFloat, encodeFloat, adjacentFloat, floatOperation };
+})();
+modules["src/ui/number-components.js"] = (() => {
+const { bitString, decimal, subtract, rational, divide } = modules["src/core/numbers.js"];
+
+function control(parent, label, type, value, options, change) {
+  const wrap = document.createElement('label'); wrap.className = 'number-control';
+  const caption = document.createElement('span'); caption.textContent = label;
+  const input = document.createElement(type === 'select' ? 'select' : 'input');
+  input.setAttribute('aria-label', label);
+  if (type === 'select') {
+    for (const [key, text] of options) { const option = document.createElement('option'); option.value = key; option.textContent = text; input.append(option); }
+  } else { input.type = type; Object.assign(input, options ?? {}); }
+  input.value = value; input.addEventListener(type === 'select' ? 'change' : 'input', () => change(input.value));
+  wrap.append(caption, input); parent.append(wrap); return input;
+}
+function roundingControl(parent, state, update) {
+  return control(parent, '丸め方', 'select', state.rounding, [['nearest', '最近接・同距離なら末尾が偶数'], ['zero', '0に近い方向'], ['up', '＋∞の方向'], ['down', '−∞の方向']], value => { state.rounding = value; update(); });
+}
+function buttons(parent, entries, change) {
+  const group = document.createElement('div'); group.className = 'choices number-presets';
+  for (const [value, label] of entries) {
+    const button = document.createElement('button'); button.className = 'choice'; button.textContent = label;
+    button.addEventListener('click', () => change(value)); group.append(button);
+  } parent.append(group); return group;
+}
+function numberLayout(parent, title, description) {
+  parent.innerHTML = '<div class="number-heading"><h2></h2><p></p></div><div class="numeric-grid"><section class="number-input"></section><section class="number-result" aria-label="計算結果"></section></div><div class="number-extra"></div>';
+  parent.querySelector('h2').textContent = title; parent.querySelector('.number-heading p').textContent = description;
+  const input = parent.querySelector('.number-input'), result = parent.querySelector('.number-result'), extra = parent.querySelector('.number-extra');
+  const error = document.createElement('p'); error.className = 'field-error'; error.setAttribute('role', 'status'); input.append(error);
+  return { input, result, extra, run(fn) { try { fn(); error.textContent = ''; } catch (e) { error.textContent = e.message; } } };
+}
+function values(parent, entries) {
+  parent.replaceChildren();
+  for (const [name, value] of entries) {
+    const row = document.createElement('div'); row.className = 'number-value';
+    const label = document.createElement('span'); label.textContent = name;
+    const output = document.createElement('strong'); output.textContent = value;
+    row.append(label, output); parent.append(row);
+  }
+}
+function exactDetails(parent, value, title = '保存値の10進表現をすべて見る') {
+  const details = document.createElement('details'); details.className = 'number-details';
+  const summary = document.createElement('summary'); summary.textContent = title;
+  const body = document.createElement('p'); body.className = 'exact-decimal'; body.textContent = decimal(value, 1200);
+  details.append(summary, body); parent.append(details);
+}
+function wideBits(parent, width, onChange) {
+  const element = document.createElement('div'); element.className = 'wide-bits'; element.setAttribute('role', 'group'); element.setAttribute('aria-label', `${width}ビットの編集`);
+  let value = 0n;
+  const cells = Array.from({ length: width }, (_, i) => {
+    const button = document.createElement('button'); button.className = 'wide-bit';
+    const caption = document.createElement('small'); caption.textContent = width - 1 - i;
+    const digit = document.createElement('b'); button.append(caption, digit);
+    button.addEventListener('click', () => {
+      value ^= 1n << BigInt(width - 1 - i); onChange(value);
+      button.classList.add('changed'); setTimeout(() => button.classList.remove('changed'), 1300);
+    }); element.append(button); return button;
+  }); parent.append(element);
+  return { update(next, { fractional = null, fields = null, signed = false } = {}) {
+    value = next;
+    const bits = bitString(next, width);
+    cells.forEach((button, i) => {
+      button.querySelector('b').textContent = bits[i]; button.dataset.value = bits[i];
+      button.dataset.field = fields ? i === 0 ? 'sign' : i <= fields.exponent ? 'exponent' : 'fraction' : signed && i === 0 ? 'sign' : '';
+      button.classList.toggle('binary-point', fractional !== null && i === width - fractional - 1);
+      const weight = width - 1 - i - (fractional ?? 0);
+      button.setAttribute('aria-label', `ビット${width - 1 - i}、値${bits[i]}${fields ? '、' + ({ sign: '符号', exponent: '指数部', fraction: '仮数部' }[button.dataset.field]) : `、重み${signed && i === 0 ? '−' : ''}2の${weight}乗`}。押すと反転`);
+      button.setAttribute('aria-pressed', String(bits[i] === '1'));
+    });
+    element.classList.toggle('point-at-start', fractional === width);
+  }, element };
+}
+function numberLine(parent, points, target, label) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg'); svg.setAttribute('viewBox', '0 0 600 105'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label); svg.classList.add('number-line');
+  const min = points[0].value, max = points.at(-1).value, range = subtract(max, min);
+  function position(value) {
+    if (!range.n) return 300;
+    const fraction = divide(subtract(value, min), range);
+    return 45 + 510 * Number(fraction.n * 1000000n / fraction.d) / 1000000;
+  }
+  const node = (type, attrs, text) => { const element = document.createElementNS(ns, type); for (const [key, value] of Object.entries(attrs)) element.setAttribute(key, value); if (text !== undefined) element.textContent = text; svg.append(element); return element; };
+  node('line', { x1: 30, x2: 570, y1: 45, y2: 45, stroke: '#9aafa6', 'stroke-width': 2 });
+  points.forEach((point, index) => {
+    const x = position(point.value);
+    node('line', { x1: x, x2: x, y1: 33, y2: 57, stroke: '#146c52', 'stroke-width': 3 });
+    node('text', { x, y: index % 2 ? 95 : 77, 'text-anchor': 'middle', 'font-size': 13, fill: '#18352e' }, point.label);
+  });
+  if (target) {
+    const x = Math.max(30, Math.min(570, position(target)));
+    node('path', { d: `M${x - 6},18 L${x + 6},18 L${x},30 Z`, fill: '#b56e00' });
+    node('text', { x, y: 13, 'text-anchor': 'middle', 'font-size': 12, fill: '#815000' }, '入力値');
+  }
+  parent.append(svg);
+}
+
+return { control, roundingControl, buttons, numberLayout, values, exactDetails, wideBits, numberLine };
+})();
+modules["src/ui/integer-lab.js"] = (() => {
+const { rational, parseDecimal, decimal, detailedDecimal, bitString, signedBits, unsignedBits, fixedValue, encodeFixed, powerTwo, subtract, add } = modules["src/core/numbers.js"];
+
+const { control, roundingControl, buttons, numberLayout, values, wideBits, numberLine } = modules["src/ui/number-components.js"];
+
+function renderComplement(parent, state) {
+  const ui = numberLayout(parent, '2の補数', '同じビット列を「符号なし」と「負の数も表すルール」で読み比べよう。');
+  control(ui.input, 'ビット数', 'select', state.width, [[8, '8bit'], [16, '16bit'], [32, '32bit']], value => {
+    state.bits = unsignedBits(signedBits(state.bits, state.width), Number(value)); state.width = Number(value); renderComplement(parent, state);
+  });
+  const field = control(ui.input, '整数を入力', 'text', signedBits(state.bits, state.width), null, value => ui.run(() => {
+    if (!/^[+-]?\d+$/.test(value.trim()) || value.length > 15) throw new Error('範囲内の整数を入力してください。');
+    const n = BigInt(value), bound = 1n << BigInt(state.width);
+    if (n < -bound / 2n || n >= bound / 2n) throw new Error(`符号付き整数の範囲（${-bound / 2n}〜${bound / 2n - 1n}）を超えています。`);
+    state.bits = unsignedBits(n, state.width); update();
+  }));
+  buttons(ui.input, [[0, '0'], [5, '+5'], [-5, '−5'], [-1, 'すべて1'], ['max', '正の最大値']], value => {
+    state.bits = unsignedBits(value === 'max' ? (1n << BigInt(state.width - 1)) - 1n : BigInt(value), state.width);
+    field.value = signedBits(state.bits, state.width); update();
+  });
+  const editor = wideBits(ui.input, state.width, bits => { state.bits = bits; field.value = signedBits(bits, state.width); update(); });
+  const steps = document.createElement('section'); steps.className = 'number-section';
+  steps.innerHTML = '<h3>入力した値の符号を反転する</h3><p>上の値を使い、反転して1を足す過程を順に見よう。元の値はそのまま残します。</p>';
+  let stage = 0;
+  buttons(steps, [['start', '① 元の値を見る'], ['invert', '② 全ビット反転'], ['negative', '③ さらに1を足す']], action => {
+    stage = action === 'start' ? 0 : action === 'invert' ? 1 : 2; showSteps();
+  });
+  const stepResult = document.createElement('div'); steps.append(stepResult); ui.extra.append(steps);
+  function showSteps() {
+    const original = signedBits(state.bits, state.width), inverted = unsignedBits(~state.bits, state.width), result = unsignedBits(inverted + 1n, state.width);
+    const rows = [['元のビット列と値', bitString(state.bits, state.width) + ' → ' + original]];
+    if (stage >= 1) rows.push(['全ビットを反転', bitString(inverted, state.width) + ' → ' + signedBits(inverted, state.width)]);
+    if (stage >= 2) {
+      rows.push(['1を足した結果', bitString(result, state.width) + ' → ' + signedBits(result, state.width)]);
+      rows.push(['符号反転について', original === -(1n << BigInt(state.width - 1)) ? '範囲外：' + (-original) + 'はこのビット数では表せません。結果は元の負数と同じになります。' : original + ' の符号を反転すると ' + (-original) + ' です。']);
+    }
+    values(stepResult, rows);
+  }
+  const arithmetic = document.createElement('section'); arithmetic.className = 'number-section';
+  arithmetic.innerHTML = '<h3>足し算と、範囲の境界</h3>'; ui.extra.append(arithmetic);
+  const inputs = document.createElement('div'); inputs.className = 'inline-controls'; arithmetic.append(inputs);
+  control(inputs, '足す整数 A', 'text', state.a, null, value => { state.a = value; calculate(); });
+  control(inputs, '足す整数 B', 'text', state.b, null, value => { state.b = value; calculate(); });
+  buttons(arithmetic, [['cancel', '5 + (−5)'], ['overflow', '正の最大値 + 1']], value => {
+    state.a = value === 'cancel' ? '5' : ((1n << BigInt(state.width - 1)) - 1n).toString(); state.b = value === 'cancel' ? '-5' : '1';
+    inputs.querySelectorAll('input').forEach((input, i) => input.value = i ? state.b : state.a); calculate();
+  });
+  const sums = document.createElement('div'); sums.className = 'calculation-output'; arithmetic.append(sums);
+  function calculate() {
+    try {
+      if (![state.a, state.b].every(value => /^[+-]?\d+$/.test(value) && value.length < 15)) throw new Error('AとBに整数を入力してください。');
+      const a = BigInt(state.a), b = BigInt(state.b), half = 1n << BigInt(state.width - 1);
+      if ([a, b].some(value => value < -half || value >= half)) throw new Error('AとBを符号付き整数の範囲内にしてください。');
+      const full = unsignedBits(a, state.width) + unsignedBits(b, state.width), sum = a + b, overflow = sum < -half || sum >= half;
+      values(sums, [['A のビット', bitString(a, state.width)], ['B のビット', '+ ' + bitString(b, state.width)], ['繰り上がり｜保存するビット', `${full >> BigInt(state.width)} | ${bitString(sum, state.width)}`], ['数学上の答え', sum], ['2の補数で読んだ結果', signedBits(sum, state.width)], ['符号付きオーバーフロー', overflow ? 'あり：表せる範囲を超えました' : 'なし']]);
+      const note = document.createElement('p'); note.textContent = '最上位の外への繰り上がりと、符号付きオーバーフローは別のものです。'; sums.append(note);
+    } catch (error) { sums.textContent = error.message; }
+  }
+  function update() {
+    const half = 1n << BigInt(state.width - 1), signed = signedBits(state.bits, state.width);
+    stage = 0; showSteps();
+    editor.update(state.bits, { signed: true });
+    values(ui.result, [['符号なし整数', state.bits], ['2の補数（符号付き整数）', signed], ['符号付きで表せる範囲', `${-half} 〜 ${half - 1n}`], ['左端のビットの重み', `−${half}（マイナス記号そのものではありません）`]]);
+    const details = document.createElement('details'); details.className = 'number-details';
+    const summary = document.createElement('summary'); summary.textContent = '各ビットの重み・符号付き絶対値との比較';
+    const body = document.createElement('p');
+    body.textContent = `左からの重み：${Array.from({ length: state.width }, (_, i) => (i ? 1n : -1n) * (1n << BigInt(state.width - 1 - i))).join('、')}。同じビットを「左端だけを符号とする」ルールで読むと ${state.bits >= half ? '−' : ''}${state.bits & (half - 1n)}。2の補数とは別の表し方です。`;
+    details.append(summary, body); ui.result.append(details);
+  }
+  update(); calculate();
+}
+
+function renderFixed(parent, state) {
+  const ui = numberLayout(parent, '固定小数点 / 32bit', 'ビット列を保ったまま小数点を動かそう。整数が初期状態です。');
+  control(ui.input, '整数の読み方', 'select', state.signed ? 'signed' : 'unsigned', [['signed', '符号付き（2の補数）'], ['unsigned', '符号なし']], value => {
+    state.signed = value === 'signed'; state.fractional = Math.min(state.fractional, state.signed ? 31 : 32); state.requested = null; renderFixed(parent, state);
+  });
+  const slider = control(ui.input, '小数部のビット数', 'range', state.fractional, { min: 0, max: state.signed ? 31 : 32, step: 1 }, value => {
+    state.fractional = Number(value); state.requested = null; field.value = decimal(fixedValue(state.bits, state.fractional, state.signed)); update();
+  });
+  const location = document.createElement('p'); location.className = 'number-hint'; ui.input.append(location);
+  const field = control(ui.input, '保存したい10進数', 'text', state.requested ?? decimal(fixedValue(state.bits, state.fractional, state.signed)), null, value => convert(value));
+  roundingControl(ui.input, state, () => state.requested !== null ? convert(state.requested) : update());
+  buttons(ui.input, [['5', '5'], ['0.5', '0.5'], ['0.1', '0.1'], ['-1', '−1']], value => { field.value = value; convert(value); });
+  const editor = wideBits(ui.input, 32, bits => { state.bits = bits; state.requested = null; field.value = decimal(fixedValue(bits, state.fractional, state.signed)); update(); });
+  function convert(text) {
+    ui.run(() => {
+      const requested = parseDecimal(text), encoded = encodeFixed(requested, state.fractional, state.signed, state.rounding);
+      if (encoded.overflow) throw new Error('この形式の範囲を超えています。ビットは変更していません。');
+      state.requested = text; state.bits = encoded.bits; update();
+    });
+  }
+  function update() {
+    const value = fixedValue(state.bits, state.fractional, state.signed), step = powerTwo(-state.fractional);
+    const minCode = state.signed ? -(1n << 31n) : 0n, maxCode = state.signed ? (1n << 31n) - 1n : (1n << 32n) - 1n;
+    const min = rational(minCode, 1n << BigInt(state.fractional)), max = rational(maxCode, 1n << BigInt(state.fractional));
+    location.textContent = `整数側 ${32 - state.fractional}bit${state.signed ? '（符号を含む）' : ''} / 小数部 ${state.fractional}bit`;
+    slider.setAttribute('aria-valuetext', location.textContent); editor.update(state.bits, { fractional: state.fractional, signed: state.signed });
+    const binary = bitString(state.bits, 32), split = 32 - state.fractional;
+    const rows = [['保存されている値', decimal(value)], ['2進表現（小数点を明示）', binary.slice(0, split) + '.' + binary.slice(split)], ['目盛りの間隔', decimal(step)], ['表せる最小値', decimal(min)], ['表せる最大値', decimal(max)]];
+    if (state.requested !== null) rows.push(['入力した値', state.requested], ['保存値 − 入力値', detailedDecimal(subtract(value, parseDecimal(state.requested)))]);
+    values(ui.result, rows);
+    const code = state.signed ? signedBits(state.bits, 32) : state.bits;
+    const points = [-1n, 0n, 1n].map(offset => code + offset).filter(n => n >= minCode && n <= maxCode).map(n => ({ value: rational(n, 1n << BigInt(state.fractional)), label: decimal(rational(n, 1n << BigInt(state.fractional)), 12) }));
+    if (points.length > 1) numberLine(ui.result, points, state.requested !== null ? parseDecimal(state.requested) : value, '固定小数点の隣接値。間隔は一定です。');
+  }
+  update();
+}
+
+return { renderComplement, renderFixed };
+})();
+modules["src/ui/spacing-lab.js"] = (() => {
+const { parseDecimal, rational, powerTwo, roundInteger, divide, multiply, add, subtract, decimal } = modules["src/core/numbers.js"];
+
+const { encodeFloat, adjacentFloat } = modules["src/core/ieee.js"];
+
+const { control, numberLine, values } = modules["src/ui/number-components.js"];
+
+function renderSpacing(parent, state) {
+  const section = document.createElement('section'); section.className = 'number-section spacing-lab';
+  section.innerHTML = '<h3>表せる数と、表せない数</h3><p>点の間にある値は、保存するときに丸めます。固定小数点は一定の間隔。浮動小数点も、同じ指数の範囲では等間隔です。①同じ指数の範囲 → ②大きな数の範囲 → ③指数の境界の順に比べましょう。</p><p>各図は独立に拡大しています。図の見た目の幅ではなく、表示された数値の差を比べてください。</p><div class="inline-controls"></div><p class="spacing-explanation"></p><div class="spacing-plots"></div><div class="spacing-boundary"></div>';
+  parent.append(section);
+  const controls = section.querySelector('.inline-controls'), plots = section.querySelector('.spacing-plots');
+  control(controls, '観察する数の付近', 'select', state.center, [['1.5', '① 1.5付近：同じ指数の範囲'], ['1536', '② 1,536付近：大きな数の範囲'], ['1', '③ 1付近：指数が変わる境界']], value => { state.center = value; update(); });
+  control(controls, '固定小数点の小数部', 'select', state.fractional, [[0, '0bit（間隔1）'], [4, '4bit（間隔1/16）'], [8, '8bit（間隔1/256）']], value => { state.fractional = Number(value); update(); });
+  control(controls, '比較する浮動小数点', 'select', state.width, [[32, '単精度'], [64, '倍精度']], value => { state.width = Number(value); update(); });
+  function update() {
+    const center = parseDecimal(state.center), step = powerTwo(-state.fractional), f = encodeFloat(center, state.width);
+    const previous = adjacentFloat(f.bits, state.width, -1), next = adjacentFloat(f.bits, state.width, 1);
+    const boundary = state.center === '1';
+    section.querySelector('.spacing-explanation').textContent = boundary
+      ? '1の直前では指数が−1、1と直後では指数が0です。指数の境界を越えると末尾ビットの重みが2倍になり、前後の間隔が変わります。'
+      : state.center === '1536'
+        ? '1,536 = 1.1₂ × 2¹⁰。1.5付近より指数が10大きく、同じ精度での間隔は1,024倍です。この範囲内では前後とも同じ間隔です。'
+        : '1.5 = 1.1₂ × 2⁰。直前・現在・直後で指数はすべて0なので、仮数部の末尾が1変わるときの差は一定です。';
+    plots.replaceChildren();
+    const fixed = document.createElement('div'), floating = document.createElement('div'); plots.append(fixed, floating);
+    // The spacing model is the signed 32-bit format used by the fixed-point tab.
+    const code = roundInteger(divide(center, step));
+    if (code >= (1n << 31n)) values(fixed, [['固定小数点 / 符号付き32bit', 'この小数点位置では範囲外です'], ['間隔', decimal(step)]]);
+    else {
+      values(fixed, [['固定小数点 / 符号付き32bit', '前後とも同じ間隔'], ['目盛り間隔', decimal(step)]]);
+      numberLine(fixed, [-1n, 0n, 1n].map(offset => { const value = multiply(rational(code + offset), step); return { value, label: decimal(value) }; }), center, '固定小数点：等間隔の3点。矢印は観察する値です。');
+    }
+    values(floating, [['浮動小数点 / ' + state.width + 'bit', decimal(f.value)], ['直前との差', decimal(subtract(f.value, previous.value), 60)], ['直後との差', decimal(subtract(next.value, f.value), 60)]]);
+    numberLine(floating, [previous, f, next].map((point, i) => ({ value: point.value, label: ['直前', '中心', '直後'][i] })), null, boundary ? '指数の境界：直後との差は直前との差の2倍' : '同じ指数の範囲：前後とも同じ間隔');
+    const exponents = document.createElement('p');
+    exponents.textContent = `実際の指数（バイアスを除く）：直前 ${previous.exponent - f.format.bias} → 現在 ${f.exponent - f.format.bias} → 直後 ${next.exponent - f.format.bias}`;
+    floating.append(exponents);
+    const detail = section.querySelector('.spacing-boundary');
+    detail.hidden = !boundary;
+    detail.innerHTML = boundary ? '<h4>桁上がりすると、目盛りの間隔も変わる</h4><p>2進数でも、1.111…の末尾に1を足すと10.000…へ桁上がりします。浮動小数点では小数点を左へ1桁移し、指数を1増やして保存します。有効桁数は同じなので、末尾ビットが表す大きさも2倍になります。</p><p>見やすくするため、有効桁数を4ビットにした例です（上の単精度・倍精度とは別の学習用モデル）。</p><table class="number-table"><thead><tr><th>位置</th><th>2進表現</th><th>10進数</th><th>末尾ビットの重み</th></tr></thead><tbody><tr><td>直前</td><td>1.111₂ × <strong>2⁻¹</strong></td><td>0.9375</td><td><strong>2⁻⁴ = 0.0625</strong></td></tr><tr><td>現在</td><td>1.000₂ × <strong>2⁰</strong></td><td>1</td><td><strong>2⁻³ = 0.125</strong></td></tr><tr><td>直後</td><td>1.001₂ × <strong>2⁰</strong></td><td>1.125</td><td><strong>2⁻³ = 0.125</strong></td></tr></tbody></table><p>直前 → 1 の差は0.0625、1 → 直後の差は0.125。保存する桁数が増えるのではなく、指数と刻み幅が変わります。</p>' : '';
+  }
+  update();
+}
+
+return { renderSpacing };
+})();
+modules["src/ui/arithmetic-lab.js"] = (() => {
+const { parseDecimal, decimal, detailedDecimal, bitString, subtract, add, rational, divide, multiply } = modules["src/core/numbers.js"];
+
+const { encodeFloat, floatFormat, floatOperation } = modules["src/core/ieee.js"];
+
+const { control, roundingControl, buttons, values } = modules["src/ui/number-components.js"];
+
+function display(f) { return f.value ? detailedDecimal(f.value) : f.kind === 'nan' ? 'NaN（数として定まらない）' : f.sign ? '−∞' : '＋∞'; }
+
+function renderArithmetic(parent, state) {
+  const section = document.createElement('section'); section.className = 'number-section arithmetic-lab';
+  section.innerHTML = '<h3>浮動小数点の演算と誤差を体験する</h3><p>入力した数だけでなく、計算結果も、選んだ浮動小数点形式で保存できる値に丸められます。単精度と倍精度で、結果がどう変わるか比べましょう。</p><p>入力時と、演算を1回行うごとに、選択中の形式・丸め方で保存します。正確な10進入力からの結果と比べます。</p><div class="inline-controls"></div><div class="calculation-output"></div>';
+  parent.append(section); const controls = section.querySelector('.inline-controls'), result = section.querySelector('.calculation-output');
+  const presets = buttons(section, [['rounding', '丸め誤差：0.1 + 0.2'], ['loss', '情報落ち：大きな数 + 1'], ['cancel', '桁落ち：近い2数の差']], name => {
+    const presets = { rounding: ['0.1', '0.2', '+'], loss: ['16777216', '1', 'sumdiff'], cancel: ['1.23456789', '1.23456780', '-'] };
+    [state.a, state.b, state.operation] = presets[name]; aInput.value = state.a; bInput.value = state.b; operation.value = state.operation; update();
+  });
+  section.insertBefore(presets, controls);
+  control(controls, '演算の精度', 'select', state.width, [[32, '単精度 binary32'], [64, '倍精度 binary64']], value => { state.width = Number(value); update(); });
+  roundingControl(controls, state, update);
+  const aInput = control(controls, '演算する A', 'text', state.a, null, value => { state.a = value; update(); });
+  const bInput = control(controls, '演算する B', 'text', state.b, null, value => { state.b = value; update(); });
+  const operation = control(controls, '計算式', 'select', state.operation, [['+', 'A + B'], ['-', 'A − B'], ['*', 'A × B'], ['/', 'A ÷ B'], ['sumdiff', '(A + B) − A'], ['diffsum', '(A − A) + B']], value => { state.operation = value; update(); });
+  function update() {
+    try {
+      const a = parseDecimal(state.a), b = parseDecimal(state.b), fa = encodeFloat(a, state.width, state.rounding), fb = encodeFloat(b, state.width, state.rounding);
+      const op = state.operation, firstOp = op === 'sumdiff' ? '+' : op === 'diffsum' ? '-' : op;
+      const first = floatOperation(fa, op === 'diffsum' ? fa : fb, firstOp, state.width, state.rounding);
+      const actual = op === 'sumdiff' ? floatOperation(first, fa, '-', state.width, state.rounding) : op === 'diffsum' ? floatOperation(first, fb, '+', state.width, state.rounding) : first;
+      const operations = { '+': add, '-': subtract, '*': multiply, '/': divide };
+      let exact = null;
+      try { exact = op === 'sumdiff' || op === 'diffsum' ? b : operations[op](a, b); } catch { /* Division by zero has no finite exact result. */ }
+      const rows = [['今回の形式', `${state.width}bit / ${state.rounding === 'nearest' ? '最近接偶数' : { zero: '0方向', up: '＋∞方向', down: '−∞方向' }[state.rounding]}`], ['保存された A', display(fa)], ['保存された B', display(fb)], ['1回目の演算後', display(first)], ['最終結果', display(actual)], ['正確な入力から計算した結果', exact ? detailedDecimal(exact) : '0による除算：有限の答えはありません']];
+      if (actual.value && exact) {
+        const error = subtract(actual.value, exact); rows.push(['結果の誤差', detailedDecimal(error)]);
+        if (exact.n) { const ratio = divide(error, exact); rows.push(['相対誤差の大きさ', decimal(multiply(rational(ratio.n < 0n ? -ratio.n : ratio.n, ratio.d), rational(100n)), 10) + ' %']); }
+        else rows.push(['相対誤差', '正確な結果が0なので定義しません']);
+      }
+      values(result, rows);
+      const explanation = document.createElement('p'); explanation.className = 'calculation-note';
+      if (op === '-' && a.n && b.n) explanation.textContent = '桁落ち：共通する上位桁が引き算で消えると、入力に含まれた近似誤差が、差に対して大きく効くことがあります。近い数の引き算が必ず不正確になるわけではありません。';
+      else if (op === 'sumdiff' || op === 'diffsum') explanation.textContent = '情報落ち：大きな数に合わせて指数をそろえると、小さな数のビットが保存範囲の外に出ることがあります。計算式の順番や単精度／倍精度を変えて比べよう。';
+      else explanation.textContent = '丸め誤差：入力時の近似に加え、演算結果も保存できる値に丸めます。0.1や0.2は有限の2進小数では正確に表せません。';
+      result.append(explanation);
+      if (['+', '-', 'sumdiff', 'diffsum'].includes(op) && fa.kind === 'normal' && fb.kind === 'normal') {
+        const shift = Math.abs(fa.exponent - fb.exponent);
+        const detail = document.createElement('details'); detail.className = 'number-details';
+        const summary = document.createElement('summary'); summary.textContent = '指数をそろえるときの桁の移動を見る';
+        const p = document.createElement('p'); p.textContent = `指数の差は${shift}。小さい絶対値側の仮数を${shift}bit右へ移して桁をそろえます。有効精度は${floatFormat(state.width).fraction + 1}bitです。`;
+        const pre = document.createElement('pre'); pre.className = 'alignment-bits';
+        const big = fa.exponent >= fb.exponent ? fa : fb, small = big === fa ? fb : fa;
+        const digits = big.format.fraction;
+        pre.textContent = `大きい側 1.${bitString(big.fraction, digits)}\n小さい側 ${shift ? '0.' + '0'.repeat(Math.min(shift - 1, 64)) + (shift > 65 ? '…' : '') + '1' + bitString(small.fraction, digits) : '1.' + bitString(small.fraction, digits)}\n保存できる有効桁は${digits + 1}bit。外側の桁も丸めの判断に使います。`;
+        detail.append(summary, p, pre); result.append(detail);
+      }
+      if (op === '-') {
+        const digits = document.createElement('p'); digits.className = 'cancellation-digits';
+        const da = decimal(a, 30), db = decimal(b, 30); let common = 0;
+        while (common < Math.min(da.length, db.length) && da[common] === db[common]) common++;
+        for (const [name, text] of [['A', da], ['B', db]]) { const line = document.createElement('span'); line.append(name + ' = '); const mark = document.createElement('mark'); mark.textContent = text.slice(0, common); line.append(mark, text.slice(common)); digits.append(line); }
+        const note = document.createElement('small'); note.textContent = '色付きの共通する先頭部分に注目（10進表記での比較）。'; digits.append(note); result.append(digits);
+      }
+    } catch (error) { result.textContent = error.message; }
+  }
+  update();
+  return update;
+}
+
+return { renderArithmetic };
+})();
+modules["src/ui/display-lab.js"] = (() => {
+const { parseDecimal, decimal, detailedDecimal, displayDecimal } = modules["src/core/numbers.js"];
+
+const { encodeFloat, floatOperation } = modules["src/core/ieee.js"];
+
+const { control, values } = modules["src/ui/number-components.js"];
+
+function display(f) { return f.value ? detailedDecimal(f.value) : f.kind === 'nan' ? 'NaN（数として定まらない）' : f.sign ? '−∞' : '＋∞'; }
+
+function renderDisplay(parent, state) {
+  const presentation = document.createElement('section'); presentation.className = 'number-section display-lab';
+  presentation.innerHTML = '<h3>表示すると、誤差は消える？</h3><p>単精度／倍精度は内部に保存する値を変えます。表示桁数は見え方だけを変えます。この実験では、まず倍精度の0.1 + 0.2を使い、表示を変えても0.3との差が残ることを確かめましょう。入力と保存精度は、この実験専用です。</p><div class="inline-controls"></div><div class="display-output"></div><p>表示は10進数で最も近い値に丸め、同距離なら末尾を偶数にします。内部の値を詳しく表示した欄の「…」は省略です。表示した文字列は、次の計算には使いません。</p><details><summary>電卓やExcelでは、なぜ気にならない？</summary><p>普段使うアプリは計算方法や表示方法を工夫しています。プログラムでも、数値型で保存精度を選び、出力方法で表示桁数を選びます。表示を丸めても、内部の値が変わるとは限りません。</p><p>Excelは2進浮動小数点を使い、表示や一部の補正で小さな誤差が見えないことがあります。Windows電卓は基本演算に通常の浮動小数点とは異なる高精度の計算方式を使うため、表示だけの違いではありません。</p><p><a href="https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/excel/floating-point-arithmetic-inaccurate-result" target="_blank" rel="noopener noreferrer">Microsoft：Excelの精度</a> ／ <a href="https://github.com/microsoft/calculator/blob/main/docs/ApplicationArchitecture.md" target="_blank" rel="noopener noreferrer">Windows電卓の設計</a></p></details>';
+  parent.append(presentation);
+  const displayControls = presentation.querySelector('.inline-controls'), displayOutput = presentation.querySelector('.display-output');
+  control(displayControls, '表示実験の保存精度', 'select', state.width, [[32, '単精度 binary32'], [64, '倍精度 binary64']], value => { state.width = Number(value); update(); });
+  control(displayControls, '表示実験で足す A', 'text', state.a, null, value => { state.a = value; update(); });
+  control(displayControls, '表示実験で足す B', 'text', state.b, null, value => { state.b = value; update(); });
+  const rule = document.createElement('p'); rule.textContent = '計算は A + B。入力と演算結果は、選んだ精度で最近接偶数丸めにより保存します。'; displayControls.before(rule);
+  control(displayControls, '表示する小数桁数', 'range', state.displayPlaces, { min: 0, max: 20, step: 1 }, value => { state.displayPlaces = Number(value); update(); });
+  control(displayControls, '内部の結果から引いて比べる10進数', 'text', state.compareInput, null, value => { state.compareInput = value; update(); });
+  function update() {
+    try {
+      const a = encodeFloat(parseDecimal(state.a), state.width), b = encodeFloat(parseDecimal(state.b), state.width);
+      const actual = floatOperation(a, b, '+', state.width);
+      const displayRows = [['内部の値を詳しく表示', display(actual)], [`小数第${state.displayPlaces}位までの表示`, actual.value ? displayDecimal(actual.value, state.displayPlaces) : display(actual)]];
+      try {
+        const comparison = encodeFloat(parseDecimal(state.compareInput), state.width, 'nearest');
+        displayRows.push(['比較する数の内部値', display(comparison)], ['内部の結果 − 比較する数（表示桁数では変わりません）', display(floatOperation(actual, comparison, '-', state.width, 'nearest'))]);
+      } catch (error) { displayRows.push(['比較する数の入力', error.message]); }
+      values(displayOutput, displayRows);
+    } catch (error) { displayOutput.textContent = error.message; }
+  }
+  update();
+}
+
+return { renderDisplay };
+})();
+modules["src/ui/precision-lab.js"] = (() => {
+const { parseDecimal, decimal, detailedDecimal, binaryExpansion, powerTwo, divide, roundInteger, multiply, rational, subtract } = modules["src/core/numbers.js"];
+
+const { control, roundingControl, buttons, numberLayout, values, numberLine } = modules["src/ui/number-components.js"];
+
+const { renderSpacing } = modules["src/ui/spacing-lab.js"];
+
+const { renderArithmetic } = modules["src/ui/arithmetic-lab.js"];
+
+const { renderDisplay } = modules["src/ui/display-lab.js"];
+
+function renderPrecision(parent, state) {
+  const ui = numberLayout(parent, '精度・誤差', '保存できる桁数と誤差 → 表せる数の間隔 → 計算で生じる誤差の順に試そう。');
+  const introduction = document.createElement('section'); introduction.className = 'number-section';
+  introduction.innerHTML = '<h3>保存できる桁数と誤差</h3><p>コンピュータが保存できる2進数の桁数には限りがあります。ここでは、小数点の位置を固定し、小数部を何ビット保存するかを変えて、誤差を観察します。</p><p>小数点位置を固定した学習用モデルです。整数部分のビット数は制限しません。</p>';
+  parent.querySelector('.numeric-grid').before(introduction);
+  const field = control(ui.input, '変換する10進数', 'text', state.input, null, text => { state.input = text; update(); });
+  buttons(ui.input, [['0.5', '0.5'], ['0.125', '0.125'], ['0.1', '0.1'], ['-0.1', '−0.1']], text => { state.input = text; field.value = text; update(); });
+  const slider = control(ui.input, '保存する小数部のビット数', 'range', state.fractional, { min: 1, max: 24, step: 1 }, value => { state.fractional = Number(value); update(); });
+  const bitsLabel = document.createElement('p'); ui.input.append(bitsLabel);
+  roundingControl(ui.input, state, update);
+  const expansion = document.createElement('div'); expansion.className = 'precision-expansion'; ui.input.append(expansion);
+  function update() {
+    ui.run(() => {
+      const input = parseDecimal(state.input), step = powerTwo(-state.fractional);
+      const q = roundInteger(divide(input, step), state.rounding), saved = multiply(rational(q), step);
+      let denominator = input.d, needed = 0;
+      while (denominator % 2n === 0n) { denominator /= 2n; needed++; }
+      const finite = denominator === 1n;
+      const explanation = !finite ? 'この値は2進数では無限に続くため、有限の桁数で保存すると近似になります。' : needed > state.fractional ? `この桁数では近似になります。小数部を${needed}ビット以上にすると正確に保存できます。` : 'この値は正確に保存できます。';
+      bitsLabel.textContent = `小数部 ${state.fractional}bit（整数部分の桁数は制限しません）`;
+      slider.setAttribute('aria-valuetext', `小数部 ${state.fractional}ビット`);
+      const binary = binaryExpansion(input, Math.max(32, state.fractional + 12));
+      const digits = binary.steps.map(row => row.bit).join('').padEnd(state.fractional, '0');
+      expansion.replaceChildren();
+      const title = document.createElement('h3'); title.textContent = '正確な2進表現と保存する範囲';
+      const heading = document.createElement('p'); heading.className = 'binary-expansion';
+      heading.append(`${binary.negative ? '−' : ''}${binary.integer}.`);
+      const kept = document.createElement('span'); kept.className = 'kept-bits'; kept.textContent = digits.slice(0, state.fractional);
+      const discarded = document.createElement('mark'); discarded.className = 'discarded-bits'; discarded.textContent = digits.slice(state.fractional) + (binary.complete ? '' : '…');
+      heading.append(kept, discarded, ' ₂');
+      const note = document.createElement('p'); note.textContent = '緑：保存する小数部 ／ 黄：保存範囲の外。外側の桁も丸めの判断に使います。負数は絶対値の2進表現に−を付けています。';
+      expansion.append(title, heading, note);
+      if (binary.repeatAt !== null) {
+        const repeat = document.createElement('p'); repeat.textContent = 'この2進小数は循環します。';
+        // Locate the first repeated remainder to show one complete recurring block.
+        const first = binary.steps[binary.repeatAt].before;
+        const end = binary.steps.findIndex((row, i) => i > binary.repeatAt && row.before.n * first.d === first.n * row.before.d);
+        if (end > binary.repeatAt) repeat.textContent = `小数第${binary.repeatAt + 1}桁から「${binary.steps.slice(binary.repeatAt, end).map(row => row.bit).join('')}」が繰り返されます。`;
+        expansion.append(repeat);
+      }
+      const savedBinary = binaryExpansion(saved, state.fractional);
+      values(ui.result, [['入力した10進数', detailedDecimal(input)], ['丸めた保存結果（2進数）', `${savedBinary.negative ? '−' : ''}${savedBinary.integer}.${savedBinary.steps.map(row => row.bit).join('').padEnd(state.fractional, '0')} ₂`], ['保存値を10進数に戻すと', decimal(saved, 30)], ['保存値 − 入力値', detailedDecimal(subtract(saved, input))], ['この値の保存について', explanation]]);
+      const lower = roundInteger(divide(input, step), 'down');
+      numberLine(ui.result, [lower - 1n, lower, lower + 1n, lower + 2n].map(n => ({ value: multiply(rational(n), step), label: decimal(multiply(rational(n), step), 10) })), input, '点は保存できる数。茶色の矢印が入力値です。点の間にある値は丸めて保存します。');
+    });
+  }
+  update();
+  const connection = document.createElement('section'); connection.className = 'number-section';
+  connection.innerHTML = '<h3>浮動小数点とのつながり</h3><p>浮動小数点でも、仮数に保存できる桁数には限りがあります。固定小数点は「小数点から何桁まで」、浮動小数点は「先頭の有効な桁から何桁まで」を保存するかがポイントです。</p>';
+  ui.extra.append(connection);
+  renderSpacing(ui.extra, state.spacing);
+  renderArithmetic(ui.extra, state.arithmetic);
+  renderDisplay(ui.extra, state.display);
+}
+
+return { renderPrecision };
+})();
+modules["src/ui/float-lab.js"] = (() => {
+const { parseDecimal, decimal, detailedDecimal, bitString, subtract } = modules["src/core/numbers.js"];
+
+const { encodeFloat, decodeFloat, floatFormat, adjacentFloat } = modules["src/core/ieee.js"];
+
+const { control, roundingControl, buttons, numberLayout, values, wideBits, exactDetails, numberLine } = modules["src/ui/number-components.js"];
+
+function display(f) { return f.value ? detailedDecimal(f.value) : f.kind === 'nan' ? 'NaN（数として定まらない）' : f.sign ? '−∞' : '＋∞'; }
+
+function renderFloating(parent, state) {
+  const ui = numberLayout(parent, '浮動小数点 / IEEE 754', '符号・指数・仮数を変えよう。ビットと数値の対応、単精度と倍精度の違いを確かめられます。');
+  control(ui.input, '浮動小数点の形式', 'select', state.width, [[32, '単精度 binary32'], [64, '倍精度 binary64']], value => {
+    const old = decodeFloat(state.bits, state.width); state.width = Number(value);
+    if (state.requested !== null) state.bits = encodeFloat(parseDecimal(state.requested), state.width, state.rounding).bits;
+    else if (old.value) state.bits = encodeFloat(old.value, state.width, state.rounding).bits;
+    else { const f = floatFormat(state.width); state.bits = (BigInt(old.sign) << BigInt(state.width - 1)) | (BigInt(f.maxExponent) << BigInt(f.fraction)) | (old.kind === 'nan' ? 1n : 0n); }
+    renderFloating(parent, state);
+  });
+  const field = control(ui.input, '保存したい10進数', 'text', state.requested ?? display(decodeFloat(state.bits, state.width)), null, text => ui.run(() => {
+    const f = encodeFloat(parseDecimal(text), state.width, state.rounding); state.requested = text; state.bits = f.bits; update();
+  }));
+  roundingControl(ui.input, state, () => {
+    if (state.requested !== null) state.bits = encodeFloat(parseDecimal(state.requested), state.width, state.rounding).bits;
+    update();
+  });
+  buttons(ui.input, [['1.5', '1.5'], ['0.1', '0.1'], ['-0', '−0'], ['sub', '最小の非正規化数'], ['max', '有限の最大値'], ['inf', '∞'], ['nan', 'NaN']], value => {
+    const f = floatFormat(state.width), infinity = BigInt(f.maxExponent) << BigInt(f.fraction);
+    state.requested = ['sub', 'max', 'inf', 'nan'].includes(value) ? null : value;
+    state.bits = value === 'sub' ? 1n : value === 'max' ? infinity - 1n : value === 'inf' ? infinity : value === 'nan' ? infinity | 1n : encodeFloat(parseDecimal(value), state.width, state.rounding).bits;
+    field.value = state.requested ?? display(decodeFloat(state.bits, state.width)); update();
+  });
+  const legend = document.createElement('p'); legend.className = 'float-legend'; legend.innerHTML = '<span class="sign-key">符号</span><span class="exponent-key">指数部</span><span class="fraction-key">仮数の小数部</span>'; ui.input.append(legend);
+  const editor = wideBits(ui.input, state.width, bits => { state.bits = bits; state.requested = null; field.value = display(decodeFloat(bits, state.width)); update(); });
+  buttons(ui.input, [[-1, '直前の表現可能な値'], [1, '直後の表現可能な値']], direction => {
+    state.bits = adjacentFloat(state.bits, state.width, direction).bits; state.requested = null; field.value = display(decodeFloat(state.bits, state.width)); update();
+  });
+  function update() {
+    const decoded = decodeFloat(state.bits, state.width), f = decoded.format;
+    editor.update(state.bits, { fields: f });
+    const kind = { normal: '正規化数', subnormal: '非正規化数', zero: 'ゼロ', infinity: '無限大', nan: 'NaN' }[decoded.kind];
+    const rows = [['読み取った数', display(decoded)], ['分類', kind], ['符号 bit', decoded.sign], [`指数部 ${f.exponent}bit`, `${decoded.exponent} / バイアス ${f.bias}`], [`仮数の小数部 ${f.fraction}bit`, bitString(decoded.fraction, f.fraction)]];
+    if (decoded.value) {
+      const binary = `${decoded.exponent ? '1' : '0'}.${bitString(decoded.fraction, f.fraction)}`;
+      rows.push(['数の組み立て方', `${decoded.sign ? '−' : '＋'} ${binary} ₂ × 2^${(decoded.exponent || 1) - f.bias}`]);
+      rows.push(['先頭の1について', decoded.kind === 'normal' ? `先頭の1は保存しません。有効精度は${f.fraction + 1}bitです。` : '指数部が0のとき、先頭は0です。']);
+      if (state.requested !== null) rows.push(['入力値との差', detailedDecimal(subtract(decoded.value, parseDecimal(state.requested)))]);
+    } else rows.push(['特殊な値のルール', `指数部がすべて1。仮数部が${decoded.kind === 'nan' ? '0以外ならNaN' : '0なら∞'}です。`]);
+    values(ui.result, rows);
+    if (decoded.value) {
+      exactDetails(ui.result, decoded.value, '詳しく見る：保存値の全桁');
+      const previous = adjacentFloat(state.bits, state.width, -1), next = adjacentFloat(state.bits, state.width, 1);
+      if (previous.value && next.value) numberLine(ui.result, [previous, decoded, next].map((point, i) => ({ value: point.value, label: ['直前', '現在の値', '直後'][i] })), null, '浮動小数点の隣接する値');
+    }
+
+  }
+  update();
+}
+
+return { renderFloating };
+})();
+modules["src/ui/numbers-view.js"] = (() => {
+const { encodeFloat } = modules["src/core/ieee.js"];
+
+const { parseDecimal } = modules["src/core/numbers.js"];
+
+const { renderComplement, renderFixed } = modules["src/ui/integer-lab.js"];
+
+const { renderPrecision } = modules["src/ui/precision-lab.js"];
+
+const { renderFloating } = modules["src/ui/float-lab.js"];
+
+function numberDefaults() {
+  return {
+    tab: 'complement',
+    complement: { width: 8, bits: 5n, a: '5', b: '-5' },
+    fixed: { bits: 5n, fractional: 0, signed: true, requested: null, rounding: 'nearest' },
+    precision: { input: '0.1', fractional: 4, rounding: 'nearest', arithmetic: { width: 32, rounding: 'nearest', a: '0.1', b: '0.2', operation: '+' }, display: { width: 64, a: '0.1', b: '0.2', displayPlaces: 2, compareInput: '0.3' }, spacing: { center: '1.5', fractional: 4, width: 32 } },
+    floating: { width: 32, bits: encodeFloat(parseDecimal('0.1'), 32).bits, requested: '0.1', rounding: 'nearest' },
+  };
+}
+function resetNumbers(state) { state[state.tab] = numberDefaults()[state.tab]; }
+function renderNumbers(root, state) {
+  root.innerHTML = '<section class="number-lab"><nav class="number-tabs" aria-label="数の実験の種類"></nav><div class="number-panel"></div></section>';
+  const nav = root.querySelector('.number-tabs'), panel = root.querySelector('.number-panel');
+  const renderers = { complement: renderComplement, fixed: renderFixed, precision: renderPrecision, floating: renderFloating };
+  for (const [key, label] of [['complement', '2の補数'], ['fixed', '固定小数点'], ['floating', '浮動小数点'], ['precision', '精度・誤差']]) {
+    const button = document.createElement('button'); button.textContent = label; button.dataset.numberTab = key;
+    button.addEventListener('click', () => { state.tab = key; update(); }); nav.append(button);
+  }
+  function update() {
+    [...nav.children].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.numberTab === state.tab)));
+    renderers[state.tab](panel, state[state.tab]);
+  }
+  update();
+}
+
+return { numberDefaults, resetNumbers, renderNumbers };
+})();
 modules["src/main.js"] = (() => {
 const { renderAscii } = modules["src/ui/ascii-view.js"];
 
@@ -738,9 +1498,12 @@ const { createPixels } = modules["src/core/bitmap.js"];
 
 const { createWaveform } = modules["src/core/audio.js"];
 
+const { renderNumbers, numberDefaults, resetNumbers } = modules["src/ui/numbers-view.js"];
+
 let mode = 'ascii';
 const defaults = { ascii: () => ({ bytes: [65] }), bitmap: () => ({ size: 1, pixels: createPixels(1), selected: 0 }), audio: () => ({ type: 'sine', samples: createWaveform('sine'), selected: 0, frequency: 220 }) };
 const state = Object.fromEntries(Object.entries(defaults).map(([key, factory]) => [key, factory()]));
+state.numbers = numberDefaults();
 const engine = new AudioEngine();
 const root = document.querySelector('#workspace');
 let statusTimer;
@@ -750,14 +1513,15 @@ function render() {
   if (mode === 'ascii') renderAscii(root, state.ascii);
   if (mode === 'bitmap') renderBitmap(root, state.bitmap);
   if (mode === 'audio') renderAudio(root, state.audio, engine, report);
-  document.querySelector('#challenge').textContent = { ascii: '「A」のいちばん右のビットを変えてみよう。どんな文字になる？', bitmap: '「白」から、Rのビットを全部0にすると、何色になる？', audio: '点を上下させると、どんな音になる？ 波形を変えずにスライダーだけ動かしたときとも比べよう。' }[mode];
+  if (mode === 'numbers') renderNumbers(root, state.numbers);
+  document.querySelector('#challenge').textContent = { ascii: '「A」のいちばん右のビットを変えてみよう。どんな文字になる？', bitmap: '「白」から、Rのビットを全部0にすると、何色になる？', audio: '点を上下させると、どんな音になる？ 波形を変えずにスライダーだけ動かしたときとも比べよう。', numbers: '同じビットを別のルールで読むと？ 桁数や小数点の位置を変えて、値と目盛りの違いを比べよう。' }[mode];
 }
-document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
+document.querySelectorAll('button[data-mode]').forEach(button => button.addEventListener('click', () => {
   engine.stop(); mode = button.dataset.mode;
-  document.querySelectorAll('[data-mode]').forEach(tab => tab.setAttribute('aria-pressed', String(tab === button)));
+  document.querySelectorAll('button[data-mode]').forEach(tab => tab.setAttribute('aria-pressed', String(tab === button)));
   render();
 }));
-document.querySelector('#reset').addEventListener('click', () => { engine.stop(); state[mode] = defaults[mode](); render(); report('このモードを最初のサンプルに戻しました。'); });
+document.querySelector('#reset').addEventListener('click', () => { engine.stop(); if (mode === 'numbers') resetNumbers(state.numbers); else state[mode] = defaults[mode](); render(); report('このモードを最初のサンプルに戻しました。'); });
 const classroom = document.querySelector('#classroom');
 function setClassroom(active) {
   document.body.classList.toggle('classroom', active); classroom.setAttribute('aria-pressed', String(active));
