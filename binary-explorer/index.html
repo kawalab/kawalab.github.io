@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#146c52">
-  <meta name="description" content="0と1をクリックして、文字・色・音の変化を体験しよう。バイナリ情報入門教材。">
+  <meta name="description" content="0と1をクリックして、文字・色・音・数値の変化を体験しよう。バイナリ情報入門教材。">
   <title>バイナリエクスプローラ | Binary Explorer</title>
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMxNDZjNTIiLz48dGV4dCB4PSIzMiIgeT0iNDMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSIzNCI+MDE8L3RleHQ+PC9zdmc+Cg==" type="image/svg+xml">
   <style>
@@ -153,6 +153,19 @@
 .precision-expansion p { overflow-wrap: anywhere; }
 
 .discovery[hidden] { display: none; }
+.footer-content { min-width: 0; }
+footer { flex-wrap: wrap; gap: 6px 12px; padding: 14px 0 16px; }
+.footer-bottom { flex-basis: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; column-gap: 20px; }
+.footer-credits { grid-column: 2; grid-row: 1; text-align: right; font-size: 12px; }
+.footer-credits a { display: inline-block; color: var(--green); text-underline-offset: 3px; padding: 6px 0; line-height: 1.7; }
+.footer-disclaimer { grid-column: 1 / -1; grid-row: 1; min-width: 0; font-size: 12px; }
+.footer-disclaimer summary { width: fit-content; cursor: pointer; padding: 6px 0; line-height: 1.7; }
+.footer-disclaimer summary:focus-visible { outline: 3px solid #b56e00; outline-offset: 3px; }
+.footer-disclaimer p { margin: 8px 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .footer-bottom { column-gap: 8px; }
+  .footer-credits, .footer-disclaimer { font-size: 11px; }
+}
 
 </style>
 </head>
@@ -168,7 +181,19 @@
       <div id="workspace"></div>
       <aside class="discovery"><span class="discovery-label">やってみよう</span><p id="challenge"></p></aside>
     </main>
-    <footer><span class="footer-symbol" aria-hidden="true">01</span><p>同じ0と1でも、読み方のルールによって文字・画像・音になります。</p><span class="footer-meta">BINARY EXPLORER</span></footer>
+    <footer>
+      <span class="footer-symbol" aria-hidden="true">01</span>
+      <div class="footer-content"><p>同じ0と1でも、読み方のルールによって文字・画像・音・数値になります。</p></div>
+      <span class="footer-meta">BINARY EXPLORER</span>
+      <div class="footer-bottom">
+      <details class="footer-disclaimer">
+        <summary>免責事項</summary>
+        <p>本サイトは、数値やデータの表現を学ぶための教育用教材です。学習しやすさを優先し、一部の仕組みや表示を簡略化しています。内容の正確性には努めていますが、実際の規格・仕様との完全な一致を保証するものではありません。実際のシステム開発やその他の用途に利用する場合は、各規格・仕様をご確認ください。</p>
+        <p>本サイトの情報の利用によって生じた損害については、原則として責任を負いません。</p>
+      </details>
+      <div class="footer-credits"><a href="https://kawalab.github.io/">© 2026 金沢工業大学 河並研究室</a></div>
+      </div>
+    </footer>
     <p id="status" class="status" role="status"></p>
   </div>
 <script>
