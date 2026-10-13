@@ -13,9 +13,10 @@
 1. 開発元で変更・テストを完了します。
 2. `node scripts/package-distribution.js` を実行します。
 3. 生成された `dist/distribution/BinaryExplorer/index.html` を、このディレクトリの `index.html` にコピーします。
-4. このリポジトリへコミット・pushし、GitHub Pagesの公開結果を確認します。
+4. このリポジトリのルートで `node scripts/add-google-tag.cjs` を実行し、公開サイト用のGoogle Analyticsタグを追加します（既存のタグは重複追加しません）。
+5. 差分を確認し、作業ブランチからPR経由で公開します。
 
-生成されたHTMLは直接編集せず、開発元から再生成してください。
+教材本体は生成されたHTMLを直接編集せず、開発元から再生成してください。公開サイト用の計測タグのみ、上記スクリプトで追加します。
 
 ## 数の実験
 
